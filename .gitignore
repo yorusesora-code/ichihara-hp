@@ -1,0 +1,16 @@
+# OSが勝手に作るファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+._*
+
+# エディタの設定フォルダ
+.vscode/
+.idea/
+*.swp
+
+# 配布用にまとめたZIPなど（リポジトリには含めない）
+*.zip
+
+# ローカル確認用の一時ファイル
+*.log

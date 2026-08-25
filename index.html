@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>市原建設｜大阪のエアコンクリーニング・ハウスクリーニング</title>
+<meta name="description" content="大阪府内を中心にエアコンクリーニング・ハウスクリーニング・空室清掃を承ります。家庭用エアコン9,000円〜、即日対応可。">
+<!-- レビュー中：検索エンジンに登録させない設定。全体公開時にこの1行を削除してください -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b3d72">
+<meta property="og:type" content="website">
+<meta property="og:title" content="市原建設｜大阪のエアコンクリーニング・ハウスクリーニング">
+<meta property="og:description" content="大阪府内を中心に、分解洗浄によるエアコンクリーニングを9,000円〜。ハウスクリーニング・空室清掃も承ります。">
+<meta property="og:site_name" content="市原建設">
+<meta property="og:image" content="assets/img/aircon-02.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Barlow:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-title="index.title" data-desc="index.desc">
+
+<!-- ============ ヘッダー（全ページ共通） ============ -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="32" height="32"><rect x="2" y="7" width="28" height="13" rx="3.5" fill="#fff" opacity=".16"/><rect x="2" y="7" width="28" height="13" rx="3.5" fill="none" stroke="#fff" stroke-width="2"/><path d="M7 12h18M7 15.5h18" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".85"/><path d="M10 23c0 2.2 1.6 2.2 1.6 4.4M16 23c0 2.4 1.6 2.4 1.6 4.8M22 23c0 2.2 1.6 2.2 1.6 4.4" stroke="#7fe0f5" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      </span>
+      <span class="brand__text">
+        <b data-i18n="brand.name">市原建設</b>
+        <small data-i18n="brand.tag">エアコン・ハウスクリーニング</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="グローバルメニュー" data-i18n-aria="nav.aria">
+      <a href="index.html" aria-current="page" data-i18n="nav.home">トップ</a>
+      <a href="service.html" data-i18n="nav.service">サービス内容</a>
+      <a href="price.html" data-i18n="nav.price">料金表</a>
+      <a href="news.html" data-i18n="nav.news">お知らせ</a>
+      <a href="faq.html" data-i18n="nav.faq">よくあるご質問</a>
+      <a href="company.html" data-i18n="nav.company">会社概要</a>
+    </nav>
+
+    <div class="header__side">
+      <div class="langsw" role="group" aria-label="言語を選択" data-i18n-aria="lang.aria">
+        <button type="button" data-lang-set="ja" aria-pressed="true">日本語</button>
+        <button type="button" data-lang-set="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="header__tel" href="tel:0676325062">
+        <span class="header__tel-label" data-i18n="header.telLabel">お電話でのご相談</span>
+        <span class="header__tel-num">06-7632-5062</span>
+      </a>
+      <button class="hamburger" id="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ドロワーメニュー（全ページ共通） ============ -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="メニュー" data-i18n-aria="drawer.title">
+  <div class="drawer__head">
+    <span data-i18n="drawer.title">メニュー</span>
+    <button type="button" class="drawer__close" data-drawer-close aria-label="閉じる" data-i18n-aria="drawer.close">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+  </div>
+
+  <nav class="drawer__nav">
+    <a href="index.html" aria-current="page"><small>HOME</small><span data-i18n="nav.home">トップ</span></a>
+    <a href="service.html"><small>SERVICE</small><span data-i18n="nav.service">サービス内容</span></a>
+    <a href="price.html"><small>PRICE</small><span data-i18n="nav.price">料金表</span></a>
+    <a href="news.html"><small>NEWS</small><span data-i18n="nav.news">お知らせ</span></a>
+    <a href="faq.html"><small>FAQ</small><span data-i18n="nav.faq">よくあるご質問</span></a>
+    <a href="company.html"><small>COMPANY</small><span data-i18n="nav.company">会社概要</span></a>
+  </nav>
+
+  <div class="drawer__block">
+    <h3 data-i18n="drawer.langTitle">言語 / Language</h3>
+    <div class="langsw langsw--drawer" role="group" aria-label="言語を選択" data-i18n-aria="lang.aria">
+      <button type="button" data-lang-set="ja" aria-pressed="true">日本語</button>
+      <button type="button" data-lang-set="en" aria-pressed="false">English</button>
+    </div>
+  </div>
+
+  <div class="drawer__block">
+    <h3 data-i18n="drawer.contact">お問い合わせ</h3>
+    <a class="btn btn--primary drawer__tel" href="tel:0676325062">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+      <span><small data-i18n="cta.small">受付 9:00〜18:00</small>06-7632-5062</span>
+    </a>
+    <dl class="drawer__meta">
+      <dt data-i18n="drawer.hoursLabel">受付時間</dt>
+      <dd data-i18n="drawer.hours">平日・土日 9:00〜18:00（祝日は翌営業日）</dd>
+      <dt data-i18n="drawer.addrLabel">所在地</dt>
+      <dd data-i18n="drawer.addr">〒534-0025 大阪府大阪市都島区片町1丁目8-20 ヴィストゥール大阪城北</dd>
+    </dl>
+  </div>
+</aside>
+
+<main>
+
+<!-- ============ ヒーロー ============ -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <img class="hero__photo" src="assets/img/aircon-02.jpg" alt="" width="1108" height="1477" fetchpriority="high" decoding="async">
+    <span class="hero__scrim"></span>
+    <span class="hero__blob hero__blob--1"></span>
+    <span class="hero__blob hero__blob--2"></span>
+  </div>
+  <div class="hero__inner">
+    <p class="hero__eyebrow" data-i18n="hero.eyebrow">大阪府内メイン対応／即日対応可</p>
+    <h1 class="hero__title" data-i18n="hero.title">
+      その<span class="mark">ニオイ</span>と<span class="mark">風の弱さ</span>、<br>
+      エアコン<em>内部の汚れ</em>かもしれません。
+    </h1>
+    <p class="hero__lead" data-i18n="hero.lead">
+      市原建設は、エアコン本体を<b>分解して高圧洗浄</b>する本格クリーニングを、家庭用9,000円〜でご提供しています。
+      ハウスクリーニング・空室清掃までまとめてご相談いただけます。
+    </p>
+
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="tel:0676325062">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+        <span><small data-i18n="cta.small">受付 9:00〜18:00</small>06-7632-5062</span>
+      </a>
+      <a class="btn btn--ghost" href="price.html" data-i18n="hero.priceBtn">料金表を見る</a>
+    </div>
+
+    <ul class="hero__badges">
+      <li><b data-i18n="hero.badge1num">9,000</b><span data-i18n="hero.badge1">円〜／台<br>家庭用エアコン</span></li>
+      <li><b data-i18n="hero.badge2num">即日</b><span data-i18n="hero.badge2">対応可<br>大阪府内・当日状況による</span></li>
+      <li><b data-i18n="hero.badge3num">1週間</b><span data-i18n="hero.badge3">無償再施工<br>アフターサービス</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ お知らせ（最新3件） ============ -->
+<section class="section section--notice">
+  <div class="container">
+    <div class="sec-head">
+      <p class="sec-head__en">NEWS</p>
+      <h2 class="sec-head__ja" data-i18n="news.head">お知らせ</h2>
+    </div>
+    <div class="notice" id="noticeList" data-limit="3" aria-live="polite">
+      <p class="loading" data-i18n="common.loading">読み込み中…</p>
+    </div>
+    <div class="more"><a class="more__link" href="news.html" data-i18n="news.more">お知らせ一覧を見る</a></div>
+  </div>
+</section>
+
+<!-- ============ 選ばれる理由 ============ -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="sec-head">
+      <p class="sec-head__en">REASON</p>
+      <h2 class="sec-head__ja" data-i18n="reason.head">市原建設が選ばれる理由</h2>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <span class="card__no">01</span>
+        <h3 data-i18n="reason.1t">分解して、内部まで高圧洗浄</h3>
+        <p data-i18n="reason.1b">エアコン本体を分解し、部品と本体を高圧洗浄機でしっかり洗浄。表面を拭くだけでは落ちない、風の通り道の奥のカビ・ホコリまで洗い流します。</p>
+      </article>
+      <article class="card reveal">
+        <span class="card__no">02</span>
+        <h3 data-i18n="reason.2t">家庭用も業務用も、ほぼ全メーカー対応</h3>
+        <p data-i18n="reason.2b">家庭用エアコンから業務用の2方向・4方向タイプまで対応。お掃除機能付きや特殊タイプもお任せください。ハウスクリーニング・空室清掃もまとめて承ります。</p>
+      </article>
+      <article class="card reveal">
+        <span class="card__no">03</span>
+        <h3 data-i18n="reason.3t">大阪府内は即日対応が可能</h3>
+        <p data-i18n="reason.3b">「今日どうにかしたい」にもできる限りお応えします。平日・土日9:00〜18:00で受付。京都・滋賀・兵庫・奈良へもお伺いします。</p>
+      </article>
+      <article class="card reveal">
+        <span class="card__no">04</span>
+        <h3 data-i18n="reason.4t">施工後1週間の無償再施工</h3>
+        <p data-i18n="reason.4b">施工後1週間以内であれば、無償で再施工いたします。作業中に発生した破損についても当社が責任をもって対応いたします。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ サービス ============ -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head">
+      <p class="sec-head__en">SERVICE</p>
+      <h2 class="sec-head__ja" data-i18n="svc.head">サービス内容</h2>
+      <p class="sec-head__lead" data-i18n="svc.lead">エアコンクリーニングを軸に、暮らしとお部屋まわりのお困りごとを幅広くお引き受けしています。</p>
+    </div>
+
+    <div class="services">
+      <a class="svc reveal" href="service.html#aircon">
+        <div class="svc__thumb"><img src="assets/img/aircon-01.jpg" alt="エアコンのカバーを外して分解する作業の様子" data-i18n-alt="alt.aircon01" loading="lazy" decoding="async" width="1108" height="1477"></div>
+        <div class="svc__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><rect x="5" y="12" width="38" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M11 18h26M11 22.5h26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".6"/><path d="M15 32c0 3 2 3 2 6M24 32c0 3.4 2 3.4 2 6.8M33 32c0 3 2 3 2 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        <h3 data-i18n="svc.aircon">エアコンクリーニング</h3>
+        <p class="svc__price" data-price-cat="エアコンクリーニング" data-unit-key="unit.perUnit">9,000円〜<small>／台（税込）</small></p>
+        <p data-i18n="svc.airconBody">本体を分解し、部品と本体を高圧洗浄機で洗浄します。風力の低下、ゴミの詰まり、カビなどの汚れの除去に効果があります。</p>
+        <ul class="tags">
+          <li data-i18n="tag.residential">家庭用</li><li data-i18n="tag.selfclean">お掃除機能付き</li><li data-i18n="tag.commercial">業務用2方向／4方向</li><li data-i18n="tag.coating">抗菌コート</li><li data-i18n="tag.outdoor">室外機洗浄</li>
+        </ul>
+      </a>
+
+      <a class="svc reveal" href="service.html#house">
+        <div class="svc__thumb"><img src="assets/img/rangehood.jpg" alt="クリーニング後のレンジフード" data-i18n-alt="alt.rangehood" loading="lazy" decoding="async" width="1108" height="1477"></div>
+        <div class="svc__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M10 40V22l14-11 14 11v18z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M19 40V29h10v11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 data-i18n="svc.house">ハウスクリーニング</h3>
+        <p class="svc__price" data-price-cat="ハウスクリーニング" data-unit-key="unit.perSpot">4,900円〜<small>／箇所（税込）</small></p>
+        <p data-i18n="svc.houseBody">浴室・レンジフード・キッチン・トイレ・洗面所に対応。日々のお掃除では落としきれない汚れをまとめてリセットします。</p>
+        <ul class="tags">
+          <li data-i18n="tag.bath">浴室</li><li data-i18n="tag.hood">レンジフード</li><li data-i18n="tag.kitchen">キッチン</li><li data-i18n="tag.toilet">トイレ</li><li data-i18n="tag.washbasin">洗面所</li>
+        </ul>
+      </a>
+
+      <a class="svc reveal" href="service.html#vacancy">
+        <div class="svc__thumb"><img src="assets/img/vacant-room.jpg" alt="空室清掃後のお部屋" data-i18n-alt="alt.vacantRoom" loading="lazy" decoding="async" width="1108" height="1477"></div>
+        <div class="svc__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><rect x="9" y="8" width="30" height="32" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M9 18h30M9 29h30M20 18v22" stroke="currentColor" stroke-width="1.8" opacity=".6"/></svg>
+        </div>
+        <h3 data-i18n="svc.vacancy">空室清掃</h3>
+        <p class="svc__price" data-price-cat="空室清掃" data-unit-key="unit.perHome">15,000円〜<small>／戸（税込）</small></p>
+        <p data-i18n="svc.vacancyBody">リフォーム後のご入居前のお住まいや、マンションの空き部屋の清掃を承ります。1Rから3LDK、戸建てまで対応可能です。</p>
+        <ul class="tags">
+          <li data-i18n="tag.rooms">1R〜3LDK</li><li data-i18n="tag.house">戸建て</li><li data-i18n="tag.premove">入居前クリーニング</li>
+        </ul>
+      </a>
+
+      <a class="svc reveal" href="service.html#other">
+        <div class="svc__thumb"><img src="assets/img/washer.jpg" alt="ドラム式洗濯機を分解して洗浄する作業の様子" data-i18n-alt="alt.washer" loading="lazy" decoding="async" width="1108" height="1477"></div>
+        <div class="svc__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M24 6c6 6 10 11 10 16a10 10 0 1 1-20 0c0-5 4-10 10-16Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M18 40h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </div>
+        <h3 data-i18n="svc.other">その他の簡易作業</h3>
+        <p class="svc__price" data-price-cat="その他簡易作業">都度お見積り</p>
+        <p data-i18n="svc.otherBody">人材派遣や草むしりなど、清掃以外のちょっとした作業もご相談いただけます。内容を確認のうえ、その都度お見積りいたします。</p>
+        <ul class="tags">
+          <li data-i18n="tag.staffing">人材派遣</li><li data-i18n="tag.weeding">草むしり</li><li data-i18n="tag.lightwork">簡易作業全般</li>
+        </ul>
+      </a>
+    </div>
+
+    <div class="more"><a class="more__link" href="service.html" data-i18n="svc.more">サービス内容を詳しく見る</a></div>
+  </div>
+</section>
+
+<!-- ============ 施工の様子（写真・動画） ============ -->
+<section class="section section--tint" id="works">
+  <div class="container">
+    <div class="sec-head">
+      <p class="sec-head__en">WORKS</p>
+      <h2 class="sec-head__ja" data-i18n="works.head">施工の様子</h2>
+      <p class="sec-head__lead" data-i18n="works.lead">養生から分解、高圧洗浄、組み立てまで。実際の作業の様子をご覧ください。</p>
+    </div>
+
+    <!-- 動画（1本目のみ自動再生。2・3本目は再生ボタンを押したときに読み込みます） -->
+    <div class="works__videos">
+      <figure class="works__movie reveal">
+        <div class="works__frame">
+          <video src="assets/video/aircon-clean.mp4" poster="assets/img/aircon-01.jpg"
+                 muted loop playsinline autoplay preload="metadata" controls
+                 width="720" height="1280">
+            <span data-i18n="works.noVideo">お使いのブラウザは動画に対応していません。</span>
+          </video>
+        </div>
+        <figcaption data-i18n="works.v1">エアコンクリーニングの様子 1</figcaption>
+      </figure>
+
+      <figure class="works__movie reveal">
+        <div class="works__frame">
+          <video src="assets/video/aircon-clean-02.mp4" poster="assets/img/aircon-03.jpg"
+                 muted loop playsinline preload="none" controls
+                 width="720" height="1280">
+            <span data-i18n="works.noVideo">お使いのブラウザは動画に対応していません。</span>
+          </video>
+        </div>
+        <figcaption data-i18n="works.v2">エアコンクリーニングの様子 2</figcaption>
+      </figure>
+
+      <figure class="works__movie reveal">
+        <div class="works__frame">
+          <video src="assets/video/pressure-wash.mp4" poster="assets/img/aircon-02.jpg"
+                 muted loop playsinline preload="none" controls
+                 width="720" height="1280">
+            <span data-i18n="works.noVideo">お使いのブラウザは動画に対応していません。</span>
+          </video>
+        </div>
+        <figcaption data-i18n="works.v3">洗浄の様子</figcaption>
+      </figure>
+    </div>
+
+    <p class="works__note" data-i18n="works.videoBody">エアコン本体を分解し、部品と本体を高圧洗浄機で洗浄していきます。周囲はしっかり養生してから作業しますので、お部屋を汚す心配はありません。</p>
+
+    <!-- 写真 -->
+    <div class="works__gallery">
+      <figure class="works__item reveal">
+        <img src="assets/img/aircon-01.jpg" alt="エアコンのカバーを外して分解する作業の様子" data-i18n-alt="alt.aircon01" loading="lazy" decoding="async" width="1108" height="1477">
+        <figcaption data-i18n="svc.aircon">エアコンクリーニング</figcaption>
+      </figure>
+      <figure class="works__item reveal">
+        <img src="assets/img/aircon-02.jpg" alt="床を養生し、エアコンの部品を取り外したところ" data-i18n-alt="alt.aircon02" loading="lazy" decoding="async" width="1108" height="1477">
+        <figcaption data-i18n="svc.aircon">エアコンクリーニング</figcaption>
+      </figure>
+      <figure class="works__item reveal">
+        <img src="assets/img/aircon-03.jpg" alt="取り外したエアコンのパネル。内部の汚れが見える状態" data-i18n-alt="alt.aircon03" loading="lazy" decoding="async" width="1108" height="1477">
+        <figcaption data-i18n="svc.aircon">エアコンクリーニング</figcaption>
+      </figure>
+      <figure class="works__item reveal">
+        <img src="assets/img/rangehood.jpg" alt="クリーニング後のレンジフード" data-i18n-alt="alt.rangehood" loading="lazy" decoding="async" width="1108" height="1477">
+        <figcaption data-i18n="tag.hood">レンジフード</figcaption>
+      </figure>
+      <figure class="works__item reveal">
+        <img src="assets/img/stove.jpg" alt="クリーニング後のガスコンロ" data-i18n-alt="alt.stove" loading="lazy" decoding="async" width="1108" height="1477">
+        <figcaption data-i18n="works.stoveCap">コンロまわり</figcaption>
+      </figure>
+      <figure class="works__item reveal">
+        <img src="assets/img/kitchen-sink.jpg" alt="クリーニング後のキッチンのシンクと天板" data-i18n-alt="alt.sink" loading="lazy" decoding="async" width="1108" height="1477">
+        <figcaption data-i18n="works.sinkCap">キッチン・シンク</figcaption>
+      </figure>
+      <figure class="works__item reveal">
+        <img src="assets/img/washroom.jpg" alt="クリーニング後の洗面所" data-i18n-alt="alt.washroom" loading="lazy" decoding="async" width="1108" height="1477">
+        <figcaption data-i18n="tag.washbasin">洗面所</figcaption>
+      </figure>
+      <figure class="works__item reveal">
+        <img src="assets/img/vacant-room.jpg" alt="空室清掃後のお部屋" data-i18n-alt="alt.vacantRoom" loading="lazy" decoding="async" width="1108" height="1477">
+        <figcaption data-i18n="svc.vacancy">空室清掃</figcaption>
+      </figure>
+      <figure class="works__item reveal">
+        <img src="assets/img/washer.jpg" alt="ドラム式洗濯機を分解して洗浄する作業の様子" data-i18n-alt="alt.washer" loading="lazy" decoding="async" width="1108" height="1477">
+        <figcaption data-i18n="works.washerCap">洗濯機の分解洗浄</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 料金の目安 ============ -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head">
+      <p class="sec-head__en">PRICE</p>
+      <h2 class="sec-head__ja" data-i18n="psum.head">料金の目安</h2>
+      <p class="sec-head__lead" data-i18n="psum.lead">表示価格はすべて税込です。エアコンクリーニングは、同日・同一住所での2台目以降がお得になります。</p>
+    </div>
+    <div class="psums" id="priceSummary"></div>
+    <div class="more"><a class="more__link" href="price.html" data-i18n="psum.more">料金表をすべて見る</a></div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="container cta__inner">
+    <p class="cta__lead" data-i18n="cta.lead">まずはお気軽にご相談ください</p>
+    <h2 class="cta__title" data-i18n="cta.title">お見積り・ご相談は<br class="sp-only">お電話で承っております</h2>
+    <a class="btn btn--primary btn--lg" href="tel:0676325062">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+      <span><small data-i18n="cta.smallFull">受付 9:00〜18:00（祝日は翌営業日）</small>06-7632-5062</span>
+    </a>
+    <p class="cta__note" data-i18n="cta.note">大阪府内は即日対応が可能な場合がございます。エアコンのメーカー・型番・台数をお手元にご用意いただくと、ご案内がスムーズです。</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ フッター（全ページ共通） ============ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <b data-i18n="brand.name">市原建設</b>
+      <p data-i18n="footer.addr">〒534-0025 大阪府大阪市都島区片町1丁目8-20 ヴィストゥール大阪城北</p>
+      <p><a href="tel:0676325062">TEL 06-7632-5062</a><span data-i18n="footer.hours">／受付 9:00〜18:00</span></p>
+    </div>
+    <nav class="footer__nav">
+      <a href="index.html" aria-current="page" data-i18n="nav.home">トップ</a>
+      <a href="service.html" data-i18n="nav.service">サービス内容</a>
+      <a href="price.html" data-i18n="nav.price">料金表</a>
+      <a href="news.html" data-i18n="nav.news">お知らせ</a>
+      <a href="faq.html" data-i18n="nav.faq">よくあるご質問</a>
+      <a href="company.html" data-i18n="nav.company">会社概要</a>
+    </nav>
+  </div>
+  <p class="copyright" data-i18n="footer.copy">&copy; 市原建設 All Rights Reserved.</p>
+</footer>
+
+<!-- ============ スマホ用固定CTA ============ -->
+<a class="fixed-tel" href="tel:0676325062">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+  <span data-i18n="cta.fixed">電話で相談する（9:00〜18:00）</span>
+</a>
+
+<script src="assets/config.js"></script>
+<script src="assets/i18n.js"></script>
+<script src="assets/fallback-data.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>

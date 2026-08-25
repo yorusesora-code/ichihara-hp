@@ -1,0 +1,10 @@
+# テキストファイルは改行コードをLFに統一（Windows/Mac混在でも差分が荒れないように）
+* text=auto eol=lf
+
+# バイナリは変換しない
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.mp4 binary
+*.mov binary
