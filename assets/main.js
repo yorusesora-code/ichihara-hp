@@ -484,12 +484,17 @@
       nav.scrollLeft = Math.max(0, target);
     };
 
+    // Webフォントの読み込み完了は環境によって前後するため、複数のタイミングで実行する
     centerCurrent();
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(centerCurrent);
-    } else {
-      window.addEventListener('load', centerCurrent);
-    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(centerCurrent);
+    window.addEventListener('load', centerCurrent);
+
+    // 画面幅が変わると1段⇄2段が切り替わるので、そのときも位置を直す
+    var rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(centerCurrent, 180);
+    });
   }
 
   var io = null;
