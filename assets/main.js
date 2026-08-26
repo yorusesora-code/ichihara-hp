@@ -471,11 +471,24 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // ナビが横に長い場合、現在地が見えるようにスクロール位置を寄せる
+    // ナビが横に長い場合、現在地が見えるようにスクロール位置を寄せる。
+    // Webフォントの読み込み前だと文字幅が違って正しく計算できないため、
+    // フォントが揃ってから実行する。
     var nav = document.getElementById('nav');
     var cur = nav && nav.querySelector('[aria-current="page"]');
-    if (nav && cur && nav.scrollWidth > nav.clientWidth) {
-      nav.scrollLeft = cur.offsetLeft - 16;
+    if (!nav || !cur) return;
+
+    var centerCurrent = function () {
+      if (nav.scrollWidth <= nav.clientWidth) return;
+      var target = cur.offsetLeft - (nav.clientWidth - cur.offsetWidth) / 2;
+      nav.scrollLeft = Math.max(0, target);
+    };
+
+    centerCurrent();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(centerCurrent);
+    } else {
+      window.addEventListener('load', centerCurrent);
     }
   }
 
