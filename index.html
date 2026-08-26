@@ -12,11 +12,13 @@
 <meta property="og:title" content="市原建設｜大阪のエアコンクリーニング・ハウスクリーニング">
 <meta property="og:description" content="大阪府内を中心に、分解洗浄によるエアコンクリーニングを9,000円〜。ハウスクリーニング・空室清掃も承ります。">
 <meta property="og:site_name" content="市原建設">
-<meta property="og:image" content="assets/img/aircon-02.jpg">
+<meta property="og:image" content="assets/img/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Barlow:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@700;900&family=Barlow:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body data-title="index.title" data-desc="index.desc">
@@ -104,31 +106,55 @@
 <main>
 
 <!-- ============ ヒーロー ============ -->
-<section class="hero hero--banner">
-  <!-- 見出しはバナー画像に描かれているため、検索エンジンと読み上げソフト向けに文字でも用意しています -->
-  <h1 class="visually-hidden" data-i18n="hero.h1">プロの清掃で、空気も暮らしも心地よく。｜大阪のエアコンクリーニング・ハウスクリーニング 市原建設</h1>
-
-  <div class="hero__banner">
-    <img src="assets/img/hero-banner.png"
-         alt="プロの清掃で、空気も暮らしも心地よく。家庭用・業務用エアコン対応。安心価格 税込4,900円〜。"
-         data-i18n-alt="alt.heroBanner"
+<section class="hero hero--photo">
+  <div class="hero__bg" aria-hidden="true">
+    <img class="hero__photo" src="assets/img/hero.webp" alt=""
          width="1798" height="875" fetchpriority="high" decoding="async">
+    <span class="hero__scrim"></span>
   </div>
 
-  <div class="hero__band">
-    <div class="hero__inner">
-      <div class="hero__cta">
-        <a class="btn btn--primary" href="tel:0676325062">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
-          <span><small data-i18n="cta.small">受付 9:00〜18:00</small>06-7632-5062</span>
-        </a>
-        <a class="btn btn--ghost" href="price.html" data-i18n="hero.priceBtn">料金表を見る</a>
-      </div>
+  <div class="hero__inner">
+    <h1 class="hero__copy">
+      <span class="hero__kicker" data-i18n="hero.kicker">プロの清掃で、</span>
+      <span class="hero__headline" data-i18n="hero.headline">空気も暮らしも<br>心地よく。</span>
+      <!-- 画面には出さない補足。検索エンジンに事業内容と地域を伝えるためのもの -->
+      <span class="visually-hidden" data-i18n="hero.h1sub">｜大阪のエアコンクリーニング・ハウスクリーニング 市原建設</span>
+    </h1>
+    <p class="hero__tag" data-i18n="hero.tag">家庭用・業務用エアコン対応</p>
 
-      <ul class="hero__badges">
-        <li><b data-i18n="hero.badge1num">9,000</b><span data-i18n="hero.badge1">円〜／台<br>家庭用エアコン</span></li>
-        <li><b data-i18n="hero.badge2num">即日</b><span data-i18n="hero.badge2">対応可<br>大阪府内・当日状況による</span></li>
-        <li><b data-i18n="hero.badge3num">1週間</b><span data-i18n="hero.badge3">無償再施工<br>アフターサービス</span></li>
+    <p class="hero__price">
+      <span class="hero__price-label" data-i18n="hero.priceLabel">安心価格</span>
+      <span class="hero__price-tax" data-i18n="hero.priceTax">税込</span>
+      <!-- 金額は料金表の最安値から自動計算されます（オプションは除外） -->
+      <span class="hero__price-num" data-price-min>4,900</span>
+      <span class="hero__price-yen" data-i18n="hero.priceYen">円〜</span>
+    </p>
+
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="tel:0676325062">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+        <span><small data-i18n="cta.small">受付 9:00〜18:00</small>06-7632-5062</span>
+      </a>
+      <a class="btn btn--ghost" href="price.html" data-i18n="hero.priceBtn">料金表を見る</a>
+    </div>
+  </div>
+
+  <div class="hero__strip">
+    <div class="hero__strip-inner">
+      <p class="hero__strip-lead" data-i18n="hero.stripLead">エアコンからお部屋まるごとまで、幅広く対応！</p>
+      <ul class="hero__chips">
+        <li>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="14" width="38" height="15" rx="3.5" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M11 20h26" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M14 33c0 3 2 3 2 6M23 33c0 3.4 2 3.4 2 6.8M32 33c0 3 2 3 2 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg>
+          <span data-i18n="svc.aircon">エアコンクリーニング</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 41V22l15-12 15 12v19z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><rect x="19" y="27" width="10" height="10" rx="2" fill="currentColor"/></svg>
+          <span data-i18n="svc.house">ハウスクリーニング</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="7" width="20" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M17 7v20M7 17h20" stroke="currentColor" stroke-width="2"/><path d="M31 41v-9m0 0-4-3v-6h8v6l-4 3Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg>
+          <span data-i18n="svc.vacancy">空室清掃</span>
+        </li>
       </ul>
     </div>
   </div>
@@ -191,7 +217,7 @@
 
     <div class="services">
       <a class="svc reveal" href="service.html#aircon">
-        <div class="svc__thumb"><img src="assets/img/aircon-01.jpg" alt="エアコンのカバーを外して分解する作業の様子" data-i18n-alt="alt.aircon01" loading="lazy" decoding="async" width="1108" height="1477"></div>
+        <div class="svc__thumb"><img src="assets/img/aircon-01.webp" alt="エアコンのカバーを外して分解する作業の様子" data-i18n-alt="alt.aircon01" loading="lazy" decoding="async" width="1108" height="1477"></div>
         <div class="svc__icon" aria-hidden="true">
           <svg viewBox="0 0 48 48"><rect x="5" y="12" width="38" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M11 18h26M11 22.5h26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".6"/><path d="M15 32c0 3 2 3 2 6M24 32c0 3.4 2 3.4 2 6.8M33 32c0 3 2 3 2 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
         </div>
@@ -204,7 +230,7 @@
       </a>
 
       <a class="svc reveal" href="service.html#house">
-        <div class="svc__thumb"><img src="assets/img/rangehood.jpg" alt="クリーニング後のレンジフード" data-i18n-alt="alt.rangehood" loading="lazy" decoding="async" width="1108" height="1477"></div>
+        <div class="svc__thumb"><img src="assets/img/rangehood.webp" alt="クリーニング後のレンジフード" data-i18n-alt="alt.rangehood" loading="lazy" decoding="async" width="1108" height="1477"></div>
         <div class="svc__icon" aria-hidden="true">
           <svg viewBox="0 0 48 48"><path d="M10 40V22l14-11 14 11v18z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M19 40V29h10v11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
         </div>
@@ -217,7 +243,7 @@
       </a>
 
       <a class="svc reveal" href="service.html#vacancy">
-        <div class="svc__thumb"><img src="assets/img/vacant-room.jpg" alt="空室清掃後のお部屋" data-i18n-alt="alt.vacantRoom" loading="lazy" decoding="async" width="1108" height="1477"></div>
+        <div class="svc__thumb"><img src="assets/img/vacant-room.webp" alt="空室清掃後のお部屋" data-i18n-alt="alt.vacantRoom" loading="lazy" decoding="async" width="1108" height="1477"></div>
         <div class="svc__icon" aria-hidden="true">
           <svg viewBox="0 0 48 48"><rect x="9" y="8" width="30" height="32" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M9 18h30M9 29h30M20 18v22" stroke="currentColor" stroke-width="1.8" opacity=".6"/></svg>
         </div>
@@ -230,7 +256,7 @@
       </a>
 
       <a class="svc reveal" href="service.html#other">
-        <div class="svc__thumb"><img src="assets/img/washer.jpg" alt="ドラム式洗濯機を分解して洗浄する作業の様子" data-i18n-alt="alt.washer" loading="lazy" decoding="async" width="1108" height="1477"></div>
+        <div class="svc__thumb"><img src="assets/img/washer.webp" alt="ドラム式洗濯機を分解して洗浄する作業の様子" data-i18n-alt="alt.washer" loading="lazy" decoding="async" width="1108" height="1477"></div>
         <div class="svc__icon" aria-hidden="true">
           <svg viewBox="0 0 48 48"><path d="M24 6c6 6 10 11 10 16a10 10 0 1 1-20 0c0-5 4-10 10-16Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M18 40h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
         </div>
@@ -260,7 +286,7 @@
     <div class="works__videos">
       <figure class="works__movie reveal">
         <div class="works__frame">
-          <video src="assets/video/aircon-clean.mp4" poster="assets/img/aircon-01.jpg"
+          <video src="assets/video/aircon-clean.mp4" poster="assets/img/aircon-01.webp"
                  muted loop playsinline autoplay preload="metadata" controls
                  width="720" height="1280">
             <span data-i18n="works.noVideo">お使いのブラウザは動画に対応していません。</span>
@@ -271,7 +297,7 @@
 
       <figure class="works__movie reveal">
         <div class="works__frame">
-          <video src="assets/video/aircon-clean-02.mp4" poster="assets/img/aircon-03.jpg"
+          <video src="assets/video/aircon-clean-02.mp4" poster="assets/img/aircon-03.webp"
                  muted loop playsinline preload="none" controls
                  width="720" height="1280">
             <span data-i18n="works.noVideo">お使いのブラウザは動画に対応していません。</span>
@@ -282,7 +308,7 @@
 
       <figure class="works__movie reveal">
         <div class="works__frame">
-          <video src="assets/video/pressure-wash.mp4" poster="assets/img/aircon-02.jpg"
+          <video src="assets/video/pressure-wash.mp4" poster="assets/img/aircon-02.webp"
                  muted loop playsinline preload="none" controls
                  width="720" height="1280">
             <span data-i18n="works.noVideo">お使いのブラウザは動画に対応していません。</span>
@@ -297,39 +323,39 @@
     <!-- 写真 -->
     <div class="works__gallery">
       <figure class="works__item reveal">
-        <img src="assets/img/aircon-01.jpg" alt="エアコンのカバーを外して分解する作業の様子" data-i18n-alt="alt.aircon01" loading="lazy" decoding="async" width="1108" height="1477">
+        <img src="assets/img/aircon-01.webp" alt="エアコンのカバーを外して分解する作業の様子" data-i18n-alt="alt.aircon01" loading="lazy" decoding="async" width="1108" height="1477">
         <figcaption data-i18n="svc.aircon">エアコンクリーニング</figcaption>
       </figure>
       <figure class="works__item reveal">
-        <img src="assets/img/aircon-02.jpg" alt="床を養生し、エアコンの部品を取り外したところ" data-i18n-alt="alt.aircon02" loading="lazy" decoding="async" width="1108" height="1477">
+        <img src="assets/img/aircon-02.webp" alt="床を養生し、エアコンの部品を取り外したところ" data-i18n-alt="alt.aircon02" loading="lazy" decoding="async" width="1108" height="1477">
         <figcaption data-i18n="svc.aircon">エアコンクリーニング</figcaption>
       </figure>
       <figure class="works__item reveal">
-        <img src="assets/img/aircon-03.jpg" alt="取り外したエアコンのパネル。内部の汚れが見える状態" data-i18n-alt="alt.aircon03" loading="lazy" decoding="async" width="1108" height="1477">
+        <img src="assets/img/aircon-03.webp" alt="取り外したエアコンのパネル。内部の汚れが見える状態" data-i18n-alt="alt.aircon03" loading="lazy" decoding="async" width="1108" height="1477">
         <figcaption data-i18n="svc.aircon">エアコンクリーニング</figcaption>
       </figure>
       <figure class="works__item reveal">
-        <img src="assets/img/rangehood.jpg" alt="クリーニング後のレンジフード" data-i18n-alt="alt.rangehood" loading="lazy" decoding="async" width="1108" height="1477">
+        <img src="assets/img/rangehood.webp" alt="クリーニング後のレンジフード" data-i18n-alt="alt.rangehood" loading="lazy" decoding="async" width="1108" height="1477">
         <figcaption data-i18n="tag.hood">レンジフード</figcaption>
       </figure>
       <figure class="works__item reveal">
-        <img src="assets/img/stove.jpg" alt="クリーニング後のガスコンロ" data-i18n-alt="alt.stove" loading="lazy" decoding="async" width="1108" height="1477">
+        <img src="assets/img/stove.webp" alt="クリーニング後のガスコンロ" data-i18n-alt="alt.stove" loading="lazy" decoding="async" width="1108" height="1477">
         <figcaption data-i18n="works.stoveCap">コンロまわり</figcaption>
       </figure>
       <figure class="works__item reveal">
-        <img src="assets/img/kitchen-sink.jpg" alt="クリーニング後のキッチンのシンクと天板" data-i18n-alt="alt.sink" loading="lazy" decoding="async" width="1108" height="1477">
+        <img src="assets/img/kitchen-sink.webp" alt="クリーニング後のキッチンのシンクと天板" data-i18n-alt="alt.sink" loading="lazy" decoding="async" width="1108" height="1477">
         <figcaption data-i18n="works.sinkCap">キッチン・シンク</figcaption>
       </figure>
       <figure class="works__item reveal">
-        <img src="assets/img/washroom.jpg" alt="クリーニング後の洗面所" data-i18n-alt="alt.washroom" loading="lazy" decoding="async" width="1108" height="1477">
+        <img src="assets/img/washroom.webp" alt="クリーニング後の洗面所" data-i18n-alt="alt.washroom" loading="lazy" decoding="async" width="1108" height="1477">
         <figcaption data-i18n="tag.washbasin">洗面所</figcaption>
       </figure>
       <figure class="works__item reveal">
-        <img src="assets/img/vacant-room.jpg" alt="空室清掃後のお部屋" data-i18n-alt="alt.vacantRoom" loading="lazy" decoding="async" width="1108" height="1477">
+        <img src="assets/img/vacant-room.webp" alt="空室清掃後のお部屋" data-i18n-alt="alt.vacantRoom" loading="lazy" decoding="async" width="1108" height="1477">
         <figcaption data-i18n="svc.vacancy">空室清掃</figcaption>
       </figure>
       <figure class="works__item reveal">
-        <img src="assets/img/washer.jpg" alt="ドラム式洗濯機を分解して洗浄する作業の様子" data-i18n-alt="alt.washer" loading="lazy" decoding="async" width="1108" height="1477">
+        <img src="assets/img/washer.webp" alt="ドラム式洗濯機を分解して洗浄する作業の様子" data-i18n-alt="alt.washer" loading="lazy" decoding="async" width="1108" height="1477">
         <figcaption data-i18n="works.washerCap">洗濯機の分解洗浄</figcaption>
       </figure>
     </div>

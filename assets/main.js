@@ -119,6 +119,7 @@
       renderPriceTables(priceRows);
       renderPriceSummary(priceRows);
       renderServicePrices(priceRows);
+      renderMinPrice(priceRows);
       observeReveals();
     }
   }
@@ -380,6 +381,22 @@
     }).join('');
   }
 
+  // ヒーローの「安心価格 税込◯◯円〜」を、料金表全体の最安値から自動計算する
+  function renderMinPrice(rows) {
+    var els = document.querySelectorAll('[data-price-min]');
+    if (!els.length || !rows.length) return;
+    var skip = CFG.summaryExcludeGroups || [];
+    var nums = rows
+      .filter(function (o) { return skip.indexOf(String(o['対象'] || '').trim()) === -1; })
+      .map(function (o) { return toNum(o['料金']); })
+      .filter(function (n) { return n != null; });
+    if (!nums.length) return;
+    var m = Math.min.apply(null, nums);
+    Array.prototype.forEach.call(els, function (el) {
+      el.textContent = (lang === 'en' ? '¥' : '') + m.toLocaleString('en-US');
+    });
+  }
+
   // サービスカードの「9,000円〜」を料金データから反映
   function renderServicePrices(rows) {
     var els = document.querySelectorAll('[data-price-cat]');
@@ -534,6 +551,7 @@
           renderPriceTables(priceRows);
           renderPriceSummary(priceRows);
           renderServicePrices(priceRows);
+          renderMinPrice(priceRows);
           observeReveals();
           jumpToHash();
         });
