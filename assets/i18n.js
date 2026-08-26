@@ -91,11 +91,14 @@ window.I18N = {
   'alt.aircon03':    { ja: '取り外したエアコンのパネル。内部の汚れが見える状態', en: 'A removed air conditioner panel showing the dirt inside' },
   'alt.stove':       { ja: 'クリーニング後のガスコンロ', en: 'A gas cooktop after cleaning' },
   'alt.sink':        { ja: 'クリーニング後のキッチンのシンクと天板', en: 'A kitchen sink and worktop after cleaning' },
+  'alt.heroBanner':  { ja: 'プロの清掃で、空気も暮らしも心地よく。家庭用・業務用エアコン対応。安心価格 税込4,900円〜。エアコンクリーニング・ハウスクリーニング・空室清掃に対応しています。', en: 'Professional cleaning for fresher air and easier living. Residential and commercial air conditioners. From 4,900 yen incl. tax. Air conditioner cleaning, house cleaning and vacant-room cleaning.' },
+  'alt.groupChart':  { ja: 'ICHIHARAグループの構成図。市原建設（土木・建築事業）、エアコン事業、フードデリバリー事業、不動産事業の4事業', en: 'Organisation chart of the ICHIHARA Group: Ichihara Construction (civil engineering and building), air conditioning, food delivery and real estate' },
 
   /* ===== トップページ ===== */
   'index.title':     { ja: '市原建設｜大阪のエアコンクリーニング・ハウスクリーニング', en: 'Ichihara Kensetsu | Air Conditioner &amp; House Cleaning in Osaka' },
   'index.desc':      { ja: '大阪府内を中心にエアコンクリーニング・ハウスクリーニング・空室清掃を承ります。家庭用エアコン9,000円〜、即日対応可。', en: 'Air conditioner cleaning, house cleaning and vacant-room cleaning across Osaka. Residential AC units from ¥9,000, same-day service available.' },
 
+  'hero.h1':         { ja: 'プロの清掃で、空気も暮らしも心地よく。｜大阪のエアコンクリーニング・ハウスクリーニング 市原建設', en: 'Professional cleaning for fresher air and easier living — Ichihara Kensetsu, air conditioner and house cleaning in Osaka' },
   'hero.eyebrow':    { ja: '大阪府内メイン対応／即日対応可', en: 'Serving Osaka Prefecture / Same-day service available' },
   'hero.title':      { ja: 'その<span class="mark">ニオイ</span>と<span class="mark">風の弱さ</span>、<br>エアコン<em>内部の汚れ</em>かもしれません。', en: 'That <span class="mark">smell</span> and <span class="mark">weak airflow</span><br>may be <em>dirt inside</em> your air conditioner.' },
   'hero.lead':       { ja: '市原建設は、エアコン本体を<b>分解して高圧洗浄</b>する本格クリーニングを、家庭用9,000円〜でご提供しています。ハウスクリーニング・空室清掃までまとめてご相談いただけます。', en: 'Ichihara Kensetsu <b>disassembles and pressure-washes</b> your air conditioner for a thorough clean, from ¥9,000 for residential units. House cleaning and vacant-room cleaning are available too.' },
@@ -287,6 +290,8 @@ window.I18N = {
   'comp.crumb':      { ja: '会社概要・対応エリア', en: 'Company &amp; Service Area' },
   'comp.lead':       { ja: '大阪市都島区を拠点に、大阪府内を中心としてお伺いしております。', en: 'Based in Miyakojima-ku, Osaka, serving Osaka Prefecture and beyond.' },
   'comp.head':       { ja: '会社概要', en: 'Company profile' },
+  'group.head':      { ja: 'グループ構成', en: 'Group structure' },
+  'group.lead':      { ja: '市原建設は、ICHIHARAグループの一員として土木・建築事業を母体に、エアコン事業・フードデリバリー事業・不動産事業を展開しています。', en: 'Ichihara Kensetsu is part of the ICHIHARA Group, built on civil engineering and construction and extending into air conditioning, food delivery and real estate.' },
   'comp.name':       { ja: '会社名', en: 'Company name' },
   'comp.nameV':      { ja: '市原建設', en: 'Ichihara Kensetsu' },
   'comp.rep':        { ja: '代表者', en: 'Representative' },
