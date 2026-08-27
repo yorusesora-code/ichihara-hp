@@ -1026,3 +1026,67 @@ a.svc:hover .svc__thumb img{transform:scale(1.06)}
   .job__table th{padding-bottom:4px;border-top:1px solid var(--line)}
   .job__table td{border-top:0;padding-top:0}
 }
+
+/* ---------- 採用ページ：導入と職種への導線 ---------- */
+.section--intro{padding:62px 0 56px}
+.rec-catch{
+  font-family:"Zen Maru Gothic",var(--font);font-weight:900;
+  font-size:clamp(20px,2.7vw,30px);line-height:1.6;color:var(--navy);letter-spacing:.02em;
+}
+.rec-catch span{display:block}
+.rec-catch span:last-child{color:#1668c8}
+.rec-intro{margin-top:18px;font-size:15px;line-height:2;color:var(--ink-2)}
+
+.rec-jump__label{
+  margin-top:38px;font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.2em;color:var(--cyan);
+}
+.rec-jump{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:12px}
+.rec-jump__item{
+  position:relative;display:block;padding:22px 46px 20px 24px;border-radius:14px;
+  background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);
+  transition:transform .22s,box-shadow .22s,border-color .22s;
+}
+.rec-jump__item:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--cyan)}
+.rec-jump__item::after{
+  content:"";position:absolute;right:24px;top:50%;width:8px;height:8px;
+  border-right:2px solid var(--cyan);border-bottom:2px solid var(--cyan);
+  transform:translateY(-50%) rotate(-45deg);
+}
+.rec-jump__no{
+  display:block;font-family:var(--font-en);font-size:12px;font-weight:700;
+  letter-spacing:.18em;color:var(--orange);margin-bottom:4px;
+}
+.rec-jump__item b{display:block;font-size:17px;font-weight:800;color:var(--navy);line-height:1.5}
+.rec-jump__item small{display:block;margin-top:4px;font-size:12.5px;color:var(--ink-2)}
+
+/* 求人カードの番号バッジ */
+.job__tag{display:inline-flex;align-items:center;gap:8px}
+.job__no{
+  font-family:var(--font-en);font-size:11.5px;font-weight:700;letter-spacing:.12em;
+  padding-right:8px;border-right:1px solid rgba(255,255,255,.55);
+}
+/* ◆付きの小見出し */
+.job__diamond{display:block;font-weight:700;color:var(--navy)}
+.job__diamond::before{content:"◆";margin-right:6px;color:var(--cyan);font-size:.85em}
+
+.job__apply{padding:24px 34px 30px;display:flex;justify-content:center}
+.job__apply .btn{min-width:min(100%,360px)}
+
+/* 選考プロセス：手順の間に下向き矢印を出す */
+.flow--arrow{gap:34px}
+.flow--arrow li{position:relative}
+.flow--arrow li + li::before{
+  content:"";position:absolute;left:50%;top:-26px;width:11px;height:11px;
+  border-right:2.5px solid var(--cyan);border-bottom:2.5px solid var(--cyan);
+  transform:translateX(-50%) rotate(45deg);
+}
+
+@media (max-width:768px){
+  .section--intro{padding:44px 0 40px}
+  .rec-jump{grid-template-columns:1fr;gap:10px}
+  .rec-jump__item{padding:18px 40px 16px 20px}
+  .job__apply{padding:18px 20px 22px}
+  .flow--arrow{gap:28px}
+  .flow--arrow li + li::before{top:-22px}
+}
