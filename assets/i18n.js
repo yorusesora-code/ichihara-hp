@@ -383,11 +383,10 @@ window.I18N = {
   'rec.j2type':      { ja: '業務委託（完全フルコミッション）', en: 'Independent contractor, full commission' },
   'rec.j2req':       { ja: '学歴・経験不問。やる気と行動力を重視します。', en: 'No qualifications or experience required. We value drive and initiative.' },
   'rec.j2hours':     { ja: '自由（ご自身の裁量で決めていただけます）', en: 'Flexible — you decide your own schedule' },
-  'rec.j2pay':       { ja: '完全歩合制（成果に応じて決定）', en: 'Full commission, based on results' },
+  'rec.j2pay':       { ja: '完全歩合制（想定月収 30万円〜）', en: 'Full commission (estimated ¥300,000+ per month)' },
   'rec.j2place':     { ja: '大阪府内を中心に、京都・滋賀・兵庫・奈良', en: 'Mainly Osaka Prefecture, plus Kyoto, Shiga, Hyogo and Nara' },
 
-  'rec.payNote':     { ja: '※具体的な報酬の条件は、お問い合わせの際にご説明いたします。', en: 'We will explain the specific terms when you get in touch.' },
-  'rec.j1payNote':   { ja: '※想定月収は実績に基づく目安であり、金額を保証するものではありません。具体的な条件はお問い合わせの際にご説明いたします。', en: 'The figure above is an estimate based on actual results, not a guaranteed amount. We will explain the specific terms when you get in touch.' },
+  'rec.payNote':     { ja: '※想定月収は実績に基づく目安であり、金額を保証するものではありません。具体的な条件はお問い合わせの際にご説明いたします。', en: 'The figure above is an estimate based on actual results, not a guaranteed amount. We will explain the specific terms when you get in touch.' },
   'rec.catch1':      { ja: '未経験から、手に職を。', en: 'Start from scratch, and learn a trade.' },
   'rec.catch2':      { ja: '一緒に成長できる仲間を募集しています。', en: 'We are looking for people to grow with us.' },
   'rec.introBody':   { ja: '市原建設では、エアコン清掃スタッフとライト商材の営業を募集しています。どちらも未経験・学歴不問。研修とサポートがあるので、はじめての方でも安心して始められます。', en: 'We are hiring air conditioner cleaning technicians and sales representatives. Neither role requires experience or qualifications, and training and support are provided.' },
