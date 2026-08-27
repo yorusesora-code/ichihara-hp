@@ -376,7 +376,7 @@ window.I18N = {
   'rec.j1type':      { ja: '業務委託', en: 'Independent contractor' },
   'rec.j1req':       { ja: '未経験歓迎・学歴不問・年齢不問。やる気があればOKです。', en: 'No experience, qualifications or age limits. Motivation is what matters.' },
   'rec.j1hours':     { ja: '8:00〜18:00（現場により異なります）', en: '8:00–18:00, varying by site' },
-  'rec.j1pay':       { ja: '出来高制（実績に応じて決定）', en: 'Performance-based' },
+  'rec.j1pay':       { ja: '出来高制　<b>想定月収 30万円〜</b>', en: 'Performance-based — <b>estimated ¥300,000+ / month</b>' },
   'rec.j1place':     { ja: '大阪府内を中心に、京都・滋賀・兵庫・奈良', en: 'Mainly Osaka Prefecture, plus Kyoto, Shiga, Hyogo and Nara' },
 
   'rec.j2work':      { ja: 'ホームページ制作とフードデリバリー導入サポートの提案・営業', en: 'Selling and proposing website production and food delivery onboarding support' },
@@ -387,9 +387,11 @@ window.I18N = {
   'rec.j2place':     { ja: '大阪府内を中心に、京都・滋賀・兵庫・奈良', en: 'Mainly Osaka Prefecture, plus Kyoto, Shiga, Hyogo and Nara' },
 
   'rec.payNote':     { ja: '※具体的な報酬の条件は、お問い合わせの際にご説明いたします。', en: 'We will explain the specific terms when you get in touch.' },
+  'rec.j1jumpNote':  { ja: '業務委託／想定月収 30万円〜', en: 'Independent contractor / est. ¥300,000+ per month' },
+  'rec.j1payNote':   { ja: '※想定月収は実績に基づく目安であり、金額を保証するものではありません。具体的な条件はお問い合わせの際にご説明いたします。', en: 'The figure above is an estimate based on actual results, not a guaranteed amount. We will explain the specific terms when you get in touch.' },
   'rec.catch1':      { ja: '未経験から、手に職を。', en: 'Start from scratch, and learn a trade.' },
   'rec.catch2':      { ja: '一緒に成長できる仲間を募集しています。', en: 'We are looking for people to grow with us.' },
-  'rec.introBody':   { ja: '市原建設では、エアコン清掃スタッフとライト商材の営業を募集しています。どちらも未経験・学歴不問。研修とサポートがあるので、はじめての方でも安心して始められます。', en: 'We are hiring air conditioner cleaning technicians and sales representatives. Neither role requires experience or qualifications, and training and support are provided.' },
+  'rec.introBody':   { ja: '市原建設では、エアコン清掃スタッフ（想定月収30万円〜）とライト商材の営業を募集しています。どちらも未経験・学歴不問。研修とサポートがあるので、はじめての方でも安心して始められます。', en: 'We are hiring air conditioner cleaning technicians (estimated ¥300,000+ per month) and sales representatives. Neither role requires experience or qualifications, and training and support are provided.' },
   'rec.jump':        { ja: '募集中の職種', en: 'Open positions' },
   'rec.flowHead':    { ja: '選考プロセス', en: 'How we hire' },
   'rec.s1t':         { ja: 'お問い合わせ', en: 'Get in touch' },
