@@ -1090,9 +1090,3 @@ a.svc:hover .svc__thumb img{transform:scale(1.06)}
   .flow--arrow{gap:28px}
   .flow--arrow li + li::before{top:-22px}
 }
-
-/* 募集要項の報酬欄：金額だけ目立たせる */
-.job__pay b{
-  font-weight:900;color:var(--orange);font-size:1.12em;letter-spacing:.01em;
-  margin-left:.15em;
-}
