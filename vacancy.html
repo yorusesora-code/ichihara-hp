@@ -8,6 +8,9 @@
 <!-- レビュー中：検索エンジンに登録させない設定。全体公開時にこの1行を削除してください -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0b3d72">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/img/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:title" content="空室清掃｜市原建設（大阪）">
 <meta property="og:description" content="1R・1LDK・2LDK・3LDKの空室清掃。15,000円〜、大阪府内を中心に対応します。">
@@ -29,7 +32,7 @@
   <div class="header__inner">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true">
-        <svg viewBox="0 0 40 40" width="40" height="40"><defs><linearGradient id="ihgold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2dda6"/><stop offset=".45" stop-color="#c9a13f"/><stop offset=".75" stop-color="#e6cd88"/><stop offset="1" stop-color="#b8912f"/></linearGradient></defs><path d="M28.6 7.3A15 15 0 1 1 11.1 31.9" fill="none" stroke="url(#ihgold)" stroke-width="2.1" stroke-linecap="round"/><path d="M33.7 12.6a15 15 0 0 1 .9 3.4" fill="none" stroke="url(#ihgold)" stroke-width="2.1" stroke-linecap="round"/><path d="M30.4 5.6 24 13.2" fill="none" stroke="url(#ihgold)" stroke-width="1.7" stroke-linecap="round" opacity=".9"/><g stroke="url(#ihgold)" stroke-width="1.8" stroke-linecap="round" fill="none"><path d="M11.8 14.2h4.6M11.8 26.4h4.6M14.1 14.2v12.2"/><path d="M20.4 14.2h4.4M20.4 26.4h4.4M22.6 14.2v12.2"/><path d="M27.2 14.2h4.4M27.2 26.4h4.4M29.4 14.2v12.2"/><path d="M22.6 20.3h6.8"/></g></svg>
+        <img class="brand__logo" src="assets/img/logo-light.webp" alt="" width="256" height="228" decoding="async">
       </span>
       <span class="brand__text">
         <b data-i18n="brand.name">市原建設</b>
@@ -105,27 +108,45 @@
 
   <nav class="drawer__nav drawer__nav--tree">
     <a href="index.html"><small>HOME</small><span data-i18n="nav.home">トップ</span></a>
-    <a href="aircon.html"><small>AIRCON</small><span data-i18n="nav.aircon">エアコンクリーニング</span></a>
-    <div class="drawer__sub">
-      <a href="aircon.html#residential" data-i18n="nav.acHome">家庭用エアコン</a>
-      <a href="aircon.html#selfclean" data-i18n="nav.acSelf">お掃除機能付き</a>
-      <a href="aircon.html#commercial" data-i18n="nav.acBiz">業務用エアコン</a>
-      <a href="aircon.html#outdoor" data-i18n="nav.acOut">室外機</a>
+    <div class="drawer__row">
+      <a href="aircon.html"><small>AIRCON</small><span data-i18n="nav.aircon">エアコンクリーニング</span></a>
+      <button class="drawer__toggle" type="button" aria-expanded="false"
+              aria-controls="dsub-aircon" aria-label="下層メニューの開閉" data-i18n-aria="drawer.sub">
+        <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M3 5.5 7 9.5 11 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
-    <a href="house.html"><small>HOUSE</small><span data-i18n="nav.house">ハウスクリーニング</span></a>
-    <div class="drawer__sub">
-      <a href="house.html#bath" data-i18n="nav.hcBath">浴室</a>
-      <a href="house.html#kitchen" data-i18n="nav.hcKitchen">キッチン</a>
-      <a href="house.html#hood" data-i18n="nav.hcHood">レンジフード</a>
-      <a href="house.html#toilet" data-i18n="nav.hcToilet">トイレ</a>
-      <a href="house.html#washbasin" data-i18n="nav.hcWash">洗面所</a>
+    <div class="drawer__sub" id="dsub-aircon">
+        <a href="aircon.html#residential" data-i18n="nav.acHome">家庭用エアコン</a>
+        <a href="aircon.html#selfclean" data-i18n="nav.acSelf">お掃除機能付き</a>
+        <a href="aircon.html#commercial" data-i18n="nav.acBiz">業務用エアコン</a>
+        <a href="aircon.html#outdoor" data-i18n="nav.acOut">室外機</a>
     </div>
-    <a href="vacancy.html" aria-current="page"><small>VACANCY</small><span data-i18n="nav.vacancy">空室清掃</span></a>
-    <div class="drawer__sub">
-      <a href="vacancy.html#r1r" data-i18n="nav.vc1r">1R</a>
-      <a href="vacancy.html#r1ldk" data-i18n="nav.vc1ldk">1LDK</a>
-      <a href="vacancy.html#r2ldk" data-i18n="nav.vc2ldk">2LDK</a>
-      <a href="vacancy.html#r3ldk" data-i18n="nav.vc3ldk">3LDK</a>
+    <div class="drawer__row">
+      <a href="house.html"><small>HOUSE</small><span data-i18n="nav.house">ハウスクリーニング</span></a>
+      <button class="drawer__toggle" type="button" aria-expanded="false"
+              aria-controls="dsub-house" aria-label="下層メニューの開閉" data-i18n-aria="drawer.sub">
+        <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M3 5.5 7 9.5 11 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="drawer__sub" id="dsub-house">
+        <a href="house.html#bath" data-i18n="nav.hcBath">浴室</a>
+        <a href="house.html#kitchen" data-i18n="nav.hcKitchen">キッチン</a>
+        <a href="house.html#hood" data-i18n="nav.hcHood">レンジフード</a>
+        <a href="house.html#toilet" data-i18n="nav.hcToilet">トイレ</a>
+        <a href="house.html#washbasin" data-i18n="nav.hcWash">洗面所</a>
+    </div>
+    <div class="drawer__row">
+      <a href="vacancy.html" aria-current="page"><small>VACANCY</small><span data-i18n="nav.vacancy">空室清掃</span></a>
+      <button class="drawer__toggle" type="button" aria-expanded="true"
+              aria-controls="dsub-vacancy" aria-label="下層メニューの開閉" data-i18n-aria="drawer.sub">
+        <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M3 5.5 7 9.5 11 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="drawer__sub is-open" id="dsub-vacancy">
+        <a href="vacancy.html#r1r" data-i18n="nav.vc1r">1R</a>
+        <a href="vacancy.html#r1ldk" data-i18n="nav.vc1ldk">1LDK</a>
+        <a href="vacancy.html#r2ldk" data-i18n="nav.vc2ldk">2LDK</a>
+        <a href="vacancy.html#r3ldk" data-i18n="nav.vc3ldk">3LDK</a>
     </div>
     <a href="area.html"><small>AREA</small><span data-i18n="nav.area">対応エリア</span></a>
     <a href="works.html"><small>WORKS</small><span data-i18n="nav.works">施工事例</span></a>

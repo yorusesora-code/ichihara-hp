@@ -33,6 +33,7 @@ window.I18N = {
   'drawer.addrLabel':{ ja: '所在地', en: 'Address' },
   'drawer.addr':     { ja: '〒534-0025 大阪府大阪市都島区片町1丁目8-20 ヴィストゥール大阪城北', en: 'Vistoul Osaka Johoku, 1-8-20 Katamachi, Miyakojima-ku, Osaka 534-0025, Japan' },
   'drawer.close':    { ja: '閉じる', en: 'Close' },
+  'drawer.sub':      { ja: '下層メニューの開閉', en: 'Toggle sub menu' },
 
   'cta.small':       { ja: '受付 9:00〜18:00', en: 'Open 9:00–18:00' },
   'cta.smallFull':   { ja: '受付 9:00〜18:00（祝日は翌営業日）', en: '9:00–18:00 (holidays: next business day)' },
@@ -547,6 +548,27 @@ window.I18N = {
   'ar.subHead':      { ja: 'サブ活動エリア', en: 'Secondary areas' },
   'ar.subBody':      { ja: '京都府／滋賀県／兵庫県／奈良県へもお伺いしています。地域によっては、別途交通費が発生する場合がございます。', en: 'We also travel to Kyoto, Shiga, Hyogo and Nara. A travel surcharge may apply depending on the area.' },
   'ar.askNote':      { ja: '記載のない地域も、まずはお電話でご相談ください。日程と内容によってはお伺いできる場合がございます。', en: 'If your area is not listed, please call us anyway. Depending on the date and the job we may still be able to come.' },
+
+  /* ===== 対応エリアマップ ===== */
+  'ar.mapHead':      { ja: '対応エリアマップ', en: 'Service area map' },
+  'ar.mapJapan':     { ja: '日本全図', en: 'Japan' },
+  'ar.mapKinki':     { ja: '近畿地方（拡大）', en: 'Kansai region (zoomed)' },
+  'ar.mapAlt':       { ja: '大阪府をメイン活動エリア、京都府・滋賀県・兵庫県・奈良県をサブ活動エリアとする対応エリアの地図', en: 'A map of Japan showing Osaka Prefecture as the main service area and Kyoto, Shiga, Hyogo and Nara as secondary areas.' },
+  'ar.mapKinkiAlt':  { ja: '近畿地方の拡大図。大阪府がメイン活動エリア、京都府・滋賀県・兵庫県・奈良県がサブ活動エリアです', en: 'A zoomed map of the Kansai region. Osaka is the main service area; Kyoto, Shiga, Hyogo and Nara are secondary areas.' },
+  'ar.legendMain':   { ja: 'メイン活動エリア（大阪府）', en: 'Main service area (Osaka)' },
+  'ar.legendSub':    { ja: 'サブ活動エリア（京都・滋賀・兵庫・奈良）', en: 'Secondary areas (Kyoto, Shiga, Hyogo, Nara)' },
+  'ar.legendNone':   { ja: '上記以外の地域', en: 'Outside the areas above' },
+  'ar.mapNote':      { ja: '※地図は対応エリアの目安です。市区町村単位の対応可否は、お電話にてお問い合わせください。', en: 'The map is a guide only. Please call us to check whether we cover a particular city or ward.' },
+  'ar.mapSource':    { ja: '地図データ：国土数値情報（国土交通省）をもとに作成', en: 'Map data: created from the National Land Numerical Information (MLIT, Japan).' },
+
+  'pref.osaka':      { ja: '大阪府',   en: 'Osaka' },
+  'pref.kyoto':      { ja: '京都府',   en: 'Kyoto' },
+  'pref.shiga':      { ja: '滋賀県',   en: 'Shiga' },
+  'pref.hyogo':      { ja: '兵庫県',   en: 'Hyogo' },
+  'pref.nara':       { ja: '奈良県',   en: 'Nara' },
+  'pref.wakayama':   { ja: '和歌山県', en: 'Wakayama' },
+  'pref.mie':        { ja: '三重県',   en: 'Mie' },
+  'pref.okinawa':    { ja: '沖縄県',   en: 'Okinawa' },
 
   /* ===== 施工事例 ページ ===== */
   'wk.title':        { ja: '施工事例｜市原建設（大阪のエアコンクリーニング）', en: 'Case Studies | Ichihara Kensetsu' },

@@ -69,18 +69,11 @@ const CARET =
   '<path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" stroke-width="2" ' +
   'stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-const LOGO_SVG =
-  '<svg viewBox="0 0 40 40" width="40" height="40"><defs><linearGradient id="ihgold" x1="0" y1="0" x2="1" y2="1">' +
-  '<stop offset="0" stop-color="#f2dda6"/><stop offset=".45" stop-color="#c9a13f"/>' +
-  '<stop offset=".75" stop-color="#e6cd88"/><stop offset="1" stop-color="#b8912f"/></linearGradient></defs>' +
-  '<path d="M28.6 7.3A15 15 0 1 1 11.1 31.9" fill="none" stroke="url(#ihgold)" stroke-width="2.1" stroke-linecap="round"/>' +
-  '<path d="M33.7 12.6a15 15 0 0 1 .9 3.4" fill="none" stroke="url(#ihgold)" stroke-width="2.1" stroke-linecap="round"/>' +
-  '<path d="M30.4 5.6 24 13.2" fill="none" stroke="url(#ihgold)" stroke-width="1.7" stroke-linecap="round" opacity=".9"/>' +
-  '<g stroke="url(#ihgold)" stroke-width="1.8" stroke-linecap="round" fill="none">' +
-  '<path d="M11.8 14.2h4.6M11.8 26.4h4.6M14.1 14.2v12.2"/>' +
-  '<path d="M20.4 14.2h4.4M20.4 26.4h4.4M22.6 14.2v12.2"/>' +
-  '<path d="M27.2 14.2h4.4M27.2 26.4h4.4M29.4 14.2v12.2"/>' +
-  '<path d="M22.6 20.3h6.8"/></g></svg>';
+/* ヘッダーは紺色の背景なので、黒い部分を白くした logo-light.webp を使っています。
+   元の色のロゴは assets/img/logo.webp（明るい背景用）です。 */
+const LOGO_IMG =
+  '<img class="brand__logo" src="assets/img/logo-light.webp" alt="" ' +
+  'width="256" height="228" decoding="async">';
 
 const PHONE_SVG = function (size) {
   return '<svg viewBox="0 0 24 24" width="' + size + '" height="' + size + '" aria-hidden="true">' +
@@ -119,7 +112,7 @@ function header(page) {
     '  <div class="header__inner">',
     '    <a class="brand" href="index.html">',
     '      <span class="brand__mark" aria-hidden="true">',
-    '        ' + LOGO_SVG,
+    '        ' + LOGO_IMG,
     '      </span>',
     '      <span class="brand__text">',
     '        <b data-i18n="brand.name">市原建設</b>',
@@ -152,13 +145,28 @@ function header(page) {
 /* ------------------------------------------------------------ ドロワー */
 function drawer(page) {
   const tree = NAV.map(function (n) {
-    const link = '    <a href="' + n.href + '"' + cur(n.href, page) + '><small>' + n.en +
+    const link = '<a href="' + n.href + '"' + cur(n.href, page) + '><small>' + n.en +
       '</small><span data-i18n="' + n.key + '">' + n.ja + '</span></a>';
-    if (!n.children) return link;
+    if (!n.children) return '    ' + link;
+
+    // 子メニューは開閉式。いま見ているページのグループだけ、最初から開いておく
+    const id = 'dsub-' + n.href.replace(/\.html$/, '');
+    const open = (n.href === page) || n.children.some(function (c) { return c.href.split('#')[0] === page; });
     const subs = n.children.map(function (c) {
-      return '      <a href="' + c.href + '" data-i18n="' + c.key + '">' + c.ja + '</a>';
+      return '        <a href="' + c.href + '" data-i18n="' + c.key + '">' + c.ja + '</a>';
     }).join('\n');
-    return link + '\n    <div class="drawer__sub">\n' + subs + '\n    </div>';
+    return [
+      '    <div class="drawer__row">',
+      '      ' + link,
+      '      <button class="drawer__toggle" type="button" aria-expanded="' + (open ? 'true' : 'false') + '"',
+      '              aria-controls="' + id + '" aria-label="下層メニューの開閉" data-i18n-aria="drawer.sub">',
+      '        <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M3 5.5 7 9.5 11 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '      </button>',
+      '    </div>',
+      '    <div class="drawer__sub' + (open ? ' is-open' : '') + '" id="' + id + '">',
+      subs,
+      '    </div>'
+    ].join('\n');
   }).join('\n');
 
   const more = SUBNAV.map(function (n) {

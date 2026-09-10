@@ -467,6 +467,18 @@
       setOpen(!drawer.classList.contains('is-open'));
     });
     if (overlay) overlay.addEventListener('click', function () { setOpen(false); burger.focus(); });
+    // 子メニューの開閉ボタン
+    drawer.addEventListener('click', function (e) {
+      var btn = e.target.closest && e.target.closest('.drawer__toggle');
+      if (!btn) return;
+      var sub = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!sub) return;
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      sub.classList.toggle('is-open', !isOpen);
+      e.stopImmediatePropagation();
+    });
+
     drawer.addEventListener('click', function (e) {
       var el = e.target;
       if (!el || !el.closest) return;
