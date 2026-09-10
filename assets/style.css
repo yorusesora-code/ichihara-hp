@@ -19,7 +19,7 @@
   --radius:16px;
   --shadow:0 10px 30px rgba(11,61,114,.08);
   --shadow-lg:0 18px 50px rgba(11,61,114,.14);
-  --header-h:74px;
+  --header-h:100px;
   --font:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
   --font-en:"Barlow","Zen Kaku Gothic New",sans-serif;
 }
@@ -62,18 +62,66 @@ table{border-collapse:collapse;width:100%}
 }
 .brand__text small{display:block;font-size:10px;opacity:.72;letter-spacing:.14em;line-height:1.3;margin-top:1px}
 
-/* グローバルナビ：常時表示（狭い画面ではヘッダー2段目に回り込む） */
-.nav{display:flex;gap:2px;margin-left:auto;font-size:13.5px;font-weight:500;order:2}
-.nav a{padding:8px 10px;border-radius:8px;transition:background .2s,color .2s;white-space:nowrap}
+/* グローバルナビ：常にヘッダーの2段目に置く（1段目＝ロゴ・電話番号） */
+.nav{
+  order:3;flex:0 0 100%;height:44px;
+  display:flex;align-items:center;gap:2px;margin-left:0;
+  font-size:13.5px;font-weight:500;
+  overflow-x:auto;overflow-y:hidden;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  border-top:1px solid rgba(255,255,255,.16);
+}
+.nav::-webkit-scrollbar{display:none}
+.nav a{padding:6px 10px;border-radius:8px;transition:background .2s,color .2s;white-space:nowrap;flex-shrink:0}
 .nav a:hover{background:rgba(255,255,255,.14)}
-.header__side{order:3}
+/* 子メニューを持つ項目 */
+.nav__group{position:relative;display:flex;align-items:center;flex-shrink:0}
+.nav__group > a{display:flex;align-items:center;gap:5px}
+.nav__caret{display:none;width:8px;height:8px;flex-shrink:0;opacity:.75;transition:transform .22s}
+.nav__sub{display:none}
+.header__side{order:1;height:56px;gap:10px}
+.brand{height:56px}
 
 .header__tel{
   flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;
-  padding-left:18px;border-left:1px solid rgba(255,255,255,.22);
+  padding-left:0;border-left:0;
 }
-.header__tel-label{font-size:10.5px;opacity:.75;letter-spacing:.1em}
-.header__tel-num{font-family:var(--font-en);font-size:23px;font-weight:700;letter-spacing:.02em;line-height:1.15}
+.header__tel-label{display:none;font-size:10.5px;opacity:.75;letter-spacing:.1em}
+.header__tel-num{font-family:var(--font-en);font-size:20px;font-weight:700;letter-spacing:.02em;line-height:1.15}
+
+/* ---- 広い画面：ドロップダウンを有効にし、電話番号を大きく戻す ---- */
+@media (min-width:1240px){
+  .header__tel{padding-left:18px;border-left:1px solid rgba(255,255,255,.22)}
+  .header__tel-label{display:block}
+  .header__tel-num{font-size:23px}
+
+  /* ドロップダウンがヘッダーの外へはみ出せるように、横スクロールを解除する */
+  .nav{overflow:visible;font-size:13px}
+  .nav__caret{display:block}
+  .nav__sub{
+    display:block;position:absolute;top:100%;left:-6px;min-width:214px;
+    margin-top:1px;padding:8px;
+    background:#fff;color:var(--ink);border-radius:0 0 14px 14px;
+    box-shadow:0 18px 40px rgba(11,61,114,.24);
+    opacity:0;visibility:hidden;transform:translateY(-8px);
+    transition:opacity .22s ease,transform .22s ease,visibility 0s linear .22s;
+  }
+  .nav__group:hover > .nav__sub,
+  .nav__group:focus-within > .nav__sub{
+    opacity:1;visibility:visible;transform:translateY(0);
+    transition:opacity .22s ease,transform .22s ease,visibility 0s linear 0s;
+  }
+  .nav__group:hover > a > .nav__caret,
+  .nav__group:focus-within > a > .nav__caret{transform:rotate(180deg)}
+  .nav__sub a{
+    display:block;padding:9px 12px;border-radius:9px;
+    font-size:13.5px;font-weight:700;color:var(--ink);
+  }
+  .nav__sub a:hover,
+  .nav__sub a:focus-visible{background:var(--bg-tint);color:var(--navy)}
+  .nav__sub a[aria-current="page"]{background:var(--bg-tint);color:var(--navy)}
+  .nav__sub a::after{content:none}
+}
 
 /* ハンバーガーは全画面幅で常時表示（ドロワーメニューを開く） */
 .hamburger{display:block;width:44px;height:44px;border:0;background:transparent;cursor:pointer;padding:0;position:relative;flex-shrink:0}
@@ -299,27 +347,9 @@ table{border-collapse:collapse;width:100%}
 .fixed-tel{display:none}
 
 /* ============ レスポンシブ ============ */
-/* ---- 狭い画面：ヘッダーを2段（1段目=ロゴ等／2段目=ナビ）にする ---- */
+/* ヘッダー2段目のナビは、下線の位置だけ少し上げる */
 @media (max-width:1479px){
-  :root{--header-h:100px}
   .header__inner{gap:0 12px}
-  .brand{height:56px}
-  /* ロゴと同じ段に置きたいので、ナビより前の順番にする */
-  .header__side{order:1;height:56px;gap:10px}
-  .header__tel{padding-left:0;border-left:0}
-  .header__tel-label{display:none}
-  .header__tel-num{font-size:20px}
-
-  .nav{
-    order:3;flex:0 0 100%;height:44px;align-items:center;margin-left:0;
-    gap:2px;font-size:13.5px;
-    overflow-x:auto;overflow-y:hidden;scrollbar-width:none;
-    -webkit-overflow-scrolling:touch;
-    border-top:1px solid rgba(255,255,255,.16);
-  }
-  .nav::-webkit-scrollbar{display:none}
-  .nav a{padding:6px 10px;flex-shrink:0}
-  .nav a::after{bottom:1px;left:10px;right:10px}
 }
 
 @media (max-width:768px){
@@ -379,7 +409,7 @@ body.is-ready{opacity:1}
 /* 下線スライド（patterns 38）：ホバーで中央から伸び、現在地は出しっぱなし */
 .nav a{position:relative}
 .nav a::after{
-  content:"";position:absolute;left:10px;right:10px;bottom:3px;height:2px;
+  content:"";position:absolute;left:10px;right:10px;bottom:1px;height:2px;
   border-radius:2px;background:var(--cyan-l);
   transform:scaleX(0);transition:transform .22s cubic-bezier(.4,0,.2,1);
 }
@@ -1089,4 +1119,229 @@ a.svc:hover .svc__thumb img{transform:scale(1.06)}
   .job__apply{padding:18px 20px 22px}
   .flow--arrow{gap:28px}
   .flow--arrow li + li::before{top:-22px}
+}
+
+
+/* ============================================================
+   ヒーローの見出し差し替えにともなう調整
+   （「大阪のエアコンクリーニングなら市原建設」は文字数が多いので、
+     文字サイズを下げ、コピー全体の幅を広げています）
+   ============================================================ */
+.hero__kicker,.hero__headline,.hero__lead,.hero__tag,.hero__price,.hero--photo .hero__cta{max-width:720px}
+.hero__headline{font-size:clamp(27px,min(4.1vw,5.9vh),46px);line-height:1.2}
+
+/* 見出しの下の説明文（2行） */
+.hero__lead{
+  margin:clamp(10px,1.6vh,18px) 0 0;
+  font-weight:700;line-height:1.7;color:#12446f;
+  font-size:clamp(13px,min(1.45vw,2.1vh),18px);
+  text-shadow:0 1px 0 rgba(255,255,255,.9),0 0 12px rgba(255,255,255,.85);
+  animation:heroUp .62s cubic-bezier(.4,0,.2,1) both;animation-delay:.1s;
+}
+
+/* ============================================================
+   ページ内ジャンプ（各サービスページの見出し直下）
+   ============================================================ */
+.jumpnav{background:var(--bg-tint);border-bottom:1px solid var(--line)}
+.jumpnav__inner{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:16px 0}
+.jumpnav__label{
+  font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.16em;color:var(--cyan);margin:0 4px 0 0;
+}
+.jumpnav__list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.jumpnav__list a{
+  display:inline-block;padding:8px 15px;border-radius:999px;
+  background:#fff;border:1px solid var(--line);
+  font-size:13.5px;font-weight:700;color:var(--navy);
+  transition:background .2s,border-color .2s,transform .2s,box-shadow .2s;
+}
+.jumpnav__list a:hover,.jumpnav__list a:focus-visible{
+  background:var(--navy);border-color:var(--navy);color:#fff;
+  transform:translateY(-2px);box-shadow:0 6px 16px rgba(11,61,114,.18);
+}
+
+/* ============================================================
+   施工事例
+   ============================================================ */
+.case{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;margin-bottom:36px;
+}
+.case:last-child{margin-bottom:0}
+.case__head{
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;
+  padding:22px 30px;background:var(--navy);color:#fff;
+}
+.case__area{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;font-weight:700;letter-spacing:.06em;
+  background:rgba(255,255,255,.16);border-radius:999px;padding:5px 13px;
+}
+.case__area svg{width:13px;height:13px}
+.case__title{margin:0;font-size:clamp(17px,2.2vw,23px);font-weight:900;letter-spacing:.03em}
+.case__badge{
+  margin-left:auto;font-family:var(--font-en);font-size:10.5px;font-weight:700;
+  letter-spacing:.14em;color:var(--navy);background:#fdf3c8;
+  border-radius:999px;padding:5px 12px;
+}
+.case__body{padding:28px 30px 30px}
+.case__lead{margin:0 0 22px}
+.case__lead h3,.case__voice h3{
+  margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--cyan);
+}
+.case__quote{
+  margin:0;padding:16px 20px;background:var(--bg-tint);
+  border-left:4px solid var(--cyan);border-radius:0 12px 12px 0;
+  font-size:15px;line-height:1.85;
+}
+.case__spec{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:12px;overflow:hidden;margin:0 0 24px;
+}
+.case__spec > div{background:#fff;padding:14px 16px;min-width:0}
+.case__spec dt{
+  font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--cyan);margin:0 0 5px;
+}
+.case__spec dd{margin:0;font-size:14.5px;font-weight:700;line-height:1.6;word-break:break-word}
+.case__photos{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0 0 24px;
+}
+.case__photos figure{margin:0}
+.case__frame{
+  position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;
+  background:var(--bg-tint);border:1px solid var(--line);
+}
+.case__frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.case__photos figure:hover .case__frame img{transform:scale(1.06)}
+.case__frame--empty{
+  display:grid;place-items:center;border-style:dashed;border-width:2px;border-color:#c7d8e6;
+}
+.case__frame--empty span{
+  font-size:12px;font-weight:700;color:#7d95a8;text-align:center;padding:0 10px;line-height:1.6;
+}
+.case__photos figcaption{
+  margin-top:8px;font-size:12.5px;font-weight:700;color:var(--navy);text-align:center;
+}
+.case__step{
+  display:inline-block;font-family:var(--font-en);font-size:10.5px;
+  letter-spacing:.14em;color:var(--cyan);margin-right:5px;
+}
+.case__voice{margin:0}
+
+/* ============================================================
+   対応エリア
+   ============================================================ */
+.arealist{display:grid;gap:18px}
+.areabox{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:26px 30px;
+}
+.areabox h3{
+  margin:0 0 6px;font-size:17px;font-weight:900;letter-spacing:.04em;color:var(--navy);
+}
+.areabox__note{margin:0 0 14px;font-size:14px;color:var(--ink-2)}
+.areabox p:last-child{margin-bottom:0}
+.areabox__list{margin:0;font-size:14.5px;line-height:2}
+.areabox--sub{background:var(--bg-tint)}
+
+/* ============================================================
+   法人のお客様
+   ============================================================ */
+.bzcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.bzcard{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:28px 26px;
+  transition:transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s;
+}
+.bzcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.bzcard__icon{
+  width:52px;height:52px;display:grid;place-items:center;border-radius:14px;
+  background:var(--bg-tint);color:var(--cyan);margin-bottom:16px;
+}
+.bzcard__icon svg{width:28px;height:28px}
+.bzcard h3{margin:0 0 10px;font-size:17px;font-weight:900;letter-spacing:.02em;color:var(--navy)}
+.bzcard p{margin:0;font-size:14.5px;line-height:1.9;color:var(--ink-2)}
+.bztargets{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+  list-style:none;margin:0;padding:0;
+}
+.bztargets li{
+  position:relative;padding:15px 18px 15px 44px;background:#fff;
+  border:1px solid var(--line);border-radius:12px;font-weight:700;font-size:14.5px;
+}
+.bztargets li::before{
+  content:"";position:absolute;left:18px;top:50%;width:12px;height:7px;
+  border-left:2.5px solid var(--cyan);border-bottom:2.5px solid var(--cyan);
+  transform:translateY(-70%) rotate(-45deg);
+}
+
+/* ============================================================
+   ドロワー：子メニュー
+   ============================================================ */
+.drawer__sub{display:flex;flex-direction:column;background:var(--bg-tint)}
+.drawer__sub a{
+  padding:11px 24px 11px 40px;font-size:13.5px;font-weight:700;color:var(--ink-2);
+  border-bottom:1px solid var(--line);position:relative;
+}
+.drawer__sub a::after{
+  content:"";position:absolute;right:26px;top:50%;width:6px;height:6px;
+  border-right:2px solid #9ab6cc;border-bottom:2px solid #9ab6cc;
+  transform:translateY(-50%) rotate(-45deg);
+}
+.drawer__sub a::before{
+  content:"";position:absolute;left:26px;top:50%;width:7px;height:2px;border-radius:1px;background:#9ab6cc;
+}
+.drawer__sub a:hover{background:#e7f1f9;padding-left:46px}
+.drawer__sub a[aria-current="page"]{color:var(--cyan)}
+.drawer__nav--tree > a{border-bottom:1px solid var(--line)}
+
+/* ============================================================
+   フッターナビ（項目が増えたので折り返し前提のレイアウトに）
+   ============================================================ */
+.footer__nav{max-width:640px}
+
+@media (max-width:1000px){
+  .case__photos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bzcards{grid-template-columns:1fr}
+}
+
+@media (max-width:768px){
+  .hero__lead{font-size:13.5px}
+  .jumpnav__inner{padding:14px 0;gap:8px}
+  .jumpnav__label{flex:0 0 100%;margin-bottom:2px}
+  .jumpnav__list a{padding:7px 13px;font-size:12.5px}
+
+  .case__head{padding:18px 20px}
+  .case__badge{margin-left:0}
+  .case__body{padding:22px 20px 24px}
+  .case__spec{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case__quote{padding:14px 16px;font-size:14.5px}
+
+  .areabox{padding:22px 20px}
+  .bzcard{padding:22px 20px}
+  .bztargets{grid-template-columns:1fr}
+}
+
+@media (max-width:420px){
+  .case__spec{grid-template-columns:1fr}
+}
+
+/* ============================================================
+   サービス詳細ページ向けの追加パーツ
+   ============================================================ */
+.detail__price .yen{font-family:var(--font);font-size:.55em;font-weight:700;margin-left:2px}
+.detail .detail__sub{
+  margin:-10px 0 16px;font-size:13.5px;font-weight:700;color:var(--ink-2);
+}
+.detail .detail__sub .yen{font-family:var(--font);font-size:.85em;margin-left:1px}
+.detail .detail__more{margin:20px 0 0}
+.detail__thumb{margin:14px 0 0;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.detail__thumb img{width:100%;height:auto;display:block}
+
+/* ドロワーの「その他のページ」見出し */
+.drawer__navhead{
+  margin:0;padding:18px 24px 8px;
+  font-size:11.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-2);
+  background:#fff;border-bottom:1px solid var(--line);
 }

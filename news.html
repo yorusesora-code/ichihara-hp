@@ -24,6 +24,7 @@
 <body data-title="newsp.title" data-desc="newsp.desc">
 
 <!-- ============ ヘッダー（全ページ共通） ============ -->
+<!-- このブロックは tools/sync-parts.js が自動生成しています（手で書き換えないでください） -->
 <header class="header" id="header">
   <div class="header__inner">
     <a class="brand" href="index.html">
@@ -37,14 +38,42 @@
     </a>
 
     <nav class="nav" id="nav" aria-label="グローバルメニュー" data-i18n-aria="nav.aria">
-      <a href="index.html" data-i18n="nav.home">トップ</a>
-      <a href="service.html" data-i18n="nav.service">サービス内容</a>
-      <a href="price.html" data-i18n="nav.price">料金表</a>
-      <a href="news.html" aria-current="page" data-i18n="nav.news">お知らせ</a>
-      <a href="faq.html" data-i18n="nav.faq">よくある質問</a>
-      <a href="other.html" data-i18n="nav.other">その他サービス</a>
-      <a href="recruit.html" data-i18n="nav.recruit">採用情報</a>
-      <a href="company.html" data-i18n="nav.company">会社概要</a>
+      <a href="index.html"><span data-i18n="nav.home">トップ</span></a>
+      <span class="nav__group">
+        <a href="aircon.html"><span data-i18n="nav.aircon">エアコンクリーニング</span><svg class="nav__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <span class="nav__sub">
+          <a href="aircon.html#residential" data-i18n="nav.acHome">家庭用エアコン</a>
+          <a href="aircon.html#selfclean" data-i18n="nav.acSelf">お掃除機能付き</a>
+          <a href="aircon.html#commercial" data-i18n="nav.acBiz">業務用エアコン</a>
+          <a href="aircon.html#outdoor" data-i18n="nav.acOut">室外機</a>
+        </span>
+      </span>
+      <span class="nav__group">
+        <a href="house.html"><span data-i18n="nav.house">ハウスクリーニング</span><svg class="nav__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <span class="nav__sub">
+          <a href="house.html#bath" data-i18n="nav.hcBath">浴室</a>
+          <a href="house.html#kitchen" data-i18n="nav.hcKitchen">キッチン</a>
+          <a href="house.html#hood" data-i18n="nav.hcHood">レンジフード</a>
+          <a href="house.html#toilet" data-i18n="nav.hcToilet">トイレ</a>
+          <a href="house.html#washbasin" data-i18n="nav.hcWash">洗面所</a>
+        </span>
+      </span>
+      <span class="nav__group">
+        <a href="vacancy.html"><span data-i18n="nav.vacancy">空室清掃</span><svg class="nav__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <span class="nav__sub">
+          <a href="vacancy.html#r1r" data-i18n="nav.vc1r">1R</a>
+          <a href="vacancy.html#r1ldk" data-i18n="nav.vc1ldk">1LDK</a>
+          <a href="vacancy.html#r2ldk" data-i18n="nav.vc2ldk">2LDK</a>
+          <a href="vacancy.html#r3ldk" data-i18n="nav.vc3ldk">3LDK</a>
+        </span>
+      </span>
+      <a href="area.html"><span data-i18n="nav.area">対応エリア</span></a>
+      <a href="works.html"><span data-i18n="nav.works">施工事例</span></a>
+      <a href="faq.html"><span data-i18n="nav.faq">よくある質問</span></a>
+      <a href="business.html"><span data-i18n="nav.business">法人のお客様</span></a>
+      <a href="other.html"><span data-i18n="nav.other">その他サービス</span></a>
+      <a href="recruit.html"><span data-i18n="nav.recruit">採用情報</span></a>
+      <a href="company.html"><span data-i18n="nav.company">会社概要</span></a>
     </nav>
 
     <div class="header__side">
@@ -64,6 +93,7 @@
 </header>
 
 <!-- ============ ドロワーメニュー（全ページ共通） ============ -->
+<!-- このブロックは tools/sync-parts.js が自動生成しています（手で書き換えないでください） -->
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <aside class="drawer" id="drawer" aria-hidden="true" aria-label="メニュー" data-i18n-aria="drawer.title">
   <div class="drawer__head">
@@ -73,15 +103,42 @@
     </button>
   </div>
 
-  <nav class="drawer__nav">
+  <nav class="drawer__nav drawer__nav--tree">
     <a href="index.html"><small>HOME</small><span data-i18n="nav.home">トップ</span></a>
-    <a href="service.html"><small>SERVICE</small><span data-i18n="nav.service">サービス内容</span></a>
-    <a href="price.html"><small>PRICE</small><span data-i18n="nav.price">料金表</span></a>
-    <a href="news.html" aria-current="page"><small>NEWS</small><span data-i18n="nav.news">お知らせ</span></a>
-    <a href="faq.html"><small>FAQ</small><span data-i18n="nav.faq">よくあるご質問</span></a>
+    <a href="aircon.html"><small>AIRCON</small><span data-i18n="nav.aircon">エアコンクリーニング</span></a>
+    <div class="drawer__sub">
+      <a href="aircon.html#residential" data-i18n="nav.acHome">家庭用エアコン</a>
+      <a href="aircon.html#selfclean" data-i18n="nav.acSelf">お掃除機能付き</a>
+      <a href="aircon.html#commercial" data-i18n="nav.acBiz">業務用エアコン</a>
+      <a href="aircon.html#outdoor" data-i18n="nav.acOut">室外機</a>
+    </div>
+    <a href="house.html"><small>HOUSE</small><span data-i18n="nav.house">ハウスクリーニング</span></a>
+    <div class="drawer__sub">
+      <a href="house.html#bath" data-i18n="nav.hcBath">浴室</a>
+      <a href="house.html#kitchen" data-i18n="nav.hcKitchen">キッチン</a>
+      <a href="house.html#hood" data-i18n="nav.hcHood">レンジフード</a>
+      <a href="house.html#toilet" data-i18n="nav.hcToilet">トイレ</a>
+      <a href="house.html#washbasin" data-i18n="nav.hcWash">洗面所</a>
+    </div>
+    <a href="vacancy.html"><small>VACANCY</small><span data-i18n="nav.vacancy">空室清掃</span></a>
+    <div class="drawer__sub">
+      <a href="vacancy.html#r1r" data-i18n="nav.vc1r">1R</a>
+      <a href="vacancy.html#r1ldk" data-i18n="nav.vc1ldk">1LDK</a>
+      <a href="vacancy.html#r2ldk" data-i18n="nav.vc2ldk">2LDK</a>
+      <a href="vacancy.html#r3ldk" data-i18n="nav.vc3ldk">3LDK</a>
+    </div>
+    <a href="area.html"><small>AREA</small><span data-i18n="nav.area">対応エリア</span></a>
+    <a href="works.html"><small>WORKS</small><span data-i18n="nav.works">施工事例</span></a>
+    <a href="faq.html"><small>FAQ</small><span data-i18n="nav.faq">よくある質問</span></a>
+    <a href="business.html"><small>BUSINESS</small><span data-i18n="nav.business">法人のお客様</span></a>
     <a href="other.html"><small>OTHER</small><span data-i18n="nav.other">その他サービス</span></a>
     <a href="recruit.html"><small>RECRUIT</small><span data-i18n="nav.recruit">採用情報</span></a>
     <a href="company.html"><small>COMPANY</small><span data-i18n="nav.company">会社概要</span></a>
+
+    <p class="drawer__navhead" data-i18n="drawer.moreTitle">その他のページ</p>
+    <a href="service.html"><small>SERVICE</small><span data-i18n="nav.service">サービス一覧</span></a>
+    <a href="price.html"><small>PRICE</small><span data-i18n="nav.price">料金表</span></a>
+    <a href="news.html" aria-current="page"><small>NEWS</small><span data-i18n="nav.news">お知らせ</span></a>
   </nav>
 
   <div class="drawer__block">
@@ -163,6 +220,7 @@
 </main>
 
 <!-- ============ フッター（全ページ共通） ============ -->
+<!-- このブロックは tools/sync-parts.js が自動生成しています（手で書き換えないでください） -->
 <footer class="footer">
   <div class="container footer__inner">
     <div class="footer__brand">
@@ -172,13 +230,19 @@
     </div>
     <nav class="footer__nav">
       <a href="index.html" data-i18n="nav.home">トップ</a>
-      <a href="service.html" data-i18n="nav.service">サービス内容</a>
-      <a href="price.html" data-i18n="nav.price">料金表</a>
-      <a href="news.html" aria-current="page" data-i18n="nav.news">お知らせ</a>
+      <a href="aircon.html" data-i18n="nav.aircon">エアコンクリーニング</a>
+      <a href="house.html" data-i18n="nav.house">ハウスクリーニング</a>
+      <a href="vacancy.html" data-i18n="nav.vacancy">空室清掃</a>
+      <a href="area.html" data-i18n="nav.area">対応エリア</a>
+      <a href="works.html" data-i18n="nav.works">施工事例</a>
       <a href="faq.html" data-i18n="nav.faq">よくある質問</a>
+      <a href="business.html" data-i18n="nav.business">法人のお客様</a>
       <a href="other.html" data-i18n="nav.other">その他サービス</a>
       <a href="recruit.html" data-i18n="nav.recruit">採用情報</a>
       <a href="company.html" data-i18n="nav.company">会社概要</a>
+      <a href="service.html" data-i18n="nav.service">サービス一覧</a>
+      <a href="price.html" data-i18n="nav.price">料金表</a>
+      <a href="news.html" aria-current="page" data-i18n="nav.news">お知らせ</a>
     </nav>
   </div>
   <p class="copyright" data-i18n="footer.copy">&copy; 市原建設 All Rights Reserved.</p>

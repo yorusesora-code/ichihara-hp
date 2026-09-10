@@ -119,6 +119,7 @@
       renderPriceTables(priceRows);
       renderPriceSummary(priceRows);
       renderServicePrices(priceRows);
+      renderItemPrices(priceRows);
       renderMinPrice(priceRows);
       observeReveals();
     }
@@ -415,6 +416,30 @@
     });
   }
 
+  // 各サービスページの「9,000円」など、料金表の1行を指定して表示する
+  // 例: <span data-price-item="ノーマルエアコン"></span>
+  //     <span data-price-item="ノーマルエアコン" data-price-col="2"></span>  ← 2台目以降
+  function renderItemPrices(rows) {
+    var els = document.querySelectorAll("[data-price-item]");
+    if (!els.length || !rows.length) return;
+
+    var byMenu = {};
+    rows.forEach(function (o) {
+      var k = String(o["メニュー"] || "").trim();   // 検索キーは必ず日本語のメニュー名
+      if (k && !byMenu[k]) byMenu[k] = o;
+    });
+
+    Array.prototype.forEach.call(els, function (el) {
+      var o = byMenu[el.getAttribute("data-price-item")];
+      if (!o) return;
+      var key = (el.getAttribute("data-price-col") === "2") ? "料金2" : "料金";
+      var n = toNum(o[key]);
+      if (n != null) { el.innerHTML = yenHtml(n); return; }
+      var v = col(o, key);
+      el.textContent = v || t("common.quote");
+    });
+  }
+
   /* ============================================================
      UI
      ============================================================ */
@@ -559,7 +584,9 @@
 
     var needPrice = document.getElementById('priceArea') ||
                     document.getElementById('priceSummary') ||
-                    document.querySelector('[data-price-cat]');
+                    document.querySelector('[data-price-cat]') ||
+                    document.querySelector('[data-price-item]') ||
+                    document.querySelector('[data-price-min]');
     if (needPrice) {
       loadCSV(SH.pricesCsvUrl, SH.pricesFallback, window.BUILTIN_PRICES || '')
         .then(function (csv) {
@@ -569,6 +596,7 @@
           renderPriceTables(priceRows);
           renderPriceSummary(priceRows);
           renderServicePrices(priceRows);
+          renderItemPrices(priceRows);
           renderMinPrice(priceRows);
           observeReveals();
           jumpToHash();
