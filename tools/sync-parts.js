@@ -73,7 +73,7 @@ const CARET =
    元の色のロゴは assets/img/logo.webp（明るい背景用）です。 */
 const LOGO_IMG =
   '<img class="brand__logo" src="assets/img/logo-light.webp" alt="" ' +
-  'width="256" height="228" decoding="async">';
+  'width="128" height="114" decoding="async">';
 
 const PHONE_SVG = function (size) {
   return '<svg viewBox="0 0 24 24" width="' + size + '" height="' + size + '" aria-hidden="true">' +

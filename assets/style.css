@@ -55,7 +55,7 @@ table{border-collapse:collapse;width:100%}
 }
 .header__side{display:flex;align-items:center;gap:14px;flex-shrink:0;margin-left:auto}
 .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.brand__mark{display:grid;place-items:center;width:46px;height:42px;flex-shrink:0}
+.brand__mark{display:grid;place-items:center;width:48px;height:42px;flex-shrink:0}
 .brand__logo{width:100%;height:100%;object-fit:contain;display:block}
 .brand__text b{
   display:block;font-family:"Shippori Mincho B1","Yu Mincho","Hiragino Mincho ProN",serif;
