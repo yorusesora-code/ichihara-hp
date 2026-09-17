@@ -24,6 +24,7 @@ const SITE = (global.window.SITE_CONFIG.site || {}).url || '';
 if (!/^https?:\/\/.+\/$/.test(SITE)) {
   throw new Error('assets/config.js の site.url を「https://〜/」の形で設定してください');
 }
+const STRIP = (global.window.SITE_CONFIG.site || {}).stripHtmlExtension !== false;
 
 /* 表示の優先度。数字が大きいほど「このサイトの中で重要」という目安です */
 const PRIORITY = {
@@ -56,7 +57,7 @@ const files = require('./pages.js')(ROOT).sort(function (a, b) {
 });
 
 const body = files.map(function (f) {
-  const loc = SITE + (f === 'index.html' ? '' : f);
+  const loc = SITE + (f === 'index.html' ? '' : (STRIP ? f.replace(/\.html$/, '') : f));
   return [
     '  <url>',
     '    <loc>' + loc + '</loc>',

@@ -14,6 +14,11 @@ window.SITE_CONFIG = {
   site: {
     url: 'https://ichihara-hp.pages.dev/',
 
+    /* Cloudflare Pages は /aircon.html へのアクセスを /aircon へ転送します。
+       そのため canonical とサイトマップには「.htmlなし」のURLを載せます。
+       .html のまま配信するサーバーへ引っ越すときは false にしてください。 */
+    stripHtmlExtension: true,
+
     /* Googleサーチコンソールの所有者確認コード。
        Googleの「HTMLタグ」方式で表示される
            <meta name="google-site-verification" content="ここの文字列">

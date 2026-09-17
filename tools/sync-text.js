@@ -27,6 +27,7 @@ const DICT = global.window.I18N;
 
 require(path.join(ROOT, 'assets/config.js'));
 const SITE = (global.window.SITE_CONFIG.site || {}).url || '';
+const STRIP = (global.window.SITE_CONFIG.site || {}).stripHtmlExtension !== false;
 if (!/^https?:\/\/.+\/$/.test(SITE)) {
   throw new Error('assets/config.js の site.url を「https://〜/」の形で設定してください');
 }
@@ -101,7 +102,7 @@ function replaceHead(src, file) {
   const dk = b[0].match(/\sdata-desc="([^"]+)"/);
   const title = tk && DICT[tk[1]] ? attrSafe(DICT[tk[1]].ja) : null;
   const desc  = dk && DICT[dk[1]] ? attrSafe(DICT[dk[1]].ja) : null;
-  const pageUrl = SITE + (file === 'index.html' ? '' : file);
+  const pageUrl = SITE + (file === 'index.html' ? '' : (STRIP ? file.replace(/\.html$/, '') : file));
 
   function put(re, want) {
     src = src.replace(re, function (whole, a, cur, c) {
