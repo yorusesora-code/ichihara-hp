@@ -1,7 +1,8 @@
 /* ============================================================
    予備データ（ネットにもローカルCSVにも到達できないとき用）
    data/notices.csv・data/prices.csv と同じ内容です。
-   通常は編集不要です。CSVを変えたときだけ合わせてください。
+   直接編集せず、CSVを直したあとに次を実行してください。
+       node tools/build-fallback.js
    ============================================================ */
 window.BUILTIN_NOTICES = [
   '日付,カテゴリ,カテゴリ_en,タイトル,タイトル_en,本文,本文_en,公開',
@@ -14,6 +15,7 @@ window.BUILTIN_PRICES = [
   'カテゴリ,カテゴリ_en,対象,対象_en,メニュー,メニュー_en,料金,料金_en,料金2,備考,備考_en,公開',
   'エアコンクリーニング,Air conditioner cleaning,家庭用エアコン,Residential AC,ノーマルエアコン,Standard unit,9000,,8000,,,TRUE',
   'エアコンクリーニング,Air conditioner cleaning,家庭用エアコン,Residential AC,お掃除機能付きエアコン,Self-cleaning unit,15000,,14000,,,TRUE',
+  'エアコンクリーニング,Air conditioner cleaning,家庭用エアコン,Residential AC,窓用エアコン,Window unit,15000,,14000,,,TRUE',
   'エアコンクリーニング,Air conditioner cleaning,家庭用エアコン,Residential AC,特殊タイプ,Special type,21000,,20000,富士通製・三菱製のサイドファンタイプなど,e.g. Fujitsu / Mitsubishi side-fan types,TRUE',
   'エアコンクリーニング,Air conditioner cleaning,業務用エアコン,Commercial AC,2方向タイプ,2-way cassette,26000,,25000,,,TRUE',
   'エアコンクリーニング,Air conditioner cleaning,業務用エアコン,Commercial AC,4方向タイプ,4-way cassette,23000,,22000,,,TRUE',

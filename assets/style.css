@@ -1476,3 +1476,24 @@ a.svc:hover .svc__thumb img{transform:scale(1.06)}
   .jp__glowlayer{animation:none;opacity:.8}
   .jp__ping{display:none}
 }
+
+/* ============================================================
+   アクセス（Googleマップの埋め込み・company.html）
+   ============================================================ */
+.mapbox{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.mapbox__frame{position:relative;aspect-ratio:16/9;background:var(--bg-tint)}
+.mapbox__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.mapbox__foot{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  gap:14px 20px;padding:20px 26px;
+}
+.mapbox__addr{margin:0;font-size:14.5px;font-weight:700;line-height:1.85;color:var(--navy)}
+.mapbox__foot .more__link{margin:0}
+
+@media (max-width:768px){
+  .mapbox__frame{aspect-ratio:4/3}
+  .mapbox__foot{padding:16px 18px;flex-direction:column;align-items:flex-start}
+}

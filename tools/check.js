@@ -31,7 +31,7 @@ files.forEach(f => {
 files.forEach(f => {
   const s = fs.readFileSync(path.join(ROOT, f), 'utf8');
 
-  [...s.matchAll(/(?:data-i18n(?:-aria|-alt)?|data-title|data-desc|data-unit-key)="([^"]+)"/g)].forEach(m => {
+  [...s.matchAll(/(?:data-i18n(?:-aria|-alt|-title)?|data-title|data-desc|data-unit-key)="([^"]+)"/g)].forEach(m => {
     used.add(m[1]);
     if (!DICT[m[1]]) problems.push(f + ': 辞書にないキー → ' + m[1]);
   });

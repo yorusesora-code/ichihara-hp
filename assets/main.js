@@ -70,6 +70,12 @@
     });
 
     // 画像の代替テキスト
+    // title 属性（iframe の説明など）
+    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-title]'), function (el) {
+      var v = t(el.getAttribute('data-i18n-title'));
+      if (v !== '') el.setAttribute('title', stripTags(v));
+    });
+
     Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-alt]'), function (el) {
       var v = t(el.getAttribute('data-i18n-alt'));
       if (v !== '') el.setAttribute('alt', stripTags(v));
