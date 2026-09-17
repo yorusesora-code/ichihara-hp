@@ -238,7 +238,7 @@ function footer(page) {
     links,
     '    </nav>',
     '  </div>',
-    '  <p class="copyright" data-i18n="footer.copy">&copy; 市原建設 All Rights Reserved.</p>',
+    '  <p class="copyright" data-i18n="footer.copy">© 市原建設 All Rights Reserved.</p>',
     '</footer>'
   ].join('\n');
 }
@@ -263,7 +263,7 @@ function syncFile(file) {
   fs.writeFileSync(full, s, 'utf8');
 }
 
-const files = fs.readdirSync(ROOT).filter(function (f) { return /\.html$/.test(f); });
+const files = require('./pages.js')(ROOT);
 files.forEach(syncFile);
 console.log('共通パーツを更新しました：' + files.length + ' ページ');
 console.log(files.join(', '));

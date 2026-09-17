@@ -18,7 +18,7 @@ global.window = {};
 require(path.join(ROOT, 'assets/i18n.js'));
 const DICT = global.window.I18N;
 
-const files = fs.readdirSync(ROOT).filter(f => /\.html$/.test(f));
+const files = require('./pages.js')(ROOT);
 const used = new Set();
 const problems = [];
 

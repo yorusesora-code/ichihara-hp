@@ -51,7 +51,7 @@ function lastmod(file) {
   return fs.statSync(path.join(ROOT, file)).mtime.toISOString().slice(0, 10);
 }
 
-const files = fs.readdirSync(ROOT).filter(f => /\.html$/.test(f)).sort(function (a, b) {
+const files = require('./pages.js')(ROOT).sort(function (a, b) {
   return (+(PRIORITY[b] || 0.5)) - (+(PRIORITY[a] || 0.5)) || a.localeCompare(b);
 });
 

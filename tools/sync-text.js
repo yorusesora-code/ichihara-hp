@@ -164,7 +164,7 @@ function replaceVerify(src, file) {
 }
 
 let files = 0, edits = 0;
-fs.readdirSync(ROOT).filter(f => /\.html$/.test(f)).forEach(function (f) {
+require('./pages.js')(ROOT).forEach(function (f) {
   const full = path.join(ROOT, f);
   const before = fs.readFileSync(full, 'utf8');
   const a = replaceContent(before);

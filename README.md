@@ -62,11 +62,13 @@ ichihara-hp/
 ├─ service.html / price.html   / news.html
 ├─ robots.txt            … クローラー向けの案内（sitemapの場所を伝えています）
 ├─ sitemap.xml           … 全ページの一覧（tools/build-sitemap.js で作ります）
+├─ google042ace2de9b7076f.html  … ⚠ サーチコンソールの所有者確認ファイル（消さないでください）
 ├─ tools/
 │   ├─ sync-parts.js     ← ★ヘッダー・ドロワー・フッターを全ページに反映
 │   ├─ sync-text.js      ← ★i18n.js の文言をHTML側にも反映（title・description・canonicalも）
 │   ├─ build-sitemap.js  ← ★sitemap.xml と robots.txt を作り直す
 │   ├─ build-fallback.js … CSVから予備データ（fallback-data.js）を作り直す
+│   ├─ pages.js          … 「サイトのページ」の一覧（所有者確認ファイル等を除外）
 │   └─ check.js          … リンク切れ・文言キーの抜けを点検
 ├─ assets/
 │   ├─ style.css         … デザイン（全ページ共通）
@@ -1051,20 +1053,27 @@ Sitemap: https://ichihara-hp.pages.dev/sitemap.xml
 
 1. [Google Search Console](https://search.google.com/search-console) を開き、Googleアカウントでログイン
 2. プロパティの追加で **「URLプレフィックス」** を選び、`https://ichihara-hp.pages.dev/` を入力
-3. 確認方法が並ぶので、下の **A** か **B** を選びます
+3. 確認方法が並ぶので、下の **A**（設置済み）か **B** を選びます
 
 > **「ドメイン」プロパティは選べません。** DNSを触る必要があり、`.pages.dev` の
 > ドメインはCloudflareのものだからです。必ず「URLプレフィックス」を選んでください。
 
-### A. HTMLファイル方式（おすすめ）
+### A. HTMLファイル方式 ← ✅ この方式で設置済み
 
-1. Googleが `google〇〇〇〇〇〇.html` というファイルをダウンロードさせてくれます
-2. そのファイルを **リポジトリの直下**（`index.html` と同じ場所）に置きます
-3. commit して push すると、Cloudflareが自動で反映します
-4. `https://ichihara-hp.pages.dev/google〇〇〇〇〇〇.html` が開けることを確認してから、
-   Googleの画面で「確認」を押します
+リポジトリ直下に **`google042ace2de9b7076f.html`** を置いてあります。
 
-サイト本体のコードと切り離されているので、`tools/` のコマンドで消える心配がありません。
+```
+https://ichihara-hp.pages.dev/google042ace2de9b7076f.html
+```
+
+> ### ⚠ このファイルは絶対に消さないでください
+> 消すと所有者確認が取り消され、サーチコンソールのデータが見られなくなります。
+> `tools/` のコマンド（`sync-parts.js` など）は `tools/pages.js` を通して
+> 「サイトのページ」だけを対象にしているため、このファイルには一切触れません。
+> 手作業で整理するときだけご注意ください。
+
+別のGoogleアカウントで登録し直す場合は、新しい確認ファイルを同じ場所に置いてください
+（古いファイルは残したままで問題ありません）。
 
 ### B. HTMLタグ方式
 
