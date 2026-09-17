@@ -62,6 +62,7 @@ ichihara-hp/
 ├─ service.html / price.html   / news.html
 ├─ tools/
 │   ├─ sync-parts.js     ← ★ヘッダー・ドロワー・フッターを全ページに反映
+│   ├─ sync-text.js      ← ★i18n.js の文言をHTML側にも反映（title・descriptionも）
 │   ├─ build-fallback.js … CSVから予備データ（fallback-data.js）を作り直す
 │   └─ check.js          … リンク切れ・文言キーの抜けを点検
 ├─ assets/
@@ -197,8 +198,17 @@ HTMLの `data-i18n="キー名"` と、`assets/i18n.js` のキーが対応して�
 'nav.service':  { ja: 'サービス一覧', en: 'All services' },
 ```
 
-HTMLに書いてある日本語は、JavaScriptが無効な環境で表示される予備の文字です。
-`i18n.js` の `ja:` を直せば実際の表示は変わりますが、両方そろえておくと安全です。
+HTMLに書いてある日本語は、JavaScriptが無効な環境で表示される予備の文字であり、
+**検索エンジンが最初に読む文字**でもあります。`i18n.js` を直したあとは、次のコマンドで
+HTML側にも反映してください。
+
+```bash
+node tools/sync-text.js
+```
+
+`data-i18n` の中身、`alt` / `aria-label` / `title` 属性、そして各ページの
+`<title>` と `description`・OGP（`<body data-title=" " data-desc=" ">` で指定しているもの）を、
+まとめて `i18n.js` の内容にそろえます。
 
 
 ### ヘッダー・フッターの直し方（重要）
@@ -293,9 +303,9 @@ node tools/check.js
    洗濯機の分解洗浄を正式なメニューにする場合は、料金表シートへの追加をおすすめします
    （現在は料金表に項目がないため、写真だけが先行している状態です）。
 5. **OGP画像（SNSでシェアしたときの画像）**
-   `og:image` を `assets/img/ogp.jpg`（1200×630）に設定していますが、
+   `og:image` を `assets/img/osaka-aircon-cleaning-ichihara-kensetsu-ogp.jpg`（1200×630）に設定していますが、
    相対パスのままだと一部のSNSで表示されません。独自ドメインが決まったら
-   `https://例.com/assets/img/ogp.jpg` のような絶対URLに書き換えてください（14ファイル）。
+   `https://例.com/assets/img/osaka-aircon-cleaning-ichihara-kensetsu-ogp.jpg` のような絶対URLに書き換えてください（14ファイル）。
 
 ---
 
@@ -388,20 +398,20 @@ node tools/check.js
 
 | ファイル | 元ファイル | 使用箇所 |
 |---|---|---|
-| `assets/img/hero.webp` | ヒーロー写真文字なし.png | トップのヒーロー背景 |
-| `assets/img/ogp.jpg` | （ヒーロー写真から自動生成） | OGP画像 1200×630（SNSシェア用） |
-| `assets/img/aircon-02.webp` | エアコン2.jpg | 施工の様子ギャラリー |
-| `assets/img/aircon-01.webp` | エアコン.jpg | サービスカード（エアコン）／サービス詳細／ギャラリー／動画のポスター |
-| `assets/img/rangehood.webp` | 清掃4.jpg | サービスカード（ハウス）／サービス詳細／ギャラリー |
-| `assets/img/washroom.webp` | 清掃.jpg | 施工の様子ギャラリー |
-| `assets/img/vacant-room.webp` | 清掃2.jpg | サービスカード（空室清掃）／サービス詳細／ギャラリー |
-| `assets/img/washer.webp` | 清掃3.jpg | サービスカード（その他）／サービス詳細／ギャラリー |
-| `assets/img/aircon-03.webp` | エアコン3.jpg | 施工の様子ギャラリー／動画2のポスター |
-| `assets/img/stove.webp` | 清掃6.jpg | 施工の様子ギャラリー |
-| `assets/img/kitchen-sink.webp` | 清掃5.jpg | 施工の様子ギャラリー |
-| `assets/video/aircon-clean.mp4` | エアコン動画1.mp4 | トップ「施工の様子」動画1（自動再生） |
-| `assets/video/aircon-clean-02.mp4` | エアコン動画2 - Trim.mp4 | トップ「施工の様子」動画2（再生ボタンで読み込み） |
-| `assets/video/pressure-wash.mp4` | 洗浄動画 - Trim.mp4 | トップ「施工の様子」動画3（再生ボタンで読み込み） |
+| `assets/img/osaka-aircon-cleaning-ichihara-kensetsu.webp` | ヒーロー写真文字なし.png | トップのヒーロー背景 |
+| `assets/img/osaka-aircon-cleaning-ichihara-kensetsu-ogp.jpg` | （ヒーロー写真から自動生成） | OGP画像 1200×630（SNSシェア用） |
+| `assets/img/osaka-aircon-cleaning-parts.webp` | エアコン2.jpg | 施工の様子ギャラリー |
+| `assets/img/osaka-aircon-cleaning-disassembly.webp` | エアコン.jpg | サービスカード（エアコン）／サービス詳細／ギャラリー／動画のポスター |
+| `assets/img/osaka-house-cleaning-rangehood.webp` | 清掃4.jpg | サービスカード（ハウス）／サービス詳細／ギャラリー |
+| `assets/img/osaka-house-cleaning-washroom.webp` | 清掃.jpg | 施工の様子ギャラリー |
+| `assets/img/osaka-vacant-room-cleaning.webp` | 清掃2.jpg | サービスカード（空室清掃）／サービス詳細／ギャラリー |
+| `assets/img/osaka-washing-machine-cleaning.webp` | 清掃3.jpg | サービスカード（その他）／サービス詳細／ギャラリー |
+| `assets/img/osaka-aircon-cleaning-dirty-panel.webp` | エアコン3.jpg | 施工の様子ギャラリー／動画2のポスター |
+| `assets/img/osaka-house-cleaning-stove.webp` | 清掃6.jpg | 施工の様子ギャラリー |
+| `assets/img/osaka-house-cleaning-kitchen.webp` | 清掃5.jpg | 施工の様子ギャラリー |
+| `assets/video/osaka-aircon-cleaning-01.mp4` | エアコン動画1.mp4 | トップ「施工の様子」動画1（自動再生） |
+| `assets/video/osaka-aircon-cleaning-02.mp4` | エアコン動画2 - Trim.mp4 | トップ「施工の様子」動画2（再生ボタンで読み込み） |
+| `assets/video/osaka-aircon-pressure-wash.mp4` | 洗浄動画 - Trim.mp4 | トップ「施工の様子」動画3（再生ボタンで読み込み） |
 
 - ファイル名は日本語のままだとサーバーによって不具合が出ることがあるため、**英数字に変更してコピー**しています。元ファイルはそのまま残っています。
 - 動画は3本とも **720×1280（縦向き）**。7.1秒／8.9秒／14.2秒、合計7.9MBです。
@@ -465,6 +475,8 @@ node tools/check.js
 
 1. 14ファイルから `noindex` を削除
 2. OGP画像（`og:image`）を絶対URLに変更
+2.5 `index.html` `company.html` の構造化データに `"url": "https://（ドメイン）/"` を追記し、
+   `image` `logo` も絶対URLに変更
 3. Google Search Console に登録し、インデックス登録をリクエスト
 
 ---
@@ -479,7 +491,7 @@ node tools/check.js
 
 ## トップのヒーローについて
 
-**写真（`assets/img/hero.webp`）を背景に敷き、キャッチコピー・価格・サービスチップは
+**写真（`assets/img/osaka-aircon-cleaning-ichihara-kensetsu.webp`）を背景に敷き、キャッチコピー・価格・サービスチップは
 すべてHTMLとCSSで組んでいます。**（画像に文字を焼き込む方式はやめました）
 
 そのため次のようになっています。
@@ -544,8 +556,8 @@ SNSによってはWebPのサムネイルを表示できないためです。
 
 | ファイル | 用途 |
 |---|---|
-| `assets/img/logo-light.webp` | **ヘッダー左上**。紺色の背景に置くため、黒い部分を白く反転しています |
-| `assets/img/logo.webp` | 元の色（黒＋金）のロゴ。明るい背景に置きたいとき用 |
+| `assets/img/ichihara-kensetsu-logo-light.webp` | **ヘッダー左上**。紺色の背景に置くため、黒い部分を白く反転しています |
+| `assets/img/ichihara-kensetsu-logo.webp` | 元の色（黒＋金）のロゴ。明るい背景に置きたいとき用 |
 | `favicon.ico` | ブラウザのタブに出るアイコン（32px） |
 | `assets/img/favicon-192.png` | Android・ブックマーク用 |
 | `assets/img/apple-touch-icon.png` | iPhone・iPadのホーム画面用（透過が使えないので白地） |
@@ -586,7 +598,7 @@ SNSによってはWebPのサムネイルを表示できないためです。
 .page-hero{
   background:
     linear-gradient(150deg,rgba(11,61,114,.92) 0%,rgba(14,74,128,.90) 55%,rgba(19,106,152,.88) 100%),
-    url("img/hero.webp") center 42% / cover no-repeat;
+    url("img/osaka-aircon-cleaning-ichihara-kensetsu.webp") center 42% / cover no-repeat;
 }
 ```
 
@@ -895,3 +907,76 @@ node tools/build-fallback.js
 
 > スプレッドシート連携を設定したあとは、シート側が「正」になります。
 > CSVと予備データは、あくまで通信できなかったときの保険です。
+
+---
+
+## 検索対策（SEO）としてやってあること
+
+狙っている検索語は次の6つです。
+
+```
+大阪 店舗 エアコンクリーニング   大阪 業務用エアコン 清掃
+大阪 オフィス エアコン清掃      大阪 店舗 清掃
+大阪 空室清掃 業者             大阪 不動産 空室清掃
+```
+
+### 1. ページのタイトルと説明文
+
+検索結果に出る文字です。狙う語を前のほうに置いています。
+
+| ページ | タイトル |
+|---|---|
+| `business.html` | 大阪の店舗・オフィスのエアコン清掃｜法人のお客様｜市原建設 |
+| `vacancy.html` | 大阪の空室清掃｜1R〜3LDK・不動産管理会社さま歓迎｜市原建設 |
+| `aircon.html` | 大阪のエアコンクリーニング｜家庭用・業務用の分解洗浄｜市原建設 |
+
+直すときは `assets/i18n.js` の `bz.title` `bz.desc` などを編集し、
+`node tools/sync-text.js` を実行してください（HTML側にも自動で反映されます）。
+
+### 2. 本文への自然な差し込み
+
+`business.html` と `vacancy.html` の下のほうに
+**「大阪で◯◯をお探しの方へ」** という節を足しました（`id="osaka"`）。
+検索から来られた方に対応範囲を説明する文章で、狙っている語を無理なく含んでいます。
+
+文言は `assets/i18n.js` の `bz.seo*` `vc.seo*` です。
+**同じ語を何度も繰り返すのは逆効果**なので、増やすときは文章として読めるかを優先してください。
+
+### 3. 画像・動画のファイル名と alt
+
+ファイル名を内容と地域がわかるものに変えました。
+
+| 変更前 | 変更後 |
+|---|---|
+| `aircon-01.webp` | `osaka-aircon-cleaning-disassembly.webp` |
+| `rangehood.webp` | `osaka-house-cleaning-rangehood.webp` |
+| `vacant-room.webp` | `osaka-vacant-room-cleaning.webp` |
+| `aircon-clean.mp4` | `osaka-aircon-cleaning-01.mp4` |
+
+あわせて、画像の `alt`（読み上げソフトと検索エンジンが読む説明文）にも
+「大阪でのエアコンクリーニング：〜」のように地域を入れています。
+
+> 正直にお伝えすると、**ファイル名そのものの効果はごくわずか**です。
+> 効くのは `alt` と本文のほうなので、そちらを厚くしています。
+
+### 4. 構造化データ（検索エンジン向けの会社情報）
+
+`index.html` と `company.html` の `<head>` に、社名・住所・電話番号・受付時間・
+対応エリアを機械が読める形（JSON-LD）で書いています。画面には出ません。
+Googleがこれを読むと、検索結果に会社情報が出やすくなります。
+
+**住所や電話番号を変えたときは、ここも一緒に直してください。**
+
+### 5. これからやると効果が大きいもの（未実施）
+
+1. **Googleビジネスプロフィールの登録**（最優先）
+   地域＋サービスの検索では、地図つきの枠が上に出ます。ここに載るには登録が必須です。
+   無料で、「大阪 エアコンクリーニング」のような検索に対していちばん効きます。
+2. **Google Search Console への登録**
+   公開後にサイトを登録すると、インデックス登録をリクエストでき、
+   どんな語で見られているかも分かります。
+3. **施工事例を実際の内容に差し替える**
+   `works.html` はいま掲載見本です。実際の地域名（大阪市◯◯区）入りの事例が増えるほど、
+   地域名での検索に強くなります。**いちばん効果が見込めるのはここです。**
+4. **noindex の解除**（「⚠ 全体公開の前に必ず外すもの」を参照）
+   これが入っている間は、上の対策はすべて効きません。

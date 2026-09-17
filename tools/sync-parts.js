@@ -70,9 +70,9 @@ const CARET =
   'stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
 /* ヘッダーは紺色の背景なので、黒い部分を白くした logo-light.webp を使っています。
-   元の色のロゴは assets/img/logo.webp（明るい背景用）です。 */
+   元の色のロゴは assets/img/ichihara-kensetsu-logo.webp（明るい背景用）です。 */
 const LOGO_IMG =
-  '<img class="brand__logo" src="assets/img/logo-light.webp" alt="" ' +
+  '<img class="brand__logo" src="assets/img/ichihara-kensetsu-logo-light.webp" alt="" ' +
   'width="128" height="114" decoding="async">';
 
 const PHONE_SVG = function (size) {

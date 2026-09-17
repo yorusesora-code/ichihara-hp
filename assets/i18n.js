@@ -84,15 +84,15 @@ window.I18N = {
   'works.v2':        { ja: 'エアコンクリーニングの様子 2', en: 'AC cleaning, part 2' },
   'works.v3':        { ja: '洗浄の様子', en: 'Washing' },
 
-  'alt.aircon01':    { ja: 'エアコンのカバーを外して分解する作業の様子', en: 'Removing the cover to disassemble an air conditioner' },
-  'alt.aircon02':    { ja: '床を養生し、エアコンの部品を取り外したところ', en: 'Air conditioner parts removed, with the floor fully protected' },
-  'alt.rangehood':   { ja: 'クリーニング後のレンジフード', en: 'A range hood after cleaning' },
-  'alt.washroom':    { ja: 'クリーニング後の洗面所', en: 'A washroom after cleaning' },
-  'alt.vacantRoom':  { ja: '空室清掃後のお部屋', en: 'A room after vacant-room cleaning' },
-  'alt.washer':      { ja: 'ドラム式洗濯機を分解して洗浄する作業の様子', en: 'Disassembling a drum washing machine for cleaning' },
-  'alt.aircon03':    { ja: '取り外したエアコンのパネル。内部の汚れが見える状態', en: 'A removed air conditioner panel showing the dirt inside' },
-  'alt.stove':       { ja: 'クリーニング後のガスコンロ', en: 'A gas cooktop after cleaning' },
-  'alt.sink':        { ja: 'クリーニング後のキッチンのシンクと天板', en: 'A kitchen sink and worktop after cleaning' },
+  'alt.aircon01':    { ja: '大阪でのエアコンクリーニング：カバーを外して分解する作業の様子', en: 'Air conditioner cleaning in Osaka: removing the cover to disassemble the unit' },
+  'alt.aircon02':    { ja: '大阪でのエアコンクリーニング：床を養生し、部品を取り外したところ', en: 'Air conditioner cleaning in Osaka: parts removed with the floor fully protected' },
+  'alt.rangehood':   { ja: '大阪でのハウスクリーニング：洗浄後のレンジフード', en: 'House cleaning in Osaka: a range hood after cleaning' },
+  'alt.washroom':    { ja: '大阪でのハウスクリーニング：洗浄後の洗面所', en: 'House cleaning in Osaka: a washroom after cleaning' },
+  'alt.vacantRoom':  { ja: '大阪での空室清掃：清掃後のお部屋', en: 'Vacant-room cleaning in Osaka: a room after cleaning' },
+  'alt.washer':      { ja: '大阪での洗濯機クリーニング：ドラム式洗濯機を分解して洗浄する作業の様子', en: 'Washing machine cleaning in Osaka: disassembling a drum washer' },
+  'alt.aircon03':    { ja: '大阪でのエアコンクリーニング：取り外したパネル。内部の汚れが見える状態', en: 'Air conditioner cleaning in Osaka: a removed panel showing the dirt inside' },
+  'alt.stove':       { ja: '大阪でのハウスクリーニング：洗浄後のガスコンロ', en: 'House cleaning in Osaka: a gas cooktop after cleaning' },
+  'alt.sink':        { ja: '大阪でのハウスクリーニング：洗浄後のキッチンのシンクと天板', en: 'House cleaning in Osaka: a kitchen sink and worktop after cleaning' },
   'alt.groupChart':  { ja: 'ICHIHARAグループの構成図。市原建設（土木・建築事業）、エアコン事業、フードデリバリー事業、不動産事業の4事業', en: 'Organisation chart of the ICHIHARA Group: Ichihara Construction (civil engineering and building), air conditioning, food delivery and real estate' },
 
   /* ===== トップページ ===== */
@@ -478,8 +478,8 @@ window.I18N = {
   'hero.lead':       { ja: '家庭用・業務用エアコンの分解洗浄から、<br>ハウスクリーニング・空室清掃まで対応。', en: 'From full teardown cleaning of residential and commercial air conditioners<br>to house cleaning and vacant-room cleaning.' },
 
   /* ===== エアコンクリーニング ページ ===== */
-  'ac.title':        { ja: 'エアコンクリーニング｜市原建設（大阪）', en: 'Air Conditioner Cleaning | Ichihara Kensetsu (Osaka)' },
-  'ac.desc':         { ja: '家庭用・お掃除機能付き・業務用エアコンの分解洗浄と室外機洗浄。大阪府内を中心に9,000円〜で承ります。', en: 'Teardown cleaning for residential, self-cleaning and commercial air conditioners, plus outdoor units. From 9,000 yen, mainly across Osaka.' },
+  'ac.title':        { ja: '大阪のエアコンクリーニング｜家庭用・業務用の分解洗浄｜市原建設', en: 'Air Conditioner Cleaning in Osaka | Residential &amp; Commercial | Ichihara Kensetsu' },
+  'ac.desc':         { ja: '大阪のエアコンクリーニングなら市原建設。家庭用・お掃除機能付き・窓用・業務用エアコンの分解洗浄と室外機洗浄を9,000円〜で承ります。店舗・オフィスの業務用エアコン清掃も対応。', en: 'Air conditioner cleaning in Osaka from Ichihara Kensetsu. Teardown cleaning for residential, self-cleaning, window and commercial units, plus outdoor units, from 9,000 yen. Commercial units in shops and offices too.' },
   'ac.lead':         { ja: 'エアコン本体を分解し、部品と本体を高圧洗浄機で洗い上げます。表面を拭くだけでは届かない、風の通り道の奥のカビ・ホコリまで洗い流します。', en: 'We take the unit apart and pressure-wash the parts and the body, reaching the mould and dust deep in the airflow path that wiping cannot touch.' },
   'ac.h1':           { ja: '家庭用エアコン', en: 'Residential air conditioners' },
   'ac.b1':           { ja: '壁掛けタイプの家庭用エアコンを分解し、フィルター・ルーバー・送風ファン・熱交換器まで高圧洗浄します。風量が落ちてきた、運転時のにおいが気になる、といったタイミングでご相談ください。', en: 'We disassemble wall-mounted residential units and pressure-wash the filter, louvres, blower fan and heat exchanger. Get in touch when airflow drops or you notice an odour during operation.' },
@@ -493,7 +493,7 @@ window.I18N = {
   'ac.l2b':          { ja: '富士通製・三菱製のサイドファンタイプなどは特殊タイプ料金となります', en: 'Fujitsu and Mitsubishi side-fan types and similar are charged at the special-type rate.' },
   'ac.l2c':          { ja: 'シャープ製「エアリスト」のみ対応いたしかねます', en: 'We are unable to service the Sharp Airest only.' },
   'ac.h3':           { ja: '業務用エアコン', en: 'Commercial air conditioners' },
-  'ac.b3':           { ja: '店舗・オフィス・施設などの天井埋め込み型に対応しています。2方向タイプ・4方向タイプのほか、その他のタイプも現地確認のうえお見積りいたします。', en: 'We service ceiling-cassette units in shops, offices and facilities. Beyond 2-way and 4-way cassettes, other types are quoted after an on-site assessment.' },
+  'ac.b3':           { ja: '大阪府内の店舗・オフィス・施設の業務用エアコン清掃に対応しています。天井埋め込みの2方向タイプ・4方向タイプのほか、その他のタイプも現地確認のうえお見積りいたします。', en: 'We clean commercial air conditioners in shops, offices and facilities across Osaka. Beyond 2-way and 4-way ceiling cassettes, other types are quoted after an on-site assessment.' },
   'ac.l3a':          { ja: '天井埋め込み 2方向タイプ／4方向タイプ', en: 'Ceiling cassettes, 2-way and 4-way.' },
   'ac.l3b':          { ja: 'その他のタイプは都度お見積りいたします', en: 'Other types are quoted individually.' },
   'ac.l3c':          { ja: '複数台・複数店舗のご依頼もまとめて承ります', en: 'Multiple units and multiple sites can be handled together.' },
@@ -523,9 +523,9 @@ window.I18N = {
   'hc.note':         { ja: '※カビ汚れや汚れの酷い箇所、色の変色・油焼け・洗剤焼けは、取り切れない場合がございます。', en: 'Heavy mould, severe soiling, discolouration, heat-scorched grease and detergent burn may not come out completely.' },
 
   /* ===== 空室清掃 ページ ===== */
-  'vc.title':        { ja: '空室清掃｜市原建設（大阪）', en: 'Vacant-Room Cleaning | Ichihara Kensetsu (Osaka)' },
-  'vc.desc':         { ja: '1R・1LDK・2LDK・3LDKの空室清掃。15,000円〜、大阪府内を中心に対応します。', en: 'Vacant-room cleaning for 1R, 1LDK, 2LDK and 3LDK units. From 15,000 yen, mainly across Osaka.' },
-  'vc.lead':         { ja: 'リフォーム後のご入居前のお住まいや、賃貸の空き部屋の仕上げ清掃を承ります。1Rから3LDK、戸建てまで対応可能です。', en: 'Finishing cleans for homes before move-in after renovation, and for empty rental units. From studio flats to 3LDK apartments and detached houses.' },
+  'vc.title':        { ja: '大阪の空室清掃｜1R〜3LDK・不動産管理会社さま歓迎｜市原建設', en: 'Vacant-Room Cleaning in Osaka | 1R to 3LDK | Ichihara Kensetsu' },
+  'vc.desc':         { ja: '大阪の空室清掃業者をお探しなら市原建設。1R・1LDK・2LDK・3LDKの空室清掃を15,000円〜で承ります。不動産会社・管理会社さまからのご依頼にも対応。', en: 'Looking for vacant-room cleaning in Osaka? Ichihara Kensetsu cleans 1R, 1LDK, 2LDK and 3LDK units from 15,000 yen, including work for estate agents and property managers.' },
+  'vc.lead':         { ja: '大阪府内を中心に、リフォーム後のご入居前のお住まいや、賃貸の空き部屋の仕上げ清掃を承ります。1Rから3LDK、戸建てまで対応可能です。', en: 'Finishing cleans across Osaka for homes before move-in after renovation and for empty rental units. From studio flats to 3LDK apartments and detached houses.' },
   'vc.h1':           { ja: '1R', en: '1R (studio)' },
   'vc.b1':           { ja: 'ワンルーム・1Kなど、単身向けのお部屋です。水まわりから床・建具まで、そのままお引き渡しできる状態に仕上げます。', en: 'Studio and 1K layouts for single occupants. From the wet areas to floors and fittings, finished ready to hand over.' },
   'vc.h2':           { ja: '1LDK', en: '1LDK' },
@@ -627,16 +627,16 @@ window.I18N = {
   'wk.c3voice':      { ja: '「ファンが新品みたいになって驚きました。換気の音も静かになった気がします」', en: 'The fan came back looking new. Even the extractor sounds quieter.' },
 
   /* ===== 法人のお客様 ページ ===== */
-  'bz.title':        { ja: '法人のお客様はこちら｜市原建設（大阪）', en: 'For Business Customers | Ichihara Kensetsu (Osaka)' },
-  'bz.desc':         { ja: '店舗・オフィス・施設のエアコン清掃、空室清掃、定期清掃まで対応します。大阪府内を中心に承ります。', en: 'Air conditioner cleaning, vacant-room cleaning and scheduled cleaning for shops, offices and facilities, mainly across Osaka.' },
-  'bz.head':         { ja: '法人・店舗向け清掃', en: 'Cleaning for businesses and retail' },
-  'bz.lead':         { ja: '店舗・オフィス・施設のエアコン清掃、空室清掃、定期清掃まで対応します。', en: 'Air conditioner cleaning, vacant-room cleaning and scheduled cleaning for shops, offices and facilities.' },
+  'bz.title':        { ja: '大阪の店舗・オフィスのエアコン清掃｜法人のお客様｜市原建設', en: 'Cleaning for Shops and Offices in Osaka | For Businesses | Ichihara Kensetsu' },
+  'bz.desc':         { ja: '大阪で店舗のエアコンクリーニング・オフィスのエアコン清掃・空室清掃をお探しの法人さまへ。業務用エアコンの分解洗浄から定期清掃まで、市原建設が承ります。', en: 'For businesses in Osaka looking for air conditioner cleaning in shops and offices, or vacant-room cleaning. Ichihara Kensetsu handles everything from teardown cleaning of commercial units to scheduled cleaning.' },
+  'bz.head':         { ja: '大阪の法人・店舗向け清掃', en: 'Cleaning for businesses and retail in Osaka' },
+  'bz.lead':         { ja: '大阪府内を中心に、店舗・オフィス・施設のエアコン清掃、空室清掃、定期清掃まで対応します。', en: 'Air conditioner cleaning, vacant-room cleaning and scheduled cleaning for shops, offices and facilities across Osaka.' },
   'bz.s1h':          { ja: '店舗・オフィスのエアコン清掃', en: 'Air conditioner cleaning for shops and offices' },
-  'bz.s1b':          { ja: '天井埋め込みの業務用エアコン（2方向・4方向タイプ）に対応します。複数台・複数拠点のご依頼もまとめて承ります。', en: 'We service ceiling-cassette commercial units, both 2-way and 4-way. Multiple units and multiple sites can be handled together.' },
+  'bz.s1b':          { ja: '大阪府内の店舗・オフィスの業務用エアコン清掃を承ります。天井埋め込みの2方向・4方向タイプに対応し、複数台・複数拠点のご依頼もまとめてお引き受けします。', en: 'We clean commercial air conditioners in shops and offices across Osaka, covering 2-way and 4-way ceiling cassettes, and can take on multiple units and multiple sites together.' },
   'bz.s2h':          { ja: '空室清掃・原状回復後の仕上げ', en: 'Vacant-room cleaning and post-restoration finishing' },
-  'bz.s2b':          { ja: '賃貸物件の空室清掃を承ります。1Rから3LDK、戸建てまで対応可能です。管理戸数の多い物件もご相談ください。', en: 'Vacant-room cleaning for rental properties, from studio flats to 3LDK units and detached houses. Talk to us about larger portfolios too.' },
+  'bz.s2b':          { ja: '大阪の賃貸物件の空室清掃を承ります。1Rから3LDK、戸建てまで対応可能です。不動産会社・管理会社さまからのご依頼、管理戸数の多い物件もご相談ください。', en: 'Vacant-room cleaning for rental properties in Osaka, from studio flats to 3LDK units and detached houses. We work with estate agents and property managers, including larger portfolios.' },
   'bz.s3h':          { ja: '定期清掃', en: 'Scheduled cleaning' },
-  'bz.s3b':          { ja: '店舗・事務所の定期的な清掃にも対応します。ご希望の頻度と作業範囲をお伺いし、内容をご提案いたします。', en: 'Regular cleaning for shops and offices. Tell us the frequency and scope you want and we will put together a plan.' },
+  'bz.s3b':          { ja: '大阪府内の店舗・事務所の定期清掃にも対応します。ご希望の頻度と作業範囲をお伺いし、内容をご提案いたします。', en: 'Scheduled cleaning for shops and offices across Osaka. Tell us the frequency and scope you want and we will put together a plan.' },
   'bz.targetHead':   { ja: '主な対応先', en: 'Who we work with' },
   'bz.t1':           { ja: '飲食店・美容室・クリニックなどの店舗', en: 'Restaurants, salons, clinics and other retail premises' },
   'bz.t2':           { ja: 'オフィス・事務所', en: 'Offices' },
@@ -652,6 +652,17 @@ window.I18N = {
   'bz.f4t':          { ja: '施工・お支払い', en: 'The job and payment' },
   'bz.f4b':          { ja: '養生のうえ作業し、完了後に仕上がりをご確認いただきます。お支払いは作業後、現地にて現金でお願いしております。', en: 'We protect the area, carry out the work and walk you through the result. Payment is in cash on site once the job is done.' },
   'bz.payNote':      { ja: '※請求書払い・クレジット決済は今後導入を検討しております。現時点では現金でのお支払いのみとなります。', en: 'Invoicing and card payment are under consideration. At present we can only accept cash.' },
+
+  /* ===== 検索から来られた方向けの案内 ===== */
+  'bz.seoHead':      { ja: '大阪で店舗・オフィスの清掃業者をお探しの方へ', en: 'Looking for a cleaning contractor for your shop or office in Osaka?' },
+  'bz.seoP1':        { ja: '大阪の店舗のエアコンクリーニング、オフィスのエアコン清掃、業務用エアコンの分解洗浄を承っています。飲食店の厨房まわりのように油を含んだ汚れが付きやすい環境にも対応しますので、風量の低下やにおいが気になり始めたらご相談ください。', en: 'We handle air conditioner cleaning for shops and offices in Osaka, including full teardown cleaning of commercial units. We are used to greasy environments such as restaurant kitchens, so get in touch when airflow drops or odours appear.' },
+  'bz.seoP2':        { ja: '作業は営業時間外や休業日にも調整できます。大阪府内であれば即日対応が可能な場合もございますので、まずはお電話でご希望の日時をお聞かせください。', en: 'Work can be scheduled outside opening hours or on closed days. Same-day service is sometimes possible within Osaka, so call us with the timing you need.' },
+  'bz.seoP3':        { ja: '不動産会社・管理会社さまからの空室清掃のご依頼も承っています。大阪の空室清掃業者をお探しでしたら、管理戸数やご希望の納期をお伝えください。', en: 'We also take vacant-room cleaning from estate agents and property managers. If you are looking for a vacant-room cleaning contractor in Osaka, tell us the number of units and the deadline you need.' },
+
+  'vc.seoHead':      { ja: '大阪で空室清掃の業者をお探しの不動産会社さまへ', en: 'For estate agents in Osaka looking for a vacant-room cleaning contractor' },
+  'vc.seoP1':        { ja: '大阪府内の賃貸マンション・アパートの空室清掃を承っています。原状回復のあとの仕上げ清掃として、キッチン・浴室・洗面所・トイレの水まわりから居室までまとめて対応いたします。', en: 'We clean vacant flats and apartments across Osaka. As the finishing clean after restoration work, we cover the kitchen, bathroom, washbasin and toilet along with the rooms themselves.' },
+  'vc.seoP2':        { ja: '複数戸をまとめてのご依頼や、入居募集の期日が決まっているご依頼もご相談ください。大阪府内であれば即日対応が可能な場合もございます。', en: 'Talk to us about several units at once, or about jobs with a fixed deadline for putting the property back on the market. Same-day service is sometimes possible within Osaka.' },
+  'vc.seoLink':      { ja: '法人のお客様はこちら', en: 'For business customers' },
 
   /* ===== 共通の追加リンク ===== */
   'other.aircon':    { ja: 'エアコンクリーニング', en: 'Air conditioner cleaning' },

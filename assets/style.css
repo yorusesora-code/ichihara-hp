@@ -235,7 +235,12 @@ table{border-collapse:collapse;width:100%}
 .price__table{min-width:520px;font-size:15px}
 .price__table th,.price__table td{padding:14px 18px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
 .price__table thead th{background:var(--navy);color:#fff;font-size:13px;font-weight:700;letter-spacing:.08em;white-space:nowrap}
-.price__table thead th.num{text-align:right}
+/* 見出し行の「1台目 / 2台目以降」は、下の .num（紺色・大きめ）に負けて
+   紺色の背景に紺色の文字になってしまうので、ここで見出し用に戻しています */
+.price__table thead th.num{
+  text-align:right;color:#fff;
+  font-family:var(--font);font-size:13px;font-weight:700;letter-spacing:.08em;
+}
 .price__table tbody tr:last-child th,.price__table tbody tr:last-child td{border-bottom:0}
 .price__table .grp{
   width:150px;font-weight:800;color:var(--navy);background:var(--bg-tint);
@@ -426,7 +431,7 @@ body.is-ready{opacity:1}
   /* トップと同じ写真を敷き、紺のグラデーションを重ねて文字を読みやすくしている */
   background:
     linear-gradient(150deg,rgba(11,61,114,.92) 0%,rgba(14,74,128,.90) 55%,rgba(19,106,152,.88) 100%),
-    url("img/hero.webp") center 42% / cover no-repeat;
+    url("img/osaka-aircon-cleaning-ichihara-kensetsu.webp") center 42% / cover no-repeat;
 }
 .page-hero::before,.page-hero::after{
   content:"";position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;
@@ -1496,4 +1501,19 @@ a.svc:hover .svc__thumb img{transform:scale(1.06)}
 @media (max-width:768px){
   .mapbox__frame{aspect-ratio:4/3}
   .mapbox__foot{padding:16px 18px;flex-direction:column;align-items:flex-start}
+}
+
+/* ============================================================
+   本文まとまり（「大阪で〜をお探しの方へ」の節）
+   ============================================================ */
+.prose{max-width:820px;margin-inline:auto}
+.prose p{margin:0 0 1.15em;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.prose p:last-child{margin-bottom:0}
+.prose__links{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.prose__links .more__link{margin:0}
+
+@media (max-width:768px){
+  .prose p{font-size:14.5px;line-height:1.95}
+  .prose__links{gap:10px}
+  .prose__links .more__link{flex:1 1 100%}
 }
