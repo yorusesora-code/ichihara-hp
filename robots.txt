@@ -1,0 +1,8 @@
+# 全ページの巡回を許可しています。
+# レビュー中に検索へ出したくないページは、ここではなく
+# 各HTMLの <meta name="robots" content="noindex, nofollow"> で止めてください。
+# （ここで Disallow: / と書くと noindex を読んでもらえず、かえって逆効果です）
+User-agent: *
+Allow: /
+
+Sitemap: https://ichihara-hp.pages.dev/sitemap.xml

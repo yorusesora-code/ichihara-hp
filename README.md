@@ -60,9 +60,12 @@ ichihara-hp/
 ├─ area.html    / works.html   / faq.html     / business.html
 ├─ other.html   / recruit.html / company.html
 ├─ service.html / price.html   / news.html
+├─ robots.txt            … クローラー向けの案内（sitemapの場所を伝えています）
+├─ sitemap.xml           … 全ページの一覧（tools/build-sitemap.js で作ります）
 ├─ tools/
 │   ├─ sync-parts.js     ← ★ヘッダー・ドロワー・フッターを全ページに反映
-│   ├─ sync-text.js      ← ★i18n.js の文言をHTML側にも反映（title・descriptionも）
+│   ├─ sync-text.js      ← ★i18n.js の文言をHTML側にも反映（title・description・canonicalも）
+│   ├─ build-sitemap.js  ← ★sitemap.xml と robots.txt を作り直す
 │   ├─ build-fallback.js … CSVから予備データ（fallback-data.js）を作り直す
 │   └─ check.js          … リンク切れ・文言キーの抜けを点検
 ├─ assets/
@@ -473,11 +476,19 @@ node tools/check.js
 
 外し忘れを防ぐため、公開作業のチェックリストに入れておくことをおすすめします。
 
-1. 14ファイルから `noindex` を削除
-2. OGP画像（`og:image`）を絶対URLに変更
-2.5 `index.html` `company.html` の構造化データに `"url": "https://（ドメイン）/"` を追記し、
-   `image` `logo` も絶対URLに変更
-3. Google Search Console に登録し、インデックス登録をリクエスト
+1. **14ファイルから `noindex` を削除**（下のコマンドが使えます）
+2. `node tools/build-sitemap.js` を実行して `sitemap.xml` の日付を更新
+3. Google Search Console で **サイトマップを送信**（`sitemap.xml` と入力）
+4. Search Console で主要ページの **インデックス登録をリクエスト**
+
+OGP画像・canonical・構造化データの絶対URLは、すでに設定済みです
+（`assets/config.js` の `site.url` が元になっています）。
+
+`noindex` をまとめて外すコマンド（Git Bash / macOS のターミナル）：
+
+```bash
+sed -i '/レビュー中：検索エンジンに登録させない設定/d; /content="noindex, nofollow"/d' *.html
+```
 
 ---
 
@@ -967,16 +978,124 @@ Googleがこれを読むと、検索結果に会社情報が出やすくなり�
 
 **住所や電話番号を変えたときは、ここも一緒に直してください。**
 
-### 5. これからやると効果が大きいもの（未実施）
+### 5. canonical・OGP・構造化データ
+
+公開URLは **`assets/config.js` の `site.url`** が「正」です（現在 `https://ichihara-hp.pages.dev/`）。
+ここを直して `node tools/sync-text.js` と `node tools/build-sitemap.js` を実行すると、
+次の全部がまとめて追従します。
+
+| 場所 | 内容 |
+|---|---|
+| `<link rel="canonical">` | そのページの正式なURL。`/` と `/index.html` のような重複を防ぎます |
+| `<meta property="og:url">` | SNSでシェアされたときのURL |
+| `<meta property="og:image">` | OGP画像。相対パスだと一部のSNSで出ないため絶対URLにしています |
+| `sitemap.xml` | 全14ページの一覧 |
+| `robots.txt` | サイトマップの場所 |
+
+※ `index.html` `company.html` の構造化データ（JSON-LD）の中のURLだけは手書きです。
+ドメインを変えたときは、そこも合わせて直してください。
+
+### 6. これからやると効果が大きいもの（未実施）
 
 1. **Googleビジネスプロフィールの登録**（最優先）
    地域＋サービスの検索では、地図つきの枠が上に出ます。ここに載るには登録が必須です。
    無料で、「大阪 エアコンクリーニング」のような検索に対していちばん効きます。
-2. **Google Search Console への登録**
-   公開後にサイトを登録すると、インデックス登録をリクエストでき、
-   どんな語で見られているかも分かります。
-3. **施工事例を実際の内容に差し替える**
+2. **施工事例を実際の内容に差し替える**
    `works.html` はいま掲載見本です。実際の地域名（大阪市◯◯区）入りの事例が増えるほど、
-   地域名での検索に強くなります。**いちばん効果が見込めるのはここです。**
-4. **noindex の解除**（「⚠ 全体公開の前に必ず外すもの」を参照）
+   地域名での検索に強くなります。
+3. **noindex の解除**（「⚠ 全体公開の前に必ず外すもの」を参照）
    これが入っている間は、上の対策はすべて効きません。
+
+---
+
+## sitemap.xml と robots.txt
+
+どちらも `tools/build-sitemap.js` が作ります。**手で書き換えないでください。**
+
+```bash
+node tools/build-sitemap.js
+```
+
+- フォルダ直下の `.html` を自動で拾うので、**ページを増やしたらこれを流すだけ**です。
+- 各ページの最終更新日は、gitの記録から自動で入ります。
+- 公開URLは `assets/config.js` の `site.url` を見ています。
+
+### sitemap.xml
+
+全14ページのURLと最終更新日の一覧です。Googleはリンクをたどってもページを見つけますが、
+サイトマップを出しておくと **「送った14ページのうち何ページ登録されたか」** が
+サーチコンソールで確認できます。登録されなかったページの理由も表示されます。
+
+### robots.txt
+
+```
+User-agent: *
+Allow: /
+
+Sitemap: https://ichihara-hp.pages.dev/sitemap.xml
+```
+
+**全ページの巡回を許可**し、サイトマップの場所を伝えているだけです。
+
+> ⚠ **レビュー中に `Disallow: /` を書かないでください。**
+> 巡回自体が止まるため `noindex` を読んでもらえず、URLだけが検索結果に残ることがあります。
+> 非公開にする手段は、各HTMLの `<meta name="robots" content="noindex, nofollow">` のほうです。
+
+---
+
+## Googleサーチコンソールの所有者確認
+
+サイトのデータを見るには、Googleに「このサイトの持ち主である」ことを示す必要があります。
+
+### 手順
+
+1. [Google Search Console](https://search.google.com/search-console) を開き、Googleアカウントでログイン
+2. プロパティの追加で **「URLプレフィックス」** を選び、`https://ichihara-hp.pages.dev/` を入力
+3. 確認方法が並ぶので、下の **A** か **B** を選びます
+
+> **「ドメイン」プロパティは選べません。** DNSを触る必要があり、`.pages.dev` の
+> ドメインはCloudflareのものだからです。必ず「URLプレフィックス」を選んでください。
+
+### A. HTMLファイル方式（おすすめ）
+
+1. Googleが `google〇〇〇〇〇〇.html` というファイルをダウンロードさせてくれます
+2. そのファイルを **リポジトリの直下**（`index.html` と同じ場所）に置きます
+3. commit して push すると、Cloudflareが自動で反映します
+4. `https://ichihara-hp.pages.dev/google〇〇〇〇〇〇.html` が開けることを確認してから、
+   Googleの画面で「確認」を押します
+
+サイト本体のコードと切り離されているので、`tools/` のコマンドで消える心配がありません。
+
+### B. HTMLタグ方式
+
+Googleが表示する
+
+```html
+<meta name="google-site-verification" content="ランダムな文字列">
+```
+
+の **`content` の中身だけ** を、`assets/config.js` に貼り付けます。
+
+```js
+site: {
+  url: 'https://ichihara-hp.pages.dev/',
+  googleSiteVerification: 'ここに貼り付け'
+}
+```
+
+そのあと次を実行すると、トップページの `<head>` に自動で入ります。
+
+```bash
+node tools/sync-text.js
+```
+
+空文字に戻して実行すれば、タグは自動で消えます。
+
+### 確認後の注意
+
+- **置いたファイル（またはタグ）は消さないでください。** 消すと確認が取り消されます。
+- サーチコンソールの登録は**ドメインごと**です。将来 独自ドメインに移る場合は、
+  **別サイトとして登録し直し**になります。
+- `noindex` が入っているうちは、サイトマップを送っても
+  「送信されたURLに noindex タグが追加されています」というエラーになります。
+  **サイトマップの送信は全体公開のあとに**行ってください（所有者確認だけ先に済ませるのはOKです）。

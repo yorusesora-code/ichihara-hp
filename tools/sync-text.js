@@ -25,6 +25,12 @@ global.window = {};
 require(path.join(ROOT, 'assets/i18n.js'));
 const DICT = global.window.I18N;
 
+require(path.join(ROOT, 'assets/config.js'));
+const SITE = (global.window.SITE_CONFIG.site || {}).url || '';
+if (!/^https?:\/\/.+\/$/.test(SITE)) {
+  throw new Error('assets/config.js の site.url を「https://〜/」の形で設定してください');
+}
+
 function stripTags(s) { return String(s).replace(/<[^>]*>/g, ''); }
 function attrSafe(s) { return stripTags(s).replace(/"/g, '&quot;'); }
 
@@ -85,8 +91,9 @@ function replaceAttrs(src) {
 }
 
 /* <body data-title="キー" data-desc="キー"> をもとに、
-   <title> と description・OGP をそろえる */
-function replaceHead(src) {
+   <title> と description・OGP をそろえる。
+   あわせて canonical（正式なURL）・og:url・og:image を絶対URLにする。 */
+function replaceHead(src, file) {
   let changed = 0;
   const b = src.match(/<body\b[^>]*>/);
   if (!b) return { text: src, changed: 0 };
@@ -94,6 +101,7 @@ function replaceHead(src) {
   const dk = b[0].match(/\sdata-desc="([^"]+)"/);
   const title = tk && DICT[tk[1]] ? attrSafe(DICT[tk[1]].ja) : null;
   const desc  = dk && DICT[dk[1]] ? attrSafe(DICT[dk[1]].ja) : null;
+  const pageUrl = SITE + (file === 'index.html' ? '' : file);
 
   function put(re, want) {
     src = src.replace(re, function (whole, a, cur, c) {
@@ -109,7 +117,50 @@ function replaceHead(src) {
     put(/(<meta name="description" content=")([^"]*)(">)/, desc);
     put(/(<meta property="og:description" content=")([^"]*)(">)/, desc);
   }
+
+  // OGP画像は相対パスだと一部のSNSで表示されないため、絶対URLにする
+  put(/(<meta property="og:image" content=")([^"]*)(">)/, function () {
+    const m = src.match(/<meta property="og:image" content="([^"]*)">/);
+    return m ? SITE + m[1].replace(/^https?:\/\/[^/]+\//, '') : '';
+  }());
+
+  // canonical（このページの正式なURL）
+  if (/<link rel="canonical"/.test(src)) {
+    put(/(<link rel="canonical" href=")([^"]*)(">)/, pageUrl);
+  } else {
+    src = src.replace('<meta name="theme-color"',
+      '<link rel="canonical" href="' + pageUrl + '">\n<meta name="theme-color"');
+    changed++;
+  }
+
+  // og:url（SNSでシェアされたときのURL）
+  if (/<meta property="og:url"/.test(src)) {
+    put(/(<meta property="og:url" content=")([^"]*)(">)/, pageUrl);
+  } else {
+    src = src.replace('<meta property="og:site_name"',
+      '<meta property="og:url" content="' + pageUrl + '">\n<meta property="og:site_name"');
+    changed++;
+  }
+
   return { text: src, changed: changed };
+}
+
+/* Googleサーチコンソールの所有者確認タグ（トップページだけに入れます） */
+function replaceVerify(src, file) {
+  if (file !== 'index.html') return { text: src, changed: 0 };
+  const code = ((global.window.SITE_CONFIG.site || {}).googleSiteVerification || '').trim();
+  const has = /<meta name="google-site-verification"[^>]*>\n?/;
+  if (!code) {
+    if (!has.test(src)) return { text: src, changed: 0 };
+    return { text: src.replace(has, ''), changed: 1 };      // 空にしたら削除
+  }
+  const tag = '<meta name="google-site-verification" content="' + attrSafe(code) + '">';
+  if (has.test(src)) {
+    const now = src.match(has)[0].replace(/\n$/, '');
+    if (now === tag) return { text: src, changed: 0 };
+    return { text: src.replace(has, tag + '\n'), changed: 1 };
+  }
+  return { text: src.replace('<meta name="theme-color"', tag + '\n<meta name="theme-color"'), changed: 1 };
 }
 
 let files = 0, edits = 0;
@@ -118,11 +169,12 @@ fs.readdirSync(ROOT).filter(f => /\.html$/.test(f)).forEach(function (f) {
   const before = fs.readFileSync(full, 'utf8');
   const a = replaceContent(before);
   const b = replaceAttrs(a.text);
-  const c = replaceHead(b.text);
-  if (c.text !== before) {
-    fs.writeFileSync(full, c.text, 'utf8');
+  const c = replaceHead(b.text, f);
+  const d = replaceVerify(c.text, f);
+  if (d.text !== before) {
+    fs.writeFileSync(full, d.text, 'utf8');
     files++;
-    const n = a.changed + b.changed + c.changed;
+    const n = a.changed + b.changed + c.changed + d.changed;
     edits += n;
     console.log('更新:', f, '（' + n + 'か所）');
   }

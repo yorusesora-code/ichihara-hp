@@ -5,6 +5,23 @@
    ============================================================ */
 window.SITE_CONFIG = {
 
+  /* --- 公開URL ---------------------------------------------
+     canonical・OGP画像・sitemap.xml・構造化データで使います。
+     独自ドメインに変えたら、ここを直して次の2つを実行してください。
+         node tools/sync-text.js
+         node tools/build-sitemap.js
+     （最後は必ず / で終えてください） */
+  site: {
+    url: 'https://ichihara-hp.pages.dev/',
+
+    /* Googleサーチコンソールの所有者確認コード。
+       Googleの「HTMLタグ」方式で表示される
+           <meta name="google-site-verification" content="ここの文字列">
+       の「ここの文字列」だけを貼り付けて、node tools/sync-text.js を実行すると
+       トップページに埋め込まれます。空のままなら何も入りません。 */
+    googleSiteVerification: ''
+  },
+
   /* --- 会社情報 -------------------------------------------- */
   company: {
     name: '市原建設',
