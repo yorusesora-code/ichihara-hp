@@ -20,6 +20,8 @@
   /* 読み込んだデータを保持しておき、言語切替時に再描画する */
   var priceRows = null;
   var noticeRows = null;
+  var faqRows = null;
+  var otherRows = null;
 
   /* ============================================================
      多言語
@@ -121,6 +123,8 @@
     applyI18n();
     // スプレッドシート由来の内容も描き直す
     if (noticeRows) renderNotices(noticeRows);
+    if (faqRows) { renderFaq(faqRows); observeReveals(); }
+    if (otherRows) { renderOther(otherRows); observeReveals(); }
     if (priceRows) {
       renderPriceTables(priceRows);
       renderPriceSummary(priceRows);
@@ -466,6 +470,74 @@
   }
 
   /* ============================================================
+     よくある質問（スプレッドシート）
+     ============================================================ */
+  // グループごとにまとめる（並び順はシートに書いた順）
+  function groupBy(rows, key) {
+    var order = [], map = {};
+    rows.forEach(function (o) {
+      var g = String(o[key] || "").trim();
+      if (!map[g]) { map[g] = []; order.push(g); }
+      map[g].push(o);
+    });
+    return { order: order, map: map };
+  }
+
+  function renderFaq(rows) {
+    var box = document.getElementById("faqArea");
+    if (!box) return;
+    if (!rows.length) { box.innerHTML = '<p class="errmsg">' + t("common.faqErr") + "</p>"; return; }
+
+    var g = groupBy(rows, "グループ");
+    var first = true;
+    box.innerHTML = g.order.map(function (gp) {
+      var items = g.map[gp].map(function (o) {
+        var body = "<p>" + nl2br(col(o, "回答"));
+        var sub = col(o, "補足");
+        if (sub) body += "<br><small>" + nl2br(sub) + "</small>";
+        body += "</p>";
+        var url = String(o["リンクURL"] || "").trim();
+        var label = col(o, "リンク文言");
+        if (url && label) {
+          body += '<p><a class="inlink" href="' + esc(url) + '">' + esc(label) + "</a></p>";
+        }
+        var open = first; first = false;
+        return "<details class=\"faq__item\"" + (open ? " open" : "") + ">" +
+          "<summary>" + esc(col(o, "質問")) + "</summary>" +
+          '<div class="faq__a">' + body + "</div></details>";
+      }).join("");
+      return '<h2 class="faq__group">' + esc(col(g.map[gp][0], "グループ")) + "</h2>" +
+             '<div class="faq">' + items + "</div>";
+    }).join("");
+  }
+
+  /* ============================================================
+     その他サービス（スプレッドシート）
+     ============================================================ */
+  function renderOther(rows) {
+    var box = document.getElementById("otherArea");
+    if (!box) return;
+    if (!rows.length) { box.innerHTML = '<p class="errmsg">' + t("common.otherErr") + "</p>"; return; }
+
+    var g = groupBy(rows, "グループ");
+    box.innerHTML = g.order.map(function (gp, i) {
+      var cards = g.map[gp].map(function (o) {
+        return '<article class="oscard reveal"><h3>' + esc(col(o, "サービス名")) + "</h3>" +
+               "<p>" + nl2br(col(o, "説明")) + "</p></article>";
+      }).join("");
+      var num = "MENU " + (i + 1 < 10 ? "0" : "") + (i + 1);
+      return '<section class="section' + (i % 2 ? " section--tint" : "") + '">' +
+        '<div class="container">' +
+          '<div class="sec-head">' +
+            '<p class="sec-head__en">' + num + "</p>" +
+            '<h2 class="sec-head__ja">' + esc(col(g.map[gp][0], "グループ")) + "</h2>" +
+          "</div>" +
+          '<div class="oslist">' + cards + "</div>" +
+        "</div></section>";
+    }).join("");
+  }
+
+  /* ============================================================
      UI
      ============================================================ */
   function initDrawer() {
@@ -617,6 +689,32 @@
           });
           renderNotices(noticeRows);
           observeReveals();
+        });
+    }
+
+    if (document.getElementById('faqArea')) {
+      loadCSV(sheetUrl(SH.faqCsvUrl, SH.faqSheet), SH.faqFallback,
+              window.BUILTIN_FAQ || '', SH.faqRequired)
+        .then(function (csv) {
+          faqRows = toObjects(parseCSV(csv)).filter(function (o) {
+            return isPublished(o['公開']) && o['質問'];
+          });
+          renderFaq(faqRows);
+          observeReveals();
+          jumpToHash();
+        });
+    }
+
+    if (document.getElementById('otherArea')) {
+      loadCSV(sheetUrl(SH.otherCsvUrl, SH.otherSheet), SH.otherFallback,
+              window.BUILTIN_OTHER || '', SH.otherRequired)
+        .then(function (csv) {
+          otherRows = toObjects(parseCSV(csv)).filter(function (o) {
+            return isPublished(o['公開']) && o['サービス名'];
+          });
+          renderOther(otherRows);
+          observeReveals();
+          jumpToHash();
         });
     }
 

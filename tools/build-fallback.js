@@ -29,11 +29,15 @@ function block(name, file) {
 const out =
 `/* ============================================================
    予備データ（ネットにもローカルCSVにも到達できないとき用）
-   data/notices.csv・data/prices.csv と同じ内容です。
+   data/ フォルダのCSVと同じ内容です。
    直接編集せず、CSVを直したあとに次を実行してください。
        node tools/build-fallback.js
    ============================================================ */
-` + block('BUILTIN_NOTICES', 'data/notices.csv') + '\n' + block('BUILTIN_PRICES', 'data/prices.csv');
+` +
+  block('BUILTIN_NOTICES', 'data/notices.csv') + '\n' +
+  block('BUILTIN_PRICES',  'data/prices.csv')  + '\n' +
+  block('BUILTIN_FAQ',     'data/faq.csv')     + '\n' +
+  block('BUILTIN_OTHER',   'data/other.csv');
 
 fs.writeFileSync(path.join(ROOT, 'assets/fallback-data.js'), out, 'utf8');
 console.log('assets/fallback-data.js を作り直しました');

@@ -206,61 +206,14 @@
   </div>
 </nav>
 
+<!-- ============ よくある質問 ============
+     中身はスプレッドシートの「よくある質問」シートから読み込みます。
+     （読めないときは data/faq.csv → assets/fallback-data.js の順に切り替わります） -->
 <section class="section">
   <div class="container container--narrow">
-
-    <h2 class="faq__group" data-i18n="faq.g1">施工について</h2>
-    <div class="faq">
-      <details class="faq__item" open>
-        <summary data-i18n="faq.q1">エアコンの設置場所のスペースはどれくらい空いていればいいですか？</summary>
-        <div class="faq__a"><p data-i18n="faq.a1">エアコンを分解いたしますので、上下左右に約5〜10cm空いていれば施工可能です。</p></div>
-      </details>
-      <details class="faq__item">
-        <summary data-i18n="faq.q2">エアコンが稼働していない、またはエラーコードが出ていても施工できますか？</summary>
-        <div class="faq__a"><p data-i18n="faq.a2">上記の状態の場合、先にメーカー点検が必要となりますので、施工をお断りさせていただいております。</p></div>
-      </details>
-      <details class="faq__item">
-        <summary data-i18n="faq.q3">複数台まとめて対応してもらえますか？</summary>
-        <div class="faq__a"><p data-i18n="faq.a3">対応可能です。台数が多めの場合は、何日かに分けて施工させていただく場合もございます。</p></div>
-      </details>
-      <details class="faq__item">
-        <summary data-i18n="faq.q4">古いエアコンでも施工してもらえますか？</summary>
-        <div class="faq__a"><p data-i18n="faq.a4">エアコンの耐久年数が9〜10年のため、製造から9〜10年を超える商品は、現地判断の後にお断りする可能性がございます。あらかじめご了承ください。</p></div>
-      </details>
+    <div class="faq-wrap" id="faqArea" aria-live="polite">
+      <p class="loading" data-i18n="common.loading">読み込み中…</p>
     </div>
-
-    <h2 class="faq__group" data-i18n="faq.g2">料金・お支払いについて</h2>
-    <div class="faq">
-      <details class="faq__item">
-        <summary data-i18n="faq.q5">お支払い方法は何がありますか？</summary>
-        <div class="faq__a"><p><span data-i18n="faq.a5">現地での作業後、現金にてお支払いいただいております（現段階）。</span><br><small data-i18n="faq.a5s">※今後、請求書払いやクレジット決済等の導入も検討しております。</small></p></div>
-      </details>
-      <details class="faq__item">
-        <summary data-i18n="faq.q6">駐車場代はかかりますか？</summary>
-        <div class="faq__a"><p><span data-i18n="faq.a6">駐車場代のみお客様のご負担となります。作業後、現地にて現金でお支払いをお願いいたします。</span><br><small data-i18n="faq.a6s">※お借りできる駐車スペースがある場合は、費用は発生いたしません。</small></p></div>
-      </details>
-      <details class="faq__item">
-        <summary data-i18n="faq.q7">キャンセル費用は発生しますか？</summary>
-        <div class="faq__a"><p data-i18n="faq.a7">前日までのご連絡であれば発生いたしません。当日のキャンセルはキャンセル料3,300円（税込）、訪問時のキャンセルは出張料として5,500円（税込）を頂戴しております。</p></div>
-      </details>
-      <details class="faq__item">
-        <summary data-i18n="faq.q8">大阪府外でも来てもらえますか？</summary>
-        <div class="faq__a"><p><span data-i18n="faq.a8">京都・滋賀・兵庫・奈良にもお伺いしております。ただし地域によっては、別途交通費が発生する場合がございます。詳しくは</span><a class="inlink" href="company.html#area" data-i18n="faq.a8link">対応エリア</a><span data-i18n="faq.a8tail">をご覧ください。</span></p></div>
-      </details>
-    </div>
-
-    <h2 class="faq__group" data-i18n="faq.g3">保証・アフターサービスについて</h2>
-    <div class="faq">
-      <details class="faq__item">
-        <summary data-i18n="faq.q9">作業後に汚れが残っていた場合はどうなりますか？</summary>
-        <div class="faq__a"><p><span data-i18n="faq.a9">施工後1週間以内であれば、無償で再施工いたします。お気づきの点がございましたらお早めにご連絡ください。</span><br><small data-i18n="faq.a9s">※カビ汚れや汚れの酷い箇所、色の変色・油焼けは取り切れない場合がございます。</small></p></div>
-      </details>
-      <details class="faq__item">
-        <summary data-i18n="faq.q10">作業中に破損した場合はどうなりますか？</summary>
-        <div class="faq__a"><p data-i18n="faq.a10">作業中に発生した破損については、当社が保証いたします。</p></div>
-      </details>
-    </div>
-
   </div>
 </section>
 

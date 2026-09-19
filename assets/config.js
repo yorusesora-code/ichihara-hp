@@ -52,6 +52,8 @@ window.SITE_CONFIG = {
     sheetId:      '1QkslWNs7Bhz_NB0q-8Pkf88eThuMKDSABV-ROuGp4yc',
     noticesSheet: 'お知らせ',
     pricesSheet:  '料金表',
+    faqSheet:     'よくある質問',
+    otherSheet:   'その他サービス',
 
     /* 【方法2・より確実】「ファイル → 共有 → ウェブに公開」で
        形式に「カンマ区切り形式(.csv)」を選んで発行し、出てきたURLを貼ります。
@@ -59,15 +61,21 @@ window.SITE_CONFIG = {
        （反映まで最大5分ほどかかりますが、Googleが正式に用意している方法です） */
     noticesCsvUrl: '',
     pricesCsvUrl:  '',
+    faqCsvUrl:     '',
+    otherCsvUrl:   '',
 
     // ↓ 上のどれも読めなかったときに使うローカルCSV（初期表示用）
     noticesFallback: 'data/notices.csv',
     pricesFallback:  'data/prices.csv',
+    faqFallback:     'data/faq.csv',
+    otherFallback:   'data/other.csv',
 
     /* シートの1行目（見出し）に、この列が無ければ「読めなかった」と判断して
        ローカルCSVに切り替えます。見出しを消してしまったときの保険です。 */
     noticesRequired: ['日付', 'タイトル'],
     pricesRequired:  ['カテゴリ', 'メニュー', '料金'],
+    faqRequired:     ['グループ', '質問', '回答'],
+    otherRequired:   ['グループ', 'サービス名', '説明'],
 
     // お知らせの表示件数（各ページの data-limit が優先されます）
     noticeLimit: 6

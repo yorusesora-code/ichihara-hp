@@ -56,7 +56,7 @@ files.forEach(f => {
 // JS の中で t('キー') として使われているものも「使用済み」とみなす
 ['assets/main.js'].forEach(f => {
   const js = fs.readFileSync(path.join(ROOT, f), 'utf8');
-  [...js.matchAll(/t\('([^']+)'\)/g)].forEach(m => used.add(m[1]));
+  [...js.matchAll(/t\((['"])([^'"]+)\1\)/g)].forEach(m => used.add(m[2]));
 });
 
 // JS が状況に応じて組み立てて使うキー（検出できないので除外）

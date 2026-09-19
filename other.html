@@ -206,49 +206,18 @@
   </div>
 </nav>
 
-<!-- ============ 暮らし・作業 ============ -->
+<!-- ============ その他サービス ============
+     中身はスプレッドシートの「その他サービス」シートから読み込みます。
+     グループごとに1セクションずつ、シートに書いた順で出力されます。
+     （読めないときは data/other.csv → assets/fallback-data.js の順に切り替わります） -->
+<div id="otherArea" aria-live="polite">
+  <section class="section"><div class="container">
+    <p class="loading" data-i18n="common.loading">読み込み中…</p>
+  </div></section>
+</div>
+
 <section class="section">
-  <div class="container">
-    <div class="sec-head">
-      <p class="sec-head__en">MENU 01</p>
-      <h2 class="sec-head__ja" data-i18n="other2.g1">暮らし・作業のサービス</h2>
-    </div>
-
-    <div class="oslist">
-      <article class="oscard reveal"><h3 data-i18n="os.garden">造園作業</h3><p data-i18n="os.gardenD">草刈り・草むしりから砂利敷き、落ち葉の掃除まで。お庭まわりの作業を承ります。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.moving">引越し・運搬</h3><p data-i18n="os.movingD">単身・オフィス・夜間・遠方の引越しや、荷物の運搬に対応します。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.disposal">不用品回収</h3><p data-i18n="os.disposalD">家具・家電・衣類・残置物など、不要になったものをまとめて回収します。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.aircon">エアコン関係</h3><p data-i18n="os.airconD">取り外し・取り付け・移設・ガス充填・点検に対応します。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.carry">荷物運び</h3><p data-i18n="os.carryD">階段での運搬、積み込み補助、吊り上げ・吊り下げ、重量物の移動など。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.furniture">家具組み立て</h3><p data-i18n="os.furnitureD">IKEAやLOWYAなどの家具を組み立てます。説明書がなくても対応可能です。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.hoarder">ゴミ屋敷片付け</h3><p data-i18n="os.hoarderD">片付けから全回収、清掃・消臭まで。お部屋をリセットします。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.estate">遺品整理・生前整理</h3><p data-i18n="os.estateD">仕分け、残置物の回収、清掃まで一貫して承ります。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.works">各種工事</h3><p data-i18n="os.worksD">塗装・屋根・電気・修繕・大工・水道・室内工事などに対応します。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.diy">DIYサービス</h3><p data-i18n="os.diyD">棚づくりや店舗・室内のDIY、オーダーメイドのご相談も承ります。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.clean">清掃・消臭</h3><p data-i18n="os.cleanD">お部屋や店舗の清掃、ペット臭の消臭、大掃除、高圧洗浄など。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.pest">害虫・害獣駆除</h3><p data-i18n="os.pestD">ゴキブリ・ハチ・ネズミの駆除、野良猫対策などに対応します。</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ サポート・相談 ============ -->
-<section class="section section--tint">
-  <div class="container">
-    <div class="sec-head">
-      <p class="sec-head__en">MENU 02</p>
-      <h2 class="sec-head__ja" data-i18n="other2.g2">サポート・相談のサービス</h2>
-    </div>
-
-    <div class="oslist">
-      <article class="oscard reveal"><h3 data-i18n="os.errand">代行サービス</h3><p data-i18n="os.errandD">買物・電話・受取・立会い・代理出席・場所取りなどを代わりに行います。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.accompany">同行サービス</h3><p data-i18n="os.accompanyD">一人では行きにくい場所へ同行します。病院、お墓参り、遠方への外出など。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.trouble">トラブル解決</h3><p data-i18n="os.troubleD">近隣トラブル、騒音、人間関係のお悩みなどのご相談を承ります。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.consult">悩み相談</h3><p data-i18n="os.consultD">話を聞いてほしい、どうしていいかわからない。そんなときにご相談ください。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.internet">インターネット作業</h3><p data-i18n="os.internetD">Wi-Fi接続、パソコン・スマホの操作、公式LINE作成などをお手伝いします。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.pet">ペット関係</h3><p data-i18n="os.petD">里親探し、迷子のペット探し、餌やり、保護などに対応します。</p></article>
-      <article class="oscard reveal"><h3 data-i18n="os.photo">撮影・動画編集</h3><p data-i18n="os.photoD">記念撮影、ドローン空撮、記念動画の作成、動画編集を承ります。</p></article>
-    </div>
-
+  <div class="container container--narrow">
     <div class="notebox">
       <h3 data-i18n="other2.noteHead">ご利用にあたって</h3>
       <ul>
@@ -259,7 +228,6 @@
     </div>
   </div>
 </section>
-
 <!-- ============ CTA ============ -->
 <section class="cta">
   <div class="container cta__inner">
