@@ -125,6 +125,9 @@ function replaceHead(src, file) {
     return m ? SITE + m[1].replace(/^https?:\/\/[^/]+\//, '') : '';
   }());
 
+  // 404ページは「このURLが正式」と示す意味がないので、canonical と og:url は入れない
+  if (file === '404.html') return { text: src, changed: changed };
+
   // canonical（このページの正式なURL）
   if (/<link rel="canonical"/.test(src)) {
     put(/(<link rel="canonical" href=")([^"]*)(">)/, pageUrl);

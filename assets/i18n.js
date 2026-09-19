@@ -31,7 +31,7 @@ window.I18N = {
   'drawer.hoursLabel':{ ja: '受付時間', en: 'Hours' },
   'drawer.hours':    { ja: '平日・土日 9:00〜18:00（祝日は翌営業日）', en: 'Weekdays &amp; weekends 9:00–18:00 (holidays: next business day)' },
   'drawer.addrLabel':{ ja: '所在地', en: 'Address' },
-  'drawer.addr':     { ja: '〒572-0050 大阪府寝屋川市黒原城内町11-10 ラ・エアナ15号', en: 'La Eana 15, 11-10 Kurobarajonai-cho, Neyagawa, Osaka 572-0050, Japan' },
+  'drawer.addr':     { ja: '〒572-0050 大阪府寝屋川市黒原城内町11 ラ・エアナ15号', en: 'La Eana 15, 11 Kurobarajonai-cho, Neyagawa, Osaka 572-0050, Japan' },
   'drawer.close':    { ja: '閉じる', en: 'Close' },
   'drawer.sub':      { ja: '下層メニューの開閉', en: 'Toggle sub menu' },
 
@@ -40,11 +40,19 @@ window.I18N = {
   'cta.fixed':       { ja: '電話で相談する（9:00〜18:00）', en: 'Call us (9:00–18:00)' },
 
   'footer.hours':    { ja: '／受付 9:00〜18:00', en: ' / Open 9:00–18:00' },
-  'footer.addr':     { ja: '〒572-0050 大阪府寝屋川市黒原城内町11-10 ラ・エアナ15号', en: 'La Eana 15, 11-10 Kurobarajonai-cho, Neyagawa, Osaka 572-0050, Japan' },
+  'footer.addr':     { ja: '〒572-0050 大阪府寝屋川市黒原城内町11 ラ・エアナ15号', en: 'La Eana 15, 11 Kurobarajonai-cho, Neyagawa, Osaka 572-0050, Japan' },
   'footer.copy':     { ja: '© 市原建設 All Rights Reserved.', en: '© Ichihara Kensetsu. All Rights Reserved.' },
 
   'crumb.aria':      { ja: 'パンくずリスト', en: 'Breadcrumb' },
   'crumb.home':      { ja: 'ホーム', en: 'Home' },
+
+  /* ===== ページが見つからないとき（404.html） ===== */
+  'nf.title':        { ja: 'ページが見つかりません｜市原建設', en: 'Page not found | Ichihara Kensetsu' },
+  'nf.desc':         { ja: 'お探しのページは見つかりませんでした。お手数ですが、下のメニューからお探しください。', en: 'The page you are looking for could not be found. Please use the links below.' },
+  'nf.head':         { ja: 'ページが見つかりません', en: 'Page not found' },
+  'nf.lead':         { ja: 'お探しのページは、移動または削除された可能性があります。<br>お手数ですが、下のリンクからお探しください。', en: 'The page may have been moved or removed.<br>Please try the links below.' },
+  'nf.backTop':      { ja: 'トップページへ戻る', en: 'Back to the top page' },
+  'nf.callLead':     { ja: 'お探しの内容が見つからないときは', en: 'If you cannot find what you need' },
 
   'other.title':     { ja: 'OTHER PAGES', en: 'OTHER PAGES' },
   'other.service':   { ja: 'サービス内容', en: 'Services' },
@@ -348,7 +356,7 @@ window.I18N = {
   'comp.rep':        { ja: '代表者', en: 'Representative' },
   'comp.repV':       { ja: '富山 凛香', en: 'Rinka Tomiyama' },
   'comp.addr':       { ja: '所在地', en: 'Address' },
-  'comp.addrV':      { ja: '〒572-0050<br>大阪府寝屋川市黒原城内町11-10 ラ・エアナ15号', en: 'La Eana 15<br>11-10 Kurobarajonai-cho, Neyagawa, Osaka 572-0050, Japan' },
+  'comp.addrV':      { ja: '〒572-0050<br>大阪府寝屋川市黒原城内町11 ラ・エアナ15号', en: 'La Eana 15<br>11 Kurobarajonai-cho, Neyagawa, Osaka 572-0050, Japan' },
   'comp.tel':        { ja: '電話番号', en: 'Phone' },
   'comp.hours':      { ja: '受付時間', en: 'Hours' },
   'comp.hoursV':     { ja: '平日・土日 9:00〜18:00（祝日のみ翌営業日対応）', en: 'Weekdays and weekends 9:00–18:00 (public holidays handled the next business day)' },
