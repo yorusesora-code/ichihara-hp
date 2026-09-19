@@ -209,7 +209,24 @@
   }
 
   /* ---------- データ取得（Sheets → ローカルCSV → 内蔵） ---------- */
-  function loadCSV(remoteUrl, localUrl, builtin) {
+  // 設定からスプレッドシートのURLを組み立てる
+  // （公開CSVのURLが書いてあればそちら優先、なければIDとシート名から作る）
+  function sheetUrl(explicitUrl, sheetName) {
+    if (explicitUrl) return explicitUrl;
+    if (!SH.sheetId || !sheetName) return '';
+    return 'https://docs.google.com/spreadsheets/d/' + SH.sheetId +
+           '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(sheetName);
+  }
+
+  // 1行目に必要な見出しがそろっているか（見出しを消されたときの保険）
+  function hasHeaders(csv, required) {
+    if (!required || !required.length) return true;
+    var head = String(csv).replace(/^\uFEFF/, '').split(/\r?\n/)[0] || '';
+    var cols = parseCSV(head)[0] || [];
+    return required.every(function (name) { return cols.indexOf(name) >= 0; });
+  }
+
+  function loadCSV(remoteUrl, localUrl, builtin, required) {
     var sources = [];
     if (remoteUrl) sources.push(remoteUrl);
     if (localUrl) sources.push(localUrl);
@@ -225,6 +242,8 @@
           .then(function (x) {
             // 公開設定が未完了だとHTMLが返ることがあるので弾く
             if (/^\s*<(!doctype|html)/i.test(x)) throw new Error('not csv');
+            if (!String(x).trim()) throw new Error('empty');
+            if (!hasHeaders(x, required)) throw new Error('見出しが足りません');
             return x;
           })
           .catch(function () { return null; });
@@ -587,7 +606,8 @@
     observeReveals();
 
     if (document.getElementById('noticeList')) {
-      loadCSV(SH.noticesCsvUrl, SH.noticesFallback, window.BUILTIN_NOTICES || '')
+      loadCSV(sheetUrl(SH.noticesCsvUrl, SH.noticesSheet), SH.noticesFallback,
+              window.BUILTIN_NOTICES || '', SH.noticesRequired)
         .then(function (csv) {
           noticeRows = toObjects(parseCSV(csv)).filter(function (o) {
             return isPublished(o['公開']) && (o['タイトル'] || o['本文']);
@@ -606,7 +626,8 @@
                     document.querySelector('[data-price-item]') ||
                     document.querySelector('[data-price-min]');
     if (needPrice) {
-      loadCSV(SH.pricesCsvUrl, SH.pricesFallback, window.BUILTIN_PRICES || '')
+      loadCSV(sheetUrl(SH.pricesCsvUrl, SH.pricesSheet), SH.pricesFallback,
+              window.BUILTIN_PRICES || '', SH.pricesRequired)
         .then(function (csv) {
           priceRows = toObjects(parseCSV(csv)).filter(function (o) {
             return isPublished(o['公開']) && o['メニュー'];

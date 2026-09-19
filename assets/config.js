@@ -44,12 +44,30 @@ window.SITE_CONFIG = {
      空のままなら data/ フォルダのCSVが表示されます。
      -------------------------------------------------------- */
   sheets: {
-    noticesCsvUrl: '',   // 「お知らせ」シートの公開CSV URL
-    pricesCsvUrl:  '',   // 「料金表」シートの公開CSV URL
+    /* 【方法1・かんたん】スプレッドシートのIDとシート（タブ）の名前を書くだけ。
+       IDはブラウザのアドレス欄の /d/ と /edit の間の文字列です。
+         https://docs.google.com/spreadsheets/d/★ここ★/edit
+       スプレッドシートの共有を「リンクを知っている全員（閲覧者）」にしてください。
+       ※タブの名前を変えたら、ここも合わせて直してください。 */
+    sheetId:      '1QkslWNs7Bhz_NB0q-8Pkf88eThuMKDSABV-ROuGp4yc',
+    noticesSheet: 'お知らせ',
+    pricesSheet:  '料金表',
 
-    // ↓ 上の2つが空のとき使われるローカルCSV（初期表示用）
+    /* 【方法2・より確実】「ファイル → 共有 → ウェブに公開」で
+       形式に「カンマ区切り形式(.csv)」を選んで発行し、出てきたURLを貼ります。
+       こちらを書いた場合は、上のIDより優先されます。
+       （反映まで最大5分ほどかかりますが、Googleが正式に用意している方法です） */
+    noticesCsvUrl: '',
+    pricesCsvUrl:  '',
+
+    // ↓ 上のどれも読めなかったときに使うローカルCSV（初期表示用）
     noticesFallback: 'data/notices.csv',
     pricesFallback:  'data/prices.csv',
+
+    /* シートの1行目（見出し）に、この列が無ければ「読めなかった」と判断して
+       ローカルCSVに切り替えます。見出しを消してしまったときの保険です。 */
+    noticesRequired: ['日付', 'タイトル'],
+    pricesRequired:  ['カテゴリ', 'メニュー', '料金'],
 
     // お知らせの表示件数（各ページの data-limit が優先されます）
     noticeLimit: 6
