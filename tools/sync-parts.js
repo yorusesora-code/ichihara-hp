@@ -53,7 +53,10 @@ const NAV = [
   { href: 'faq.html',      en: 'FAQ',      key: 'nav.faq',      ja: 'よくある質問' },
   { href: 'business.html', en: 'BUSINESS', key: 'nav.business', ja: '法人のお客様' },
   { href: 'other.html',    en: 'OTHER',    key: 'nav.other',    ja: 'その他サービス' },
-  { href: 'recruit.html',  en: 'RECRUIT',  key: 'nav.recruit',  ja: '採用情報' },
+  { href: 'recruit.html',  en: 'RECRUIT',  key: 'nav.recruit',  ja: '採用情報', children: [
+    { href: 'recruit-cleaning.html', key: 'rec.j1', ja: 'エアコン清掃スタッフ' },
+    { href: 'recruit-sales.html',    key: 'rec.j2', ja: 'ライト商材の営業' }
+  ] },
   { href: 'company.html',  en: 'COMPANY',  key: 'nav.company',  ja: '会社概要' }
 ];
 

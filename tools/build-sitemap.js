@@ -40,7 +40,9 @@ const PRIORITY = {
   'company.html':  '0.6',
   'faq.html':      '0.6',
   'other.html':    '0.6',
-  'recruit.html':  '0.6',
+  'recruit.html':  '0.7',
+  'recruit-cleaning.html': '0.7',
+  'recruit-sales.html':    '0.7',
   'news.html':     '0.5'
 };
 
@@ -52,7 +54,17 @@ function lastmod(file) {
   return fs.statSync(path.join(ROOT, file)).mtime.toISOString().slice(0, 10);
 }
 
-const files = require('./pages.js')(ROOT).sort(function (a, b) {
+/* noindex が入っているページはサイトマップに載せません。
+   「登録しないで」と「登録して」を同時に伝えることになり、
+   サーチコンソールでエラーとして報告されるためです。 */
+const files = require('./pages.js')(ROOT).filter(function (f) {
+  const html = fs.readFileSync(path.join(ROOT, f), 'utf8');
+  if (/<meta name="robots" content="[^"]*noindex/.test(html)) {
+    console.log('  （noindexのため除外）' + f);
+    return false;
+  }
+  return true;
+}).sort(function (a, b) {
   return (+(PRIORITY[b] || 0.5)) - (+(PRIORITY[a] || 0.5)) || a.localeCompare(b);
 });
 

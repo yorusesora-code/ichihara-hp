@@ -1,6 +1,6 @@
 # 市原建設 ホームページ
 
-大阪のエアコンクリーニング／ハウスクリーニング「市原建設」のコーポレートサイト（静的HTML・14ページ構成）です。
+大阪のエアコンクリーニング／ハウスクリーニング「市原建設」のコーポレートサイト（静的HTML・16ページ構成）です。
 **お知らせ**と**料金表**は Google スプレッドシートを編集するだけで更新できます。
 
 ---
@@ -19,7 +19,7 @@ TOP
 ├── よくある質問
 ├── 法人のお客様
 ├── その他サービス
-├── 採用情報
+├── 採用情報          … エアコン清掃スタッフ／ライト商材の営業
 └── 会社概要
 ```
 
@@ -39,7 +39,9 @@ TOP
 | `faq.html` | よくあるご質問 | 施工／料金・お支払い／保証 の3グループ |
 | `business.html` | 法人のお客様はこちら | 法人・店舗向け清掃／主な対応先／ご依頼の流れ |
 | `other.html` | その他サービス | 提携先と連携して対応する19サービスの一覧 |
-| `recruit.html` | 採用情報 | エアコン清掃スタッフ／ライト商材の営業の募集要項 |
+| `recruit.html` | 採用情報 | 募集中の職種への入口＋選考プロセス |
+| `recruit-cleaning.html` | エアコン清掃スタッフ | 募集要項＋**求人の構造化データ** |
+| `recruit-sales.html` | ライト商材の営業 | 募集要項＋**求人の構造化データ** |
 | `company.html` | 会社概要 | 会社概要／グループ構成／保証・アフターサービス |
 | `service.html` | サービス一覧 | 4サービスの概要／対応できる症状・メーカー／ご利用の流れ |
 | `price.html` | 料金表 | 全カテゴリの料金表／料金に関するご注意 |
@@ -59,6 +61,7 @@ ichihara-hp/
 ├─ index.html   / aircon.html  / house.html   / vacancy.html
 ├─ area.html    / works.html   / faq.html     / business.html
 ├─ other.html   / recruit.html / company.html
+├─ recruit-cleaning.html / recruit-sales.html
 ├─ service.html / price.html   / news.html
 ├─ robots.txt            … クローラー向けの案内（sitemapの場所を伝えています）
 ├─ sitemap.xml           … 全ページの一覧（tools/build-sitemap.js で作ります）
@@ -529,20 +532,34 @@ node tools/check.js
 
 ---
 
-## ⚠ 全体公開の前に必ず外すもの（noindex）
+## 公開状態について（noindex）
 
-レビュー中は検索エンジンに登録されないよう、14ページすべてに次の1行が入っています。
+**2026年9月19日に公開しました。** `noindex` は `works.html` を除く全ページから削除済みです。
+
+レビュー中は、検索エンジンに登録されないよう次の1行を入れていました。
 
 ```html
 <meta name="robots" content="noindex, nofollow">
 ```
 
 **このタグが入っている間は、Google検索に一切表示されません。**
-内容が確定して一般公開する段階になったら、14ファイルからこの行（と直前のコメント行）を削除してください。
 
-対象ファイル：`index.html` `aircon.html` `house.html` `vacancy.html` `area.html` `works.html`
-`faq.html` `business.html` `other.html` `recruit.html` `company.html`
-`service.html` `price.html` `news.html`
+### ⚠ `works.html`（施工事例）だけ、まだ残しています
+
+理由は、掲載しているのが**「掲載フォーマットの見本」**で、
+**お客様の声も実在のものではない**ためです。このまま検索に載せると、
+実在しない感想を本物として公開することになり、景品表示法上の問題になりえます。
+
+実際にいただいた事例・お写真・お客様の声に差し替えたら、
+`works.html` の `<meta name="robots" ...>` の1行（と直前のコメント）を削除し、
+次を実行してください。
+
+```bash
+node tools/build-sitemap.js
+```
+
+サイトマップは **`noindex` のページを自動で除外**します。
+いまは15ページが載っていて、差し替え後に実行すると16ページになります。
 
 > **`robots.txt` で `Disallow: /` を書く方法は使わないでください。**
 > クロール自体がブロックされて `noindex` を読んでもらえず、かえってURLだけが
@@ -550,18 +567,19 @@ node tools/check.js
 
 外し忘れを防ぐため、公開作業のチェックリストに入れておくことをおすすめします。
 
-1. **14ファイルから `noindex` を削除**（下のコマンドが使えます）
-2. `node tools/build-sitemap.js` を実行して `sitemap.xml` の日付を更新
-3. Google Search Console で **サイトマップを送信**（`sitemap.xml` と入力）
-4. Search Console で主要ページの **インデックス登録をリクエスト**
+1. ~~`noindex` を削除~~ ✅ 完了（`works.html` を除く）
+2. ~~`sitemap.xml` を更新~~ ✅ 完了
+3. Google Search Console で **サイトマップを送信**（`sitemap.xml` と入力）← **これからです**
+4. Search Console で主要ページの **インデックス登録をリクエスト** ← **これからです**
 
-OGP画像・canonical・構造化データの絶対URLは、すでに設定済みです
+OGP画像・canonical・構造化データの絶対URLは設定済みです
 （`assets/config.js` の `site.url` が元になっています）。
 
-`noindex` をまとめて外すコマンド（Git Bash / macOS のターミナル）：
+もし一時的に非公開へ戻したくなったら、各HTMLの `<meta name="theme-color">` の上に
+次の1行を入れて `node tools/build-sitemap.js` を実行してください。
 
-```bash
-sed -i '/レビュー中：検索エンジンに登録させない設定/d; /content="noindex, nofollow"/d' *.html
+```html
+<meta name="robots" content="noindex, nofollow">
 ```
 
 ---
@@ -1205,3 +1223,57 @@ node tools/sync-text.js
 - `noindex` が入っているうちは、サイトマップを送っても
   「送信されたURLに noindex タグが追加されています」というエラーになります。
   **サイトマップの送信は全体公開のあとに**行ってください（所有者確認だけ先に済ませるのはOKです）。
+
+---
+
+## 求人の構造化データ（Google しごと検索）
+
+`recruit-cleaning.html` と `recruit-sales.html` の `<head>` に、
+求人情報を機械が読める形（JSON-LD / JobPosting）で書いています。画面には出ません。
+
+Googleで「大阪 エアコン 求人」のように検索したとき、**検索結果の上に出る求人枠**に
+掲載されるための情報です。掲載料はかかりません。
+
+### 入っている内容
+
+| 項目 | 値 |
+|---|---|
+| 職種名 | エアコン清掃スタッフ／ライト商材の営業 |
+| 雇用形態 | `CONTRACTOR`（業務委託） |
+| 勤務地 | 寝屋川市の所在地＋京都・滋賀・兵庫・奈良 |
+| **掲載開始日** | **2026-09-19** |
+| **掲載終了日** | **2027-03-19**（半年後） |
+| 給与 | 月額 300,000円〜（下限として登録） |
+
+> 給与は「想定月収30万円〜」を下限として登録しています。
+> 出来高制・完全歩合制で保証額ではないため、ページ本文と構造化データの説明文の両方に
+> 「※想定月収は実績に基づく目安であり、金額を保証するものではありません」を入れてあります。
+
+### ⚠ 半年ごとの更新が必要です
+
+**2027-03-19 を過ぎたら、必ずどちらかの対応をしてください。**
+
+| 状況 | 対応 |
+|---|---|
+| まだ募集している | `validThrough` の日付を先に延ばす（`datePosted` も更新すると新しい求人として扱われます） |
+| 募集を終えた | `<script type="application/ld+json">` のブロックごと削除する |
+
+**期限切れの求人を残すと、Googleの評価が下がります。**
+Googleは「募集が終わった求人を残さないこと」を明確に求めています。
+日本の職業安定法でも、求人内容は実態と一致させる義務があります。
+
+### 確認方法
+
+1. [リッチリザルトテスト](https://search.google.com/test/rich-results) にURLを入れると、
+   データが正しく読めるか即座に検証できます
+2. 公開後はサーチコンソールに **「求人情報」レポート** が出て、掲載状況とエラーが分かります
+
+### 職種を増やすとき
+
+`recruit-cleaning.html` をコピーして中身を書き換え、あわせて次の3か所を直してください。
+
+1. `tools/sync-parts.js` の `NAV` にある「採用情報」の `children` に追加
+2. `tools/build-sitemap.js` の優先度表に追加
+3. `recruit.html` の職種カード（`.rec-jump`）に追加
+
+そのあと `node tools/sync-parts.js` と `node tools/build-sitemap.js` を実行します。

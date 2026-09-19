@@ -36,9 +36,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ichihara-hp.pages.dev/works</loc>
+    <loc>https://ichihara-hp.pages.dev/recruit-cleaning</loc>
+    <lastmod>2026-09-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ichihara-hp.pages.dev/recruit-sales</loc>
+    <lastmod>2026-09-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ichihara-hp.pages.dev/recruit</loc>
     <lastmod>2026-09-17</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ichihara-hp.pages.dev/service</loc>
@@ -52,17 +62,12 @@
   </url>
   <url>
     <loc>https://ichihara-hp.pages.dev/faq</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ichihara-hp.pages.dev/other</loc>
-    <lastmod>2026-09-17</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ichihara-hp.pages.dev/recruit</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <priority>0.6</priority>
   </url>
   <url>

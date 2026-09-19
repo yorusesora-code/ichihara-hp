@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>採用情報｜市原建設（大阪のエアコンクリーニング）</title>
 <meta name="description" content="エアコン清掃スタッフとライト商材の営業を募集しています。未経験歓迎・学歴不問・年齢不問。丁寧な研修があるので安心してスタートできます。">
-<!-- レビュー中：検索エンジンに登録させない設定。全体公開時にこの1行を削除してください -->
-<meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://ichihara-hp.pages.dev/recruit">
 <meta name="theme-color" content="#0b3d72">
 <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -77,7 +75,13 @@
       <a href="faq.html"><span data-i18n="nav.faq">よくある質問</span></a>
       <a href="business.html"><span data-i18n="nav.business">法人のお客様</span></a>
       <a href="other.html"><span data-i18n="nav.other">その他サービス</span></a>
-      <a href="recruit.html" aria-current="page"><span data-i18n="nav.recruit">採用情報</span></a>
+      <span class="nav__group">
+        <a href="recruit.html" aria-current="page"><span data-i18n="nav.recruit">採用情報</span><svg class="nav__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.5 6 8.5 10 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <span class="nav__sub">
+          <a href="recruit-cleaning.html" data-i18n="rec.j1">エアコン清掃スタッフ</a>
+          <a href="recruit-sales.html" data-i18n="rec.j2">ライト商材の営業</a>
+        </span>
+      </span>
       <a href="company.html"><span data-i18n="nav.company">会社概要</span></a>
     </nav>
 
@@ -155,7 +159,17 @@
     <a href="faq.html"><small>FAQ</small><span data-i18n="nav.faq">よくある質問</span></a>
     <a href="business.html"><small>BUSINESS</small><span data-i18n="nav.business">法人のお客様</span></a>
     <a href="other.html"><small>OTHER</small><span data-i18n="nav.other">その他サービス</span></a>
-    <a href="recruit.html" aria-current="page"><small>RECRUIT</small><span data-i18n="nav.recruit">採用情報</span></a>
+    <div class="drawer__row">
+      <a href="recruit.html" aria-current="page"><small>RECRUIT</small><span data-i18n="nav.recruit">採用情報</span></a>
+      <button class="drawer__toggle" type="button" aria-expanded="true"
+              aria-controls="dsub-recruit" aria-label="下層メニューの開閉" data-i18n-aria="drawer.sub">
+        <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M3 5.5 7 9.5 11 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="drawer__sub is-open" id="dsub-recruit">
+        <a href="recruit-cleaning.html" data-i18n="rec.j1">エアコン清掃スタッフ</a>
+        <a href="recruit-sales.html" data-i18n="rec.j2">ライト商材の営業</a>
+    </div>
     <a href="company.html"><small>COMPANY</small><span data-i18n="nav.company">会社概要</span></a>
 
     <p class="drawer__navhead" data-i18n="drawer.moreTitle">その他のページ</p>
@@ -217,108 +231,17 @@
 
     <p class="rec-jump__label" data-i18n="rec.jump">募集中の職種</p>
     <div class="rec-jump">
-      <a class="rec-jump__item" href="#job-cleaning">
+      <a class="rec-jump__item" href="recruit-cleaning.html">
         <span class="rec-jump__no">01</span>
         <b data-i18n="rec.j1">エアコン清掃スタッフ</b>
         <small data-i18n="rec.j1type">業務委託</small>
       </a>
-      <a class="rec-jump__item" href="#job-sales">
+      <a class="rec-jump__item" href="recruit-sales.html">
         <span class="rec-jump__no">02</span>
         <b data-i18n="rec.j2">ライト商材の営業</b>
         <small data-i18n="rec.j2type">業務委託（完全フルコミッション）</small>
       </a>
     </div>
-  </div>
-</section>
-
-<!-- ============ 募集要項1：エアコン清掃スタッフ ============ -->
-<section class="section section--tint" id="job-cleaning">
-  <div class="container container--narrow">
-    <article class="job reveal">
-      <header class="job__head">
-        <p class="job__tag"><span class="job__no">01</span><span data-i18n="rec.openLabel">募集中</span></p>
-        <h2 class="job__name" data-i18n="rec.j1">エアコン清掃スタッフ</h2>
-        <p class="job__catch" data-i18n="rec.j1catch">未経験でもOK。手に職をつけて、安定した収入を。</p>
-        <p class="job__lead" data-i18n="rec.j1lead">丁寧な研修があるので、知識や経験がなくても安心してスタートできます。最初は先輩スタッフが同行し、しっかりサポートします。</p>
-      </header>
-
-      <ul class="job__points">
-        <li><b data-i18n="rec.p1t">未経験でもOK</b><span data-i18n="rec.p1b">研修制度があるので、知識や経験がなくても安心してスタートできます。</span></li>
-        <li><b data-i18n="rec.p2t">しっかり稼げる</b><span data-i18n="rec.p2b">やる気と頑張り次第で、しっかりとした収入を目指せます。</span></li>
-        <li><b data-i18n="rec.p3t">働きやすい環境</b><span data-i18n="rec.p3b">直行直帰OK、シフトのご相談も可能。プライベートとの両立がしやすい環境です。</span></li>
-      </ul>
-
-      <table class="job__table">
-        <tbody>
-          <tr>
-            <th data-i18n="rec.lWork">仕事内容</th>
-            <td>
-              <span class="job__diamond" data-i18n="rec.j1work">家庭用・業務用エアコンの分解洗浄・メンテナンス</span>
-              <ul class="job__list">
-                <li data-i18n="rec.j1w1">エアコンの分解・洗浄・組立</li>
-                <li data-i18n="rec.j1w2">動作確認・簡単なメンテナンス</li>
-                <li data-i18n="rec.j1w3">お客様への作業内容のご説明 など</li>
-              </ul>
-            </td>
-          </tr>
-          <tr><th data-i18n="rec.lType">雇用形態</th><td data-i18n="rec.j1type">業務委託</td></tr>
-          <tr><th data-i18n="rec.lReq">応募資格</th><td data-i18n="rec.j1req">未経験歓迎・学歴不問・年齢不問。やる気があればOKです。</td></tr>
-          <tr><th data-i18n="rec.lHours">勤務時間</th><td data-i18n="rec.j1hours">8:00〜18:00（現場により異なります）</td></tr>
-          <tr><th data-i18n="rec.lPlace">勤務地</th><td data-i18n="rec.j1place">大阪府内を中心に、京都・滋賀・兵庫・奈良</td></tr>
-          <tr>
-            <th data-i18n="rec.lPay">報酬</th>
-            <td><span data-i18n="rec.j1pay">出来高制（想定月収 30万円〜）</span><br><small data-i18n="rec.payNote">※想定月収は実績に基づく目安であり、金額を保証するものではありません。具体的な条件はお問い合わせの際にご説明いたします。</small></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="job__apply">
-        <a class="btn btn--primary" href="tel:0676325062">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
-          <span><small data-i18n="cta.small">受付 9:00〜18:00</small>06-7632-5062</span>
-        </a>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============ 募集要項2：ライト商材の営業 ============ -->
-<section class="section" id="job-sales">
-  <div class="container container--narrow">
-    <article class="job reveal">
-      <header class="job__head">
-        <p class="job__tag"><span class="job__no">02</span><span data-i18n="rec.openLabel">募集中</span></p>
-        <h2 class="job__name" data-i18n="rec.j2">ライト商材の営業</h2>
-        <p class="job__catch" data-i18n="rec.j2catch">フルコミッション制。成果は、あなた次第。</p>
-        <p class="job__lead" data-i18n="rec.j2lead">ホームページ制作とフードデリバリー導入サポートの2つの商材を扱います。学歴・経験は問いません。やる気と行動力を重視します。</p>
-      </header>
-
-      <ul class="job__goods">
-        <li><b data-i18n="rec.q1t">有料商材：HP制作・運用サポート</b><span data-i18n="rec.q1b">企業・店舗のホームページ制作、SEO対策・集客サポート、運用・更新サポート。</span></li>
-        <li class="is-free"><b data-i18n="rec.q2t">無料商材：フードデリバリー導入サポート</b><span data-i18n="rec.q2b">Uber Eats・ロケットNow・出前館の導入を無料でサポートします。</span></li>
-      </ul>
-
-      <table class="job__table">
-        <tbody>
-          <tr><th data-i18n="rec.lWork">仕事内容</th><td><span class="job__diamond" data-i18n="rec.j2work">ホームページ制作とフードデリバリー導入サポートの提案・営業</span></td></tr>
-          <tr><th data-i18n="rec.lType">雇用形態</th><td data-i18n="rec.j2type">業務委託（完全フルコミッション）</td></tr>
-          <tr><th data-i18n="rec.lReq">応募資格</th><td data-i18n="rec.j2req">学歴・経験不問。やる気と行動力を重視します。</td></tr>
-          <tr><th data-i18n="rec.lHours">勤務時間</th><td data-i18n="rec.j2hours">自由（ご自身の裁量で決めていただけます）</td></tr>
-          <tr><th data-i18n="rec.lPlace">勤務地</th><td data-i18n="rec.j2place">大阪府内を中心に、京都・滋賀・兵庫・奈良</td></tr>
-          <tr>
-            <th data-i18n="rec.lPay">報酬</th>
-            <td><span data-i18n="rec.j2pay">完全歩合制（想定月収 30万円〜）</span><br><small data-i18n="rec.payNote">※想定月収は実績に基づく目安であり、金額を保証するものではありません。具体的な条件はお問い合わせの際にご説明いたします。</small></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="job__apply">
-        <a class="btn btn--primary" href="tel:0676325062">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
-          <span><small data-i18n="cta.small">受付 9:00〜18:00</small>06-7632-5062</span>
-        </a>
-      </div>
-    </article>
   </div>
 </section>
 
