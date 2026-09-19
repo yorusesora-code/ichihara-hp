@@ -57,6 +57,13 @@
     "opens": "09:00",
     "closes": "18:00"
   }],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 34.7623114,
+    "longitude": 135.6000661
+  },
+  "hasMap": "https://maps.google.com/?cid=12900414143104988412",
+  "sameAs": "https://maps.google.com/?cid=12900414143104988412",
   "currenciesAccepted": "JPY",
   "paymentAccepted": "現金",
   "knowsLanguage": ["ja", "en"]
@@ -299,8 +306,9 @@
 </section>
 
 <!-- ============ アクセス（Googleマップ） ============
-     地図はGoogleマップの埋め込みです。住所を変えるときは、
-     下の iframe と「Googleマップで見る」リンクの q= の中身を差し替えてください。 -->
+     Googleビジネスプロフィールの登録（cid=12900414143104988412）を表示しています。
+     住所や店舗情報を変えるときは、Googleビジネスプロフィール側を直せば、
+     この地図の表示も自動で追従します（HTMLの書き換えは不要です）。 -->
 <section class="section" id="access">
   <div class="container container--narrow">
     <div class="sec-head">
@@ -309,14 +317,14 @@
     </div>
     <div class="mapbox reveal">
       <div class="mapbox__frame">
-        <iframe src="https://www.google.com/maps?q=%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%AF%9D%E5%B1%8B%E5%B7%9D%E5%B8%82%E9%BB%92%E5%8E%9F%E5%9F%8E%E5%86%85%E7%94%BA11-10%20%E3%83%A9%E3%83%BB%E3%82%A8%E3%82%A2%E3%83%8A15%E5%8F%B7&output=embed&hl=ja&z=17"
+        <iframe src="https://maps.google.com/maps?cid=12900414143104988412&output=embed&hl=ja&z=17"
                 title="市原建設の所在地を示すGoogleマップ" data-i18n-title="comp.mapTitle"
                 loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                 allowfullscreen></iframe>
       </div>
       <div class="mapbox__foot">
         <p class="mapbox__addr" data-i18n="comp.addrV">〒572-0050<br>大阪府寝屋川市黒原城内町11-10 ラ・エアナ15号</p>
-        <a class="more__link" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%AF%9D%E5%B1%8B%E5%B7%9D%E5%B8%82%E9%BB%92%E5%8E%9F%E5%9F%8E%E5%86%85%E7%94%BA11-10%20%E3%83%A9%E3%83%BB%E3%82%A8%E3%82%A2%E3%83%8A15%E5%8F%B7"
+        <a class="more__link" href="https://maps.app.goo.gl/CwH6mgrh96xgnw5Q6"
            target="_blank" rel="noopener" data-i18n="comp.mapLink">Googleマップで見る</a>
       </div>
     </div>
